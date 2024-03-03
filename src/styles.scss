@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+$color_azulprincipal: #075DD3;
+$color_amareloprincipal: #F0A519;
+$color_azulsecundario: #A6C4EE;
+$color_amarelosecundario: #F3C979;
+$color_fundodark: #22272E;
+$color_dark2: #1F2226;
+$color_compfundo: #2B3238;
+$color_compfundo2: #3C464E;
+$color_cinza: #AAAAAA;
+$color_desabilitado: #586270;
+$color_textos: #E5E5E5;
+
+*{
+    padding: 0;
+    margin: 0;
+    overflow-y: hidden;
+}
+
+body{
+    background-color: $color_fundodark;
+}
+
+app-root{
+    display: flex;
+    overflow-y: hidden;
+}
+

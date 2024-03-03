@@ -1,0 +1,22 @@
+@import "../../../../../projeto-educainvest/src/styles.scss";
+
+.btn-add-project{
+    width: 272px;
+    height: 257px;
+    background-color: $color_compfundo;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        width: 66.67px;
+        height: 66.67px;
+    }
+
+    h3{
+        font-size: 20px;
+        color: $color_cinza;
+    }
+}

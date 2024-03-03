@@ -1,0 +1,43 @@
+@import "../../../../../projeto-educainvest/src/styles.scss";
+
+.card {
+    width: 272px;
+    height: 257px;
+    color: $color_textos;
+    border: none;
+    border-radius: 10px;
+
+    .card-img-top {
+        height: 117px;
+        border: none;
+        padding: 0;
+    }
+
+    .card-body {
+        background-color: $color_compfundo;
+        padding: 11px;
+
+        h1{
+            padding-top:7px;
+            font-size: 20px;
+        }
+
+        p{
+            padding-top: 10px;
+            font-size: 15px;
+        }
+
+        a {
+            font-style: none;
+            color: $color_amareloprincipal;
+            
+    
+            h4 {
+                font-size: 15px;
+                font-weight: 100;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }   
+}

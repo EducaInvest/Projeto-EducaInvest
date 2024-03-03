@@ -1,0 +1,96 @@
+@import "../../../../../projeto-educainvest/src/styles.scss";
+
+
+.side-nav{
+    width: 215px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: $color_amareloprincipal;
+
+
+    .user-hello{
+        padding-top: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+    }
+
+    .user-image{
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+    }
+
+    h1{
+        font-size: 20px;
+        margin-top: 9px;
+    }
+    
+    .line{
+    width: 235px;
+    background-color: $color_fundodark;
+    height: 0.50px;
+    margin-top: 159px;
+    }
+}
+
+
+.nav-list{
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+
+    li{
+        list-style-type: none;        
+    }
+
+    img{
+        width: 23px;
+        height: 23px;
+        margin-right: 10px;
+    }
+    
+    // .pagina-atual{ /*colocar depois no css de cada pagina*/
+    //     color: $color_azulprincipal;
+    //     font-weight: 600;
+    // }
+
+    a{
+        text-decoration: none;
+        color: $color_fundodark;
+    }
+
+    .nav-list-item{
+        align-items: center;
+        height: 68px;
+    }
+    
+    .sair{
+        padding-bottom: 28px;
+        position: absolute; 
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        
+
+        span{
+            font-size: 17px;
+        }
+    }
+
+//     .sair img{
+//         padding-right: 12px;
+//     }
+}
+
+
+
+
+
+
