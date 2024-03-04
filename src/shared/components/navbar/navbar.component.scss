@@ -17,7 +17,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        position: fixed;
+        position: absolute;
     }
 
     .user-image{
@@ -45,6 +45,7 @@
     display: flex;
     flex-direction: column;
     font-size: 17px;
+    padding: 0;
 
     li{
         list-style-type: none;        

@@ -1,0 +1,78 @@
+@import "../../../styles.scss";
+
+// .container{
+//     width: 85.50vw;
+//     display: flex;
+//     flex-direction: row;
+//     // border: solid 1px rgb(255, 0, 0);
+//     align-items: center;
+// }
+
+.container{
+    margin: 0;
+}
+
+.title-section{
+    display: flex;
+    margin-bottom: 23px;
+    
+    .mp-icon{
+    margin-right: 14px;
+    }
+
+    .mg-icon{
+        margin-right: 14px;
+        }
+}
+
+.text{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1{
+        font-size: 28px;
+        color: $color_textos;
+    }
+
+    h5{
+        font-size: 18px;
+        font-weight: 400;
+        color: $color_desabilitado;
+    }
+}
+
+.my-projects{
+    width: 1245px;
+    height: 335px;
+    // margin: 28px 28px 0 28px;
+    padding: 22px;
+    border-radius: 10px;
+    background-color: $color_dark2;
+    color: white;
+}
+
+.my-projects-itens{
+    display: flex;
+    // margin-top: 24px;
+    gap: 25px;
+}
+
+.my-teams{
+    width: 818px;
+    height: 283px;
+    margin-top: 10px;
+    // margin: 28px 28px 0 28px;
+    padding: 22px;
+    border-radius: 10px;
+    background-color: $color_dark2;
+    color: white;
+}
+
+.my-teams-itens{
+    display: flex;
+    // margin-top: 24px;
+    gap: 25px;
+}
+

@@ -6,13 +6,16 @@ import { CardComponent } from '../shared/components/card/card.component';
 import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { MenuHorizontalComponent } from '../shared/components/menu-horizontal/menu-horizontal.component';
 
 
 const components = [
   HomeComponent,
   NavbarComponent,
   CardComponent,
-  ButtomAddProjectComponent,];
+  ButtomAddProjectComponent,
+  MenuHorizontalComponent
+];
 
 const modules = [
   CommonModule,

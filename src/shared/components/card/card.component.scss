@@ -1,43 +1,87 @@
 @import "../../../../../projeto-educainvest/src/styles.scss";
 
-.card {
-    width: 272px;
-    height: 257px;
-    color: $color_textos;
+// .card {
+//     width: 228.12px;
+//     height: 190px;
+//     color: $color_textos;
+//     border: none;
+//     border-radius: 10px;
+
+//     .card-img-top {
+//         height: 86.04px;
+//         border: none;
+//         padding: 0;
+//     }
+
+//     .card-body {
+//         background-color: $color_compfundo2;
+//         padding: 11px;
+
+//         h1{
+//             padding-top:5px;
+//             font-size: 16px;
+//         }
+
+//         p{
+//             padding-top: 5px;
+//             font-size: 12px;
+//         }
+
+//         a {
+//             font-style: none;
+//             color: $color_amareloprincipal;
+
+
+//             h4 {
+//                 font-size: 10px;
+//                 font-weight: 100;
+//                 display: flex;
+//                 justify-content: flex-end;
+//             }
+//         }
+//     }   
+// }
+
+
+.card{
+    width: 230px;
+    height: 197px;
+}
+
+.card-body{
+    margin: 0;
+    padding: 5px 8px 5px 8px;
+}
+
+.card-img-top {
+    height: 86.04px;
     border: none;
-    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+}
 
-    .card-img-top {
-        height: 117px;
-        border: none;
-        padding: 0;
-    }
-
-    .card-body {
-        background-color: $color_compfundo;
-        padding: 11px;
-
-        h1{
-            padding-top:7px;
-            font-size: 20px;
-        }
-
-        p{
-            padding-top: 10px;
-            font-size: 15px;
-        }
-
-        a {
-            font-style: none;
-            color: $color_amareloprincipal;
-            
+h1 {
+    padding-top: 5px;
+    font-size: 18px;
     
-            h4 {
-                font-size: 15px;
-                font-weight: 100;
-                display: flex;
-                justify-content: flex-end;
-            }
-        }
-    }   
+}
+
+p.card-text {
+    font-size: 15px;
+    margin: 0;
+    height: 48.7px;
+}
+
+
+h4 {
+    font-size: 12px;
+    font-weight: 200;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 33px;
+}
+
+a {
+    font-style: none;
+    color: $color_amarelosecundario;
 }

@@ -1,1 +1,57 @@
 @import "../../../../../projeto-educainvest/src/styles.scss";
+
+.navbar {
+    margin: 0;
+    width: 100vw;
+    background-color: #1F2226;
+    padding-right: 28px;
+}
+
+.btn {
+    margin-left: 243px;
+}
+
+.btn:hover {
+    background-color: $color_amareloprincipal;
+}
+
+.container {
+    display: flex;
+
+}
+
+.container button {
+    margin-left: -58px;
+    border-radius: 100px;
+    background: none;
+    border: none
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1px solid $color_amarelosecundario;
+
+}
+
+input[type=search] {
+    width: 600px;
+    background-color: $color_compfundo2;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    color: $color_textos;
+}
+
+::-webkit-input-placeholder {
+    color: $color_cinza;
+}
+
+input[type=search]:hover,
+textarea:hover {
+    background: $color_compfundo;
+    border: 1px solid $color_amarelosecundario;
+}
+
+.notification-icon {
+    margin-left: 35px;
+}

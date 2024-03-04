@@ -11,17 +11,17 @@ $color_desabilitado: #586270;
 $color_textos: #E5E5E5;
 
 *{
-    padding: 0;
-    margin: 0;
-    overflow-y: hidden;
+    // padding: 0;
+    // margin: 0;
+    // overflow-y: hidden;
 }
 
 body{
-    background-color: $color_fundodark;
+    background-color: $color_compfundo;
 }
 
-app-root{
-    display: flex;
-    overflow-y: hidden;
-}
+// app-root{
+//     display: flex;
+//     overflow-y: hidden;
+// }
 

@@ -1,7 +1,26 @@
 @import "../../../projeto-educainvest/src/styles.scss";
 
-.my-projects{
-    width: 1252px;
-    height: 375px;
-    background-color: $color_dark2;
+main{
+    position: absolute;
+    width: 100%;
+    top: 4rem;
+}
+
+.display-area{
+    position: absolute;
+    margin-left: 215px;
+    // width: calc(100% - 250px);
+    overflow-y: hidden;
+    overflow-x: hidden;
+    // border: solid 1px red;
+}
+
+app-navbar{
+    position: absolute;
+    left: 0rem;
+    z-index: 1;
+}
+
+app-menu-horizontal{
+    z-index: 2;
 }
