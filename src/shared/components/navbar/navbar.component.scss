@@ -1,8 +1,12 @@
 @import "../../../../../projeto-educainvest/src/styles.scss";
 
+nav{
+    width: 198px;
+    overflow: hidden;
+}
 
 .side-nav{
-    width: 215px;
+    width: 198px;
     height: 100vh;
     display: flex;
     flex-direction: column;

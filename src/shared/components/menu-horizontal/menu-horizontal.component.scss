@@ -1,26 +1,34 @@
 @import "../../../../../projeto-educainvest/src/styles.scss";
 
 .navbar {
-    margin: 0;
-    width: 100vw;
+    // width: 100vw;
     background-color: #1F2226;
     padding-right: 28px;
 }
 
+.container-fluid{
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
 .btn {
-    margin-left: 243px;
+    margin: 0;
+    font-size: 16px;
 }
 
 .btn:hover {
     background-color: $color_amareloprincipal;
+    font-weight: 600;
+    font-size: 15.50px;
 }
 
 .container {
     display: flex;
-
+    
 }
 
-.container button {
+.btn-search {
     margin-left: -58px;
     border-radius: 100px;
     background: none;
@@ -30,7 +38,6 @@
 .form-control:focus {
     box-shadow: none;
     border: 1px solid $color_amarelosecundario;
-
 }
 
 input[type=search] {

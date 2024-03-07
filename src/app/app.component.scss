@@ -1,26 +1,36 @@
-@import "../../../projeto-educainvest/src/styles.scss";
+// @import "../../../projeto-educainvest/src/styles.scss";
 
-main{
-    position: absolute;
-    width: 100%;
-    top: 4rem;
+*{
+    margin: 0;
+    padding: 0;
 }
 
-.display-area{
-    position: absolute;
-    margin-left: 215px;
-    // width: calc(100% - 250px);
-    overflow-y: hidden;
-    overflow-x: hidden;
-    // border: solid 1px red;
-}
+// #container{
+//     display: flex;
+//     width: 100%;
+//     height: 100vh;
+// }
 
-app-navbar{
-    position: absolute;
-    left: 0rem;
-    z-index: 1;
-}
+// main.content-page{
+//     width: calc(100% - 198px);
+//     height: 100vh;
+//     position: absolute;
+//     top: 4rem;
+//     // padding: 20px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin-left: 198px;
+//     border: solid 3px blue;
+//     overflow: hidden;
+// }
 
-app-menu-horizontal{
-    z-index: 2;
-}
+// app-navbar{
+//     position: absolute;
+//     left: 0rem;
+// }
+
+// app-menu-horizontal{
+//     display: flex;
+//     justify-content: end;
+// }

@@ -1,7 +1,23 @@
-<app-navbar></app-navbar>
-<app-menu-horizontal></app-menu-horizontal>
-<main>
-    <div class="display-area">
+
+        <div class="row">
+                <div class="col-md-auto">
+                        <app-navbar ></app-navbar>
+                </div> <!-- side navbar -->
+                <div class="col">
+                        <app-menu-horizontal></app-menu-horizontal>     
+                        <router-outlet></router-outlet>
+                </div>
+        </div>
+        <!-- <div class="main-content">
+                <main class="content-page">
+                </main>
+        </div> -->
+
+
+
+<!-- </main> -->
+<!-- <app-navbar></app-navbar> side navbar -->
+<!-- <app-menu-horizontal></app-menu-horizontal> -->
+<!-- <main class="content-page">
         <router-outlet></router-outlet>
-    </div>
-</main>
+</main> -->

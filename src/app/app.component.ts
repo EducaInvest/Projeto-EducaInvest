@@ -7,6 +7,7 @@ import { ButtomAddProjectComponent } from '../shared/components/buttom-add-proje
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { MenuHorizontalComponent } from '../shared/components/menu-horizontal/menu-horizontal.component';
+import { MyProjectsComponent } from '../shared/components/my-projects/my-projects.component';
 
 
 const components = [
@@ -14,7 +15,8 @@ const components = [
   NavbarComponent,
   CardComponent,
   ButtomAddProjectComponent,
-  MenuHorizontalComponent
+  MenuHorizontalComponent,
+  MyProjectsComponent
 ];
 
 const modules = [

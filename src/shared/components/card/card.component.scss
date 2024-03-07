@@ -44,8 +44,10 @@
 
 
 .card{
-    width: 230px;
-    height: 197px;
+    width: 216px;
+    height: 190px;
+    background-color: $color_compfundo2;
+    color: $color_textos;
 }
 
 .card-body{

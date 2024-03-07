@@ -1,78 +1,95 @@
-@import "../../../styles.scss";
+// @import "../../../styles.scss";
 
-// .container{
-//     width: 85.50vw;
-//     display: flex;
-//     flex-direction: row;
-//     // border: solid 1px rgb(255, 0, 0);
-//     align-items: center;
+// // .container{
+// //     width: 85.50vw;
+// //     display: flex;
+// //     flex-direction: row;
+// //     // border: solid 1px rgb(255, 0, 0);
+// //     align-items: center;
+// // }
+
+// .container {
+//     margin: 0;
+//     padding: 0;
 // }
 
-.container{
-    margin: 0;
-}
+// .title-section {
+//     display: flex;
+//     margin-bottom: 23px;
+//     // border: solid 1px red;
 
-.title-section{
-    display: flex;
-    margin-bottom: 23px;
-    
-    .mp-icon{
-    margin-right: 14px;
-    }
+//     .mp-icon {
+//         margin-right: 14px;
+//         width: 15px;
+//         height: 40px;
+//         // border: solid 2px green;
+//     }
 
-    .mg-icon{
-        margin-right: 14px;
-        }
-}
+//     .mg-icon {
+//         margin-right: 14px;
+//         height: 40px;
+//         // border: solid 2px green;
+//     }
+// }
 
-.text{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+// .text {
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     // border: solid 1px blue;
 
-    h1{
-        font-size: 28px;
-        color: $color_textos;
-    }
+//     h1 {
+//         font-size: 25px;
+//         color: $color_textos;
+//         // border: solid 1px green;
+//         padding: 0;
+//         margin: 0;
+//     }
 
-    h5{
-        font-size: 18px;
-        font-weight: 400;
-        color: $color_desabilitado;
-    }
-}
+//     h5 {
+//         font-size: 18px;
+//         font-weight: 400;
+//         color: $color_desabilitado;
+//         // border: solid 1px green;
+//         margin: 0;
+//     }
 
-.my-projects{
-    width: 1245px;
-    height: 335px;
-    // margin: 28px 28px 0 28px;
-    padding: 22px;
-    border-radius: 10px;
-    background-color: $color_dark2;
-    color: white;
-}
+//     a {
+//         cursor: pointer;
+//     }
+// }
 
-.my-projects-itens{
-    display: flex;
-    // margin-top: 24px;
-    gap: 25px;
-}
+// .my-projects {
+//     // width: 1198px;
+//     height: 312px;
+//     margin: 0;
+//     // margin: 28px 28px 0 28px;
+//     padding: 22px;
+//     border-radius: 10px;
+//     background-color: $color_dark2;
+//     color: white;
+// }
 
-.my-teams{
-    width: 818px;
-    height: 283px;
-    margin-top: 10px;
-    // margin: 28px 28px 0 28px;
-    padding: 22px;
-    border-radius: 10px;
-    background-color: $color_dark2;
-    color: white;
-}
+// .my-projects-itens {
+//     display: flex;
+//     // margin-top: 24px;
+//     gap: 25px;
+// }
 
-.my-teams-itens{
-    display: flex;
-    // margin-top: 24px;
-    gap: 25px;
-}
+// .my-teams {
+//     width: 818px;
+//     height: 312px;
+//     margin-top: 10px;
+//     // margin: 28px 28px 0 28px;
+//     padding: 22px;
+//     border-radius: 10px;
+//     background-color: $color_dark2;
+//     color: white;
+// }
 
+// .my-teams-itens {
+//     display: flex;
+//     // margin-top: 24px;
+//     gap: 25px;
+// }

@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit{
 
   nav_items = [
     {icon: 'home-icon.svg',label:'Página Inicial', page:'home'},
-    {icon: 'perfil-icon.svg',label:'Perfil', page:'card'},
+    {icon: 'perfil-icon.svg',label:'Perfil', page:'my-projects'},
     {icon: 'projetos-icon.svg',label:'Projetos', page:'projetos'},
     {icon: 'negocios-icon.svg',label:'Meus Negócios', page:'negocios'},
     {icon: 'config-icon.svg',label:'Configurações', page:'config'},
