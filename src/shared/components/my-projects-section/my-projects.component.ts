@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { CardComponent } from '../card/card.component';
 
 @Component({
-  selector: 'app-my-projects',
+  selector: 'app-my-projects-section',
   standalone: true,
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './my-projects.component.html',
   styleUrl: './my-projects.component.scss'
 })
-export class MyProjectsComponent {
+export class MyProjectsSectionComponent {
 
 }

@@ -1,4 +1,19 @@
-// @import "../../../styles.scss";
+@import "../../../styles.scss";
+
+.body{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 13px;
+}
+
+app-project-group-section{
+width: 70%;
+}
+
+app-cronogram-section{
+
+}
 
 // // .container{
 // //     width: 85.50vw;

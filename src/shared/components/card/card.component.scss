@@ -44,10 +44,32 @@
 
 
 .card{
-    width: 216px;
-    height: 190px;
+    width: 230px;
+    height: 230px;
     background-color: $color_compfundo2;
     color: $color_textos;
+
+    h1 {
+        padding-top: 5px;
+        font-size: 18px;
+        
+    }
+
+    p.card-text {
+        font-size: 14px;
+        margin: 0;
+        height: max-content;
+        font-weight: 300;
+    }
+    
+    a {
+        font-size: 13px;
+        font-weight: 500;
+        display: flex;
+        justify-content: flex-end;
+        font-style: none;
+        color: $color_amarelosecundario;
+    }
 }
 
 .card-body{
@@ -62,28 +84,5 @@
     margin: 0;
 }
 
-h1 {
-    padding-top: 5px;
-    font-size: 18px;
-    
-}
-
-p.card-text {
-    font-size: 15px;
-    margin: 0;
-    height: 48.7px;
-}
 
 
-h4 {
-    font-size: 12px;
-    font-weight: 200;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 33px;
-}
-
-a {
-    font-style: none;
-    color: $color_amarelosecundario;
-}

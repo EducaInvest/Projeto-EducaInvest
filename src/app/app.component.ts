@@ -1,22 +1,22 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { NavbarComponent } from '../shared/components/navbar/navbar.component';
 import { CardComponent } from '../shared/components/card/card.component';
 import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { MenuHorizontalComponent } from '../shared/components/menu-horizontal/menu-horizontal.component';
-import { MyProjectsComponent } from '../shared/components/my-projects/my-projects.component';
+import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
+import { SidenavComponent } from '../shared/components/sidenav/sidenav.component';
 
 
 const components = [
   HomeComponent,
-  NavbarComponent,
+  SidenavComponent,
   CardComponent,
   ButtomAddProjectComponent,
   MenuHorizontalComponent,
-  MyProjectsComponent
+  MyProjectsSectionComponent
 ];
 
 const modules = [
