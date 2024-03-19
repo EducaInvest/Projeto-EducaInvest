@@ -3,7 +3,8 @@ import { CardComponent } from '../../../shared/components/card/card.component';
 import { ButtomAddProjectComponent } from '../../../shared/components/buttom-add-project/buttom-add-project.component';
 import { MyProjectsSectionComponent } from '../../../shared/components/my-projects-section/my-projects.component';
 import { ProjectGroupSectionComponent } from '../../../shared/components/project-group-section/project-group.component';
-import { CronogramSectionComponent } from '../../../shared/components/cronogram-section/cronogram-section.component';
+import { ScheduleSectionComponent } from '../../../shared/components/schedule-section/schedule-section.component';
+
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import { CronogramSectionComponent } from '../../../shared/components/cronogram-
     ButtomAddProjectComponent,
     MyProjectsSectionComponent,
     ProjectGroupSectionComponent,
-    CronogramSectionComponent
+    ScheduleSectionComponent
+
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

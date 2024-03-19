@@ -1,24 +1,25 @@
 <nav>
     <div class="side-nav">
         <div class="user-hello">
-            <img class="user-image" src="../../assets/img/avatar_n.png">
-            <h1>Nathalli</h1>
+            <img class="user-image" src="../../assets/img/avatar_n.png"> <!--Foto Usuário-->
+            <h1>Nathalli</h1> <!--Nome Usuário-->
         </div>
+
         <div class="line"></div>
-        
-        <ul class="nav-list">
+
+        <ul class="nav-list"> 
             @for(item of nav_items ; track item){
-                <a [routerLink]="['/', item.page]">
-                    <li class="nav-list-item">
+            <a [routerLink]="['/', item.page]">
+                <li class="nav-list-item">
                     <img [src]="'../../assets/img/icon/' + item.icon">
                     <span>{{item.label}}</span>
                 </li>
-            </a>  
+            </a>
             }
             <li class="sair">
                 <img src="../../assets/img/icon/logout-icon.svg">
                 <span>Sair</span>
-            </li> 
+            </li>
         </ul>
     </div>
 </nav>

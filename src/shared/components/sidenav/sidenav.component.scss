@@ -43,7 +43,6 @@ nav{
     }
 }
 
-
 .nav-list{
     margin-top: 41px;
     display: flex;
@@ -52,7 +51,13 @@ nav{
     padding: 0;
 
     li{
-        list-style-type: none;        
+        list-style-type: none;   
+        border-radius: 7px;
+        padding: 10px;     
+    }
+
+    li:hover{
+        background-color: rgba(255, 255, 255, 0.202);
     }
 
     img{
@@ -69,13 +74,14 @@ nav{
     a{
         text-decoration: none;
         color: $color_fundodark;
+        height: 68px;
     }
 
     .nav-list-item{
         align-items: center;
-        height: 68px;
+        
     }
-    
+
     .sair{
         padding-bottom: 28px;
         position: absolute; 

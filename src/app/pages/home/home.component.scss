@@ -5,14 +5,18 @@
     display: flex;
     flex-direction: column;
     row-gap: 13px;
+
+    div{
+        gap: 15px;
+    }
 }
 
 app-project-group-section{
 width: 70%;
 }
 
-app-cronogram-section{
-
+app-schedule-section {
+    width: 30%;
 }
 
 // // .container{
