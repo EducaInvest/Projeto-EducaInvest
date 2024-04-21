@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ApiService } from '../../../app/pages/api/api.service';
+//import { ApiService } from '../../../app/pages/api/api.service';
 import { IProject } from '../../model/IProject.models';
 import { FormService } from '../../services/form/form.service';
 
@@ -17,10 +17,10 @@ import { FormService } from '../../services/form/form.service';
 export class FormModalComponent implements OnInit {
   [x: string]: any;
 
-  formulario!: IProject[];
+  form!: IProject[];
   postProjectForm!: FormGroup;
 
-  constructor(private formbuilder: FormBuilder, private api: ApiService,
+  constructor(private formbuilder: FormBuilder,
     private serviceForm: FormService,
   ) { }
 
@@ -38,20 +38,20 @@ export class FormModalComponent implements OnInit {
   getForm() {
     this.serviceForm.getForm().subscribe(
       data => {
-        this.formulario = data,
+        this.form = data,
         console.log(data)
       }
     )
   }
 
-  addproject(data: IProject) {
-    console.log(data)
-    this.api.addproject(data).subscribe((res => {
-      res.details = " "
-      res.title = " "
-      res.subtitle = " "
-      this.postProjectForm.reset();
-      alert('Projeto publicado com sucesso!');
-    }))
-  }
+  // addproject(data: IProject) {
+  //   console.log(data)
+  //   this.api.addproject(data).subscribe((res => {
+  //     res.details = " "
+  //     res.title = " "
+  //     res.subtitle = " "
+  //     this.postProjectForm.reset();
+  //     alert('Projeto publicado com sucesso!');
+  //   }))
+  // }
 }

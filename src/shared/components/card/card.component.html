@@ -10,9 +10,11 @@
 
 <div class="card">
     <img src="../../assets/img/plataform-photo.png" class="card-img-top" alt="...">
+    @for (cards of card; track cards) {
     <div class="card-body">
-        <h1 class="card-title">Titulo Projeto</h1>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#">Mais detalhes</a>
+        <h1 class="card-title">{{ cards.title }}</h1>
+        <p class="card-text">{{ cards.details }}</p>
+        <!-- <a href="#">Mais detalhes</a> -->
     </div>
-  </div>
+    }
+</div>
