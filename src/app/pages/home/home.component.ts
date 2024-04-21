@@ -4,6 +4,7 @@ import { ButtomAddProjectComponent } from '../../../shared/components/buttom-add
 import { MyProjectsSectionComponent } from '../../../shared/components/my-projects-section/my-projects.component';
 import { ProjectGroupSectionComponent } from '../../../shared/components/project-group-section/project-group.component';
 import { ScheduleSectionComponent } from '../../../shared/components/schedule-section/schedule-section.component';
+import { FormModalComponent } from '../../../shared/components/form-modal/form-modal.component';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { ScheduleSectionComponent } from '../../../shared/components/schedule-se
     ButtomAddProjectComponent,
     MyProjectsSectionComponent,
     ProjectGroupSectionComponent,
-    ScheduleSectionComponent
+    ScheduleSectionComponent,
+    FormModalComponent
 
   ],
   templateUrl: './home.component.html',

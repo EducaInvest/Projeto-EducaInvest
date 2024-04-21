@@ -1,13 +1,19 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { CardComponent } from '../shared/components/card/card.component';
-import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { MenuHorizontalComponent } from '../shared/components/menu-horizontal/menu-horizontal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './pages/api/api.service';
+import { HomeComponent } from './pages/home/home.component';
+import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
+import { CardComponent } from '../shared/components/card/card.component';
+import { FormModalComponent } from '../shared/components/form-modal/form-modal.component';
+import { FormTestComponent } from '../shared/components/form-test/form-test.component';
 import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
-import { SidenavComponent } from '../shared/components/sidenav/sidenav.component';
+import { MenuHorizontalComponent } from '../shared/components/template/menu-horizontal/menu-horizontal.component';
+import { SidenavComponent } from '../shared/components/template/sidenav/sidenav.component';
+
 
 
 const components = [
@@ -16,24 +22,30 @@ const components = [
   CardComponent,
   ButtomAddProjectComponent,
   MenuHorizontalComponent,
-  MyProjectsSectionComponent
+  MyProjectsSectionComponent,
+  FormModalComponent,
+  FormTestComponent
 ];
 
-const modules = [
-  CommonModule,
-]
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    ...components,
-    ...modules,
-    RouterOutlet
-  ],
-providers: [BrowserModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    standalone: true,
+    providers: [
+        BrowserModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ApiService,
+        FormsModule,
+        CommonModule
+       
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [
+        ...components,
+        RouterOutlet,
+    ]
 })
 
 

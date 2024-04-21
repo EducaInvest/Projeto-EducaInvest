@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-menu-horizontal',
@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './menu-horizontal.component.html',
   styleUrl: './menu-horizontal.component.scss'
 })
-export class MenuHorizontalComponent {
+export class MenuHorizontalComponent implements OnInit{
+
+  constructor(){}
+
+  ngOnInit(): void {
+  }
+
 
 }
