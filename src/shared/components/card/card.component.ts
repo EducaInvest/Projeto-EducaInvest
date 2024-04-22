@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProject } from '../../model/IProject.models';
 import { FormBuilder } from '@angular/forms';
 import { FormService } from '../../services/form/form.service';
@@ -11,10 +11,9 @@ import { FormService } from '../../services/form/form.service';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
 
   card!: IProject[];
- 
 
   constructor(private formbuilder: FormBuilder,
     private serviceForm: FormService,
@@ -26,12 +25,11 @@ export class CardComponent {
     
   }
 
-  
   getForm() {
     this.serviceForm.getForm().subscribe(
       data => {
         this.card = data,
-        console.log(data)
+        console.log(this.card)
       }
     )
   }

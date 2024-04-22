@@ -15,15 +15,15 @@
                     <div class="col-6 p-0">
                       <div class="mb-3">
                         <div class="AddFile">
-                          <label for="file"><img src="../../../assets/img/icon/photo-icon.svg"></label>
-                          <input type="file" name="formFile" id="file">
+                          <label for="fotoProjeto"><img src="../../../assets/img/icon/photo-icon.svg"></label>
+                          <input formControlName="fotoProjeto" type="file" name="formFile" id="fotoProjeto">
                         </div>
                       </div>
                     </div>
                     <div class="col-6 p-0 inputs-header">
-                      <input type="text" class="form-control" formControlName="title" placeholder="Insira o Título"
+                      <input type="text" class="form-control" formControlName="nomeProjeto" placeholder="Insira o Título"
                         aria-label="Titulo Projeto">
-                      <input type="text" class="form-control" formControlName="subtitle"
+                      <input type="text" class="form-control" formControlName="subtitulo"
                         placeholder="Insira o Subtítulo" aria-label="Subtitulo Projeto">
                       <!-- <h5>Criado em 00/00/0000</h5> -->
 
@@ -43,7 +43,7 @@
                 <div class="form-group">
                   <div class="mb-3 details">
                     <label for="projecDetails" class="form-label">Descrição</label>
-                    <textarea class="form-control" formControlName="details" id="exampleFormControlTextarea1" rows="6"
+                    <textarea class="form-control" formControlName="descricaoProjeto" id="exampleFormControlTextarea1" rows="6"
                       placeholder="Este campo destina-se à inserção da descrição do projeto, fornecendo uma explicação concisa sobre objetivos e características essenciais. Uma descrição clara e informativa ajudará a comunicar de maneira eficaz os detalhes de seu projeto, facilitando sua compreensão. Seja detalhado, mas objetivo para garantir compreensão rápida e precisa."></textarea>
                   </div>
                 </div>
@@ -92,7 +92,7 @@
 
         <div class="modal-footer" style="border: none;">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <!-- <button (click)="addproject(this.postProjectForm.value)" [disabled]="this.postProjectForm.invalid" type="button" class="btn btn-primary">Postar</button> -->
+          <button (click)="postForm()" type="button" class="btn btn-primary">Postar</button>
         
           <!-- [disabled]="this.postProjectForm.invalid"</div> -->
       </div>

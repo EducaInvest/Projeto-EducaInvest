@@ -1,8 +1,9 @@
-import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { CardComponent } from '../shared/components/card/card.component';
-import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
-import { FormModalComponent } from '../shared/components/form-modal/form-modal.component';
+import { Routes } from "@angular/router";
+import { HomeComponent } from "./pages/home/home.component";
+import { CardComponent } from "../shared/components/card/card.component";
+import { MyProjectsSectionComponent } from "../shared/components/my-projects-section/my-projects.component";
+import { FormModalComponent } from "../shared/components/form-modal/form-modal.component";
+
 
 
 

@@ -17,7 +17,7 @@ import { FormService } from '../../services/form/form.service';
 export class FormModalComponent implements OnInit {
   [x: string]: any;
 
-  form!: IProject[];
+  form!: IProject;
   postProjectForm!: FormGroup;
 
   constructor(private formbuilder: FormBuilder,
@@ -25,33 +25,22 @@ export class FormModalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    this.getForm();
     this.postProjectForm = this.formbuilder.group({
-      title: ['', Validators.required],
-      subtitle: [''],
-      details: ['', Validators.required],
+      nomeProjeto: ['', Validators.required],
+      subtitulo: [''],
+      descricaoProjeto: ['', Validators.required],
+      fotoProjeto: ['']
     })
+  } 
+
+  postForm() {
+    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => {})
+    // console.log(data)
   }
-
-
-  getForm() {
-    this.serviceForm.getForm().subscribe(
-      data => {
-        this.form = data,
-        console.log(data)
-      }
-    )
-  }
-
-  // addproject(data: IProject) {
-  //   console.log(data)
-  //   this.api.addproject(data).subscribe((res => {
-  //     res.details = " "
-  //     res.title = " "
-  //     res.subtitle = " "
-  //     this.postProjectForm.reset();
-  //     alert('Projeto publicado com sucesso!');
-  //   }))
-  // }
 }
+
+ // res.nomeProjeto = " "
+      // res.subtitulo = " "
+      // res.descricaoProjeto = " "
+      // this.postProjectForm.reset();
+      // alert('Projeto publicado com sucesso!');

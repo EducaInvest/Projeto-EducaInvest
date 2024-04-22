@@ -4,14 +4,15 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-// import { ApiService } from './pages/api/api.service';
-import { HomeComponent } from './pages/home/home.component';
 import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
 import { CardComponent } from '../shared/components/card/card.component';
 import { FormModalComponent } from '../shared/components/form-modal/form-modal.component';
 import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
 import { MenuHorizontalComponent } from '../shared/components/template/menu-horizontal/menu-horizontal.component';
 import { SidenavComponent } from '../shared/components/template/sidenav/sidenav.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FormService } from '../shared/services/form/form.service';
+
 
 
 
@@ -33,10 +34,9 @@ const components = [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        // ApiService,
         FormsModule,
-        CommonModule
-       
+        CommonModule,
+
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',

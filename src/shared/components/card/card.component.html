@@ -7,14 +7,17 @@
         <a href="#"><h4>Mais detalhes</h4></a>
     </div>
 </div> -->
-
-<div class="card">
-    <img src="../../assets/img/plataform-photo.png" class="card-img-top" alt="...">
-    @for (cards of card; track cards) {
-    <div class="card-body">
-        <h1 class="card-title">{{ cards.title }}</h1>
-        <p class="card-text">{{ cards.details }}</p>
-        <!-- <a href="#">Mais detalhes</a> -->
+<div style="display: flex; flex-direction: row; gap: 25px;">
+    @for(cards of card; track cards){
+    <div class="card">
+        <img src="../../assets/img/plataform-photo.png" class="card-img-top" alt="...">
+        
+        <div class="card-body">
+            <h1 class="card-title">{{ cards.nomeProjeto }}</h1>
+            <p class="card-text">{{ cards.descricaoProjeto }}</p>
+            <!-- <a href="#">Mais detalhes</a> -->
+        </div>
+    
     </div>
     }
 </div>

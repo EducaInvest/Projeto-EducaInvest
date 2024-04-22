@@ -16,7 +16,6 @@ export class HttpService {
         return this.request('POST', url, options, body)
     }
 
-    
     private request<T>(
         method: MethodType,
         url: string,

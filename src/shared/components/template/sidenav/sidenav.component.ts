@@ -19,8 +19,8 @@ export class SidenavComponent implements OnInit{
     {icon: 'home-icon.svg',label:'Página Inicial', page:'home'},
     {icon: 'perfil-icon.svg',label:'Perfil', page:'perfil'},
     {icon: 'projetos-icon.svg',label:'Projetos', page:'project'},
-    {icon: 'negocios-icon.svg',label:'Meus Negócios', page:'negocios'},
-    {icon: 'config-icon.svg',label:'Configurações', page:'config'},
+    {icon: 'negocios-icon.svg',label:'Meus Negócios'},
+    {icon: 'config-icon.svg',label:'Configurações'},
   ];
 
 }
