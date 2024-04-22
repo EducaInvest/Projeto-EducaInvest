@@ -7,7 +7,7 @@
       <div class="modal-content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-9 left-content" style="border: solid 1px red;">
+            <div class="col-9 left-content">
 
               <form [formGroup]="postProjectForm">
                 <div class="header">
@@ -92,8 +92,7 @@
 
         <div class="modal-footer" style="border: none;">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button (click)="postForm()" type="button" class="btn btn-primary">Postar</button>
-        
+          <button (click)="postForm()" data-bs-dismiss="modal" type="submit" class="btn btn-primary">Postar</button>
           <!-- [disabled]="this.postProjectForm.invalid"</div> -->
       </div>
     </div>

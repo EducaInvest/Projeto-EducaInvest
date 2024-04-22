@@ -21,6 +21,11 @@
     animation-name: modal-animation;
     animation-duration: 0.4s;
 
+    .modal-footer{
+        display: flex;
+        flex-direction: row;
+        gap: 23px;
+    }
 } 
 
 @-webkit-keyframes modal-animation {
@@ -86,6 +91,7 @@
 
 .inputs-header{
     input[type="text"]{
+        margin-bottom: 17px;
         width: 260px;
     }
 }
@@ -95,6 +101,10 @@
         color: $color_textos;
         background-color: $color_fundodark2;
         border: solid 1.5px $color_desabilitado;
+    }
+
+    .form-label{
+        margin-top: 20px;
     }
 
     ::-webkit-input-placeholder{

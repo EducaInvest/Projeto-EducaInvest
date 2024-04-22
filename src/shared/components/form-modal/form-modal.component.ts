@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormsModule, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 //import { ApiService } from '../../../app/pages/api/api.service';
 import { IProject } from '../../model/IProject.models';
@@ -15,7 +15,8 @@ import { FormService } from '../../services/form/form.service';
   styleUrl: './form-modal.component.scss'
 })
 export class FormModalComponent implements OnInit {
-  [x: string]: any;
+
+  @ViewChild('exampleModal') exampleModal: any;
 
   form!: IProject;
   postProjectForm!: FormGroup;
@@ -31,16 +32,19 @@ export class FormModalComponent implements OnInit {
       descricaoProjeto: ['', Validators.required],
       fotoProjeto: ['']
     })
-  } 
+  }
+
 
   postForm() {
-    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => {})
-    // console.log(data)
+    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { }),
+    (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) 
+    && location.reload();
   }
+
 }
 
- // res.nomeProjeto = " "
-      // res.subtitulo = " "
-      // res.descricaoProjeto = " "
-      // this.postProjectForm.reset();
-      // alert('Projeto publicado com sucesso!');
+// res.nomeProjeto = " "
+// res.subtitulo = " "
+// res.descricaoProjeto = " "
+// this.postProjectForm.reset();
+// alert('Projeto publicado com sucesso!');

@@ -1,0 +1,8 @@
+{
+    "/api/Projeto": {
+        "target": "http://localhost:5115/api/Projeto",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
