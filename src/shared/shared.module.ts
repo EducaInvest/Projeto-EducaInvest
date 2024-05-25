@@ -7,24 +7,27 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 import { HttpService } from './services/http/http.service';
 import { FormService } from './services/form/form.service';
 
+import { ProjectFormComponent } from './components/project-form/project-form.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtomAddProjectComponent } from './components/buttom-add-project/buttom-add-project.component';
-import { FormModalComponent } from './components/form-modal/form-modal.component';
 import { MyProjectsSectionComponent } from './components/my-projects-section/my-projects.component';
 import { ProjectGroupSectionComponent } from './components/project-group-section/project-group.component';
 import { ScheduleSectionComponent } from './components/schedule-section/schedule-section.component';
+
 import { MenuHorizontalComponent } from './components/template/menu-horizontal/menu-horizontal.component';
 import { SidenavComponent } from './components/template/sidenav/sidenav.component';
+
+import { TResource } from './components/t-resource/t-resource.component';
 
 const components =  [   
     CardComponent,
     ButtomAddProjectComponent,
-    FormModalComponent,
+    ProjectFormComponent,
     MyProjectsSectionComponent,
     ProjectGroupSectionComponent,
     ScheduleSectionComponent,
     MenuHorizontalComponent,
-    SidenavComponent
+    SidenavComponent, 
 ]
 
 const services = [
@@ -41,6 +44,7 @@ const services = [
         Validators,
         RouterModule,
         HttpClientModule,
+
 
     ], //modulos
     exports: [...components],

@@ -1,0 +1,147 @@
+@import "../../../styles.scss";
+
+.content-page {
+  padding: 15px;
+  color: $color_textos;
+}
+
+.user-profile {
+  display: flex;
+  width: 100%;
+  height: 623px;
+  margin: 0 auto;
+  padding: 20px;
+  //border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: $color_fundodark;
+}
+
+.user-info {
+  margin-bottom: 10px;
+}
+
+.user-info label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.user-info a {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.user-info a:hover {
+  text-decoration: underline;
+}
+
+#user-name {
+  font-size: 25px;
+}
+
+.border-table {
+  height: fit-content;
+  padding: 1.5px;
+  border: solid 1px $color_textos;
+  border-radius: 7px;
+}
+
+table td,
+th {
+  background-color: $color_fundodark;
+  color: $color_textos;
+}
+
+table th {
+  color: $color_cinza;
+  font-weight: 400;
+}
+
+table td {
+  font-weight: 600;
+}
+
+.details-profile {
+  padding: 15px;
+  height: 100%;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.modal{
+  color: $color_textos;
+}
+
+.modal-dialog {
+  margin: auto;
+  overflow-y: hidden;
+}
+
+.user-datils-div {
+  padding: 10px;
+  border: solid 3px $color_fundodark2;
+  border-radius: 7px;
+  height: 120px; //verificar tamanho modal
+}
+
+.modal .modal-content {
+  margin-top: 20px;
+  height: 675px;
+  overflow: hidden;
+
+  -webkit-animation-name: modal-animation;
+  -webkit-animation-duration: 0.4s;
+  animation-name: modal-animation;
+  animation-duration: 0.4s;
+
+  .modal-footer {
+    display: flex;
+    flex-direction: row;
+    gap: 23px;
+  }
+}
+
+@-webkit-keyframes modal-animation {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes modal-animation {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: $color_fundodark;
+  color: $color_textos;
+}
+
+.modal-body {
+  border: solid 1px red;
+  width: 100%;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+#staticEmail{
+  color: $color_textos;
+}

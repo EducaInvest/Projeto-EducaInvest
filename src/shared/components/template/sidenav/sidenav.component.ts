@@ -17,7 +17,7 @@ export class SidenavComponent implements OnInit{
 
   nav_items = [
     {icon: 'home-icon.svg',label:'Página Inicial', page:'home'},
-    {icon: 'perfil-icon.svg',label:'Perfil', page:'perfil'},
+    {icon: 'perfil-icon.svg',label:'Perfil', page:'profile'},
     {icon: 'projetos-icon.svg',label:'Projetos', page:'project'},
     {icon: 'negocios-icon.svg',label:'Meus Negócios'},
     {icon: 'config-icon.svg',label:'Configurações'},

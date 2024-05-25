@@ -4,26 +4,30 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
-import { CardComponent } from '../shared/components/card/card.component';
-import { FormModalComponent } from '../shared/components/form-modal/form-modal.component';
-import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
-import { MenuHorizontalComponent } from '../shared/components/template/menu-horizontal/menu-horizontal.component';
-import { SidenavComponent } from '../shared/components/template/sidenav/sidenav.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 import { HomeComponent } from './pages/home/home.component';
-import { FormService } from '../shared/services/form/form.service';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
-
+import { SidenavComponent } from '../shared/components/template/sidenav/sidenav.component';
+import { MenuHorizontalComponent } from '../shared/components/template/menu-horizontal/menu-horizontal.component';
+import { CardComponent } from '../shared/components/card/card.component';
+import { ProjectFormComponent } from '../shared/components/project-form/project-form.component';
+import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
+import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
+//import { FormService } from '../shared/services/form/form.service';
 
 
 const components = [
   HomeComponent,
+  UserProfileComponent,
   SidenavComponent,
   CardComponent,
   ButtomAddProjectComponent,
   MenuHorizontalComponent,
   MyProjectsSectionComponent,
-  FormModalComponent,
+  ProjectFormComponent,
+  UserProfileComponent
 ];
 
 
@@ -36,6 +40,7 @@ const components = [
         HttpClientModule,
         FormsModule,
         CommonModule,
+        MatSlideToggleModule,
 
     ],
     templateUrl: './app.component.html',
@@ -51,4 +56,20 @@ export class AppComponent {
 constructor(){}
 
   title = 'projeto-educainvest';
+
+  userData = {
+    firstName: 'John',
+    lastName: 'Doe',
+    userType: 'Estudante',
+    email: 'john.doe@example.com',
+    phone: '123456789',
+    city: 'São Paulo',
+    state: 'SP',
+    socialLinks: [
+      { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/johndoe' },
+      { platform: 'GitHub', url: 'https://github.com/johndoe' }
+    ],
+    creationDate: '2022-01-01',
+    lastUpdateDate: '2022-05-20'
+  };
 }

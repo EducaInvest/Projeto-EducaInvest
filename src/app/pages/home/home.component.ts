@@ -4,7 +4,6 @@ import { ButtomAddProjectComponent } from '../../../shared/components/buttom-add
 import { MyProjectsSectionComponent } from '../../../shared/components/my-projects-section/my-projects.component';
 import { ProjectGroupSectionComponent } from '../../../shared/components/project-group-section/project-group.component';
 import { ScheduleSectionComponent } from '../../../shared/components/schedule-section/schedule-section.component';
-import { FormModalComponent } from '../../../shared/components/form-modal/form-modal.component';
 
 
 @Component({
@@ -16,7 +15,7 @@ import { FormModalComponent } from '../../../shared/components/form-modal/form-m
     MyProjectsSectionComponent,
     ProjectGroupSectionComponent,
     ScheduleSectionComponent,
-    FormModalComponent
+    ProjectGroupSectionComponent
 
   ],
   templateUrl: './home.component.html',
@@ -29,7 +28,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
   }
-
-
-
 }

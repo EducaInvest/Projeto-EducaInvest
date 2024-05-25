@@ -5,6 +5,6 @@ export interface IProject{
     descricaoProjeto:string;
 //     CustoProjeto: number;
 //     Investido: boolean; 
-//     DataPublicacao:Date;
+    dataPublicacao:Date;
     fotoProjeto:string;
 }
