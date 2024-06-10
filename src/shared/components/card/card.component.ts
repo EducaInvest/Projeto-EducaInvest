@@ -15,18 +15,19 @@ export class CardComponent implements OnInit {
 
   card!: IProject[];
 
+  userId = 4
   constructor(private formbuilder: FormBuilder,
     private serviceForm: FormService,
   ) { }
 
   ngOnInit(): void {
 
-    this.getForm();
+    this.getProjectByUser();
     
   }
 
-  getForm() {
-    this.serviceForm.getForm().subscribe(
+  getProjectByUser() {
+    this.serviceForm.getProjectByUser(this.userId).subscribe(
       data => {
         this.card = data,
         console.log(this.card)

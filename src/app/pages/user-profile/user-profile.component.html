@@ -1,9 +1,11 @@
 <div class="content-page">
   <div class="user-profile row-12">
     <div class="col-4" style="border-right: solid 1px gray; padding-right: 20px;">
-      <div *ngIf="!isEditing" class="user-info mb-4 mt-3" id="user-name"
+      <div class="user-info mb-4 mt-3" id="user-name"
         style="display: flex; justify-content: center;">
-        <span>{{ userProfile.firstName }}</span>
+        <span>{{ user.nome }}</span>
+
+        <!-- colocar aqui tipo e Perfil -->
       </div>
 
       <div class="border-table">
@@ -20,9 +22,9 @@
           </thead>
           <tbody>
             <tr style="text-align: center;">
-              <td>{{ userProfile.pPublicados }}</td>
+              <!-- <td>{{ userProfile.pPublicados }}</td>
               <td>{{ userProfile.pInvestidos }}</td>
-              <td>{{ userProfile.pFinalizados }}</td>
+              <td>{{ userProfile.pFinalizados }}</td> -->
             </tr>
           </tbody>
         </table>
@@ -31,89 +33,15 @@
 
 
     <div class="col-8 details-profile">
-
       <h1>Dados do Perfil</h1>
 
       <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
         <h2>Informações Pessoais</h2>
 
-        <!--Modal edit profile-->
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#UserProfileFormModal">
           Editar perfil
         </button>
-        <!-- Modal Data -->
-        <div class="modal modal-lg fade" id="UserProfileFormModal" tabindex="-1" aria-labelledby="UserProfileFormModal" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-body row">
-                  <div class="cprincipal col-4" style="border: solid 1px blue;">
-                    first
-                  </div>
-
-                  <div class="account-details col-8" style="border: solid 1px green;">
-                    <div class="modal-header">
-                      <h1 class="modal-title" id="UserProfileFormModal">Dados da Conta</h1>
-                    </div>
-                    <form>
-                      <div class="form-group row">
-                        <div class="mb-3">
-                          <label for="userFName" class="form-label">Nome</label>
-                          <input type="text" class="form-control" id="userFName" placeholder="{{ userProfile.firstName }}">
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="userLName" class="form-label">Sobrenome</label>
-                          <input type="text" class="form-control" id="userLName" placeholder="{{ userProfile.lastName }}">
-                        </div>
-
-                        <div class="mb-6">
-                          <label for="userEmail" class="form-label">Email</label>
-                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-                        </div>
-
-                        <div class="mb-3">
-                          <label for="userPhone" class="form-label">Telefone</label>
-                          <input type="text" class="form-control" id="userPhone" placeholder="{{ userProfile.phone }}">
-                        </div>
-                        
-                        <div class="row">
-                          <div class="mb-3 col-6">
-                            <label for="userCity" class="form-label">Cidade</label>
-                            <select id="userCity" class="form-select">
-                              <option selected>Escolher cidade</option>
-                              <option>Cidade 1</option>
-                              <option>Cidade 2</option>
-                              <option>Cidade 3</option>
-                              <option>Cidade 4</option>
-                            </select>
-                          </div>
-  
-                          <div class="mb-3 col-6">
-                            <label for="userrState" class="form-label">Estado</label>
-                            <select id="userrState" class="form-select">
-                              <option selected>Esacolher estado</option>
-                              <option>Estado 1</option>
-                              <option>Estado 2</option>
-                              <option>Estado 3</option>
-                              <option>Estado 4</option>
-                            </select>
-                          </div>
-                        </div>
-                        
-
-                      </div>
-                    </form>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <div class="row g-3">
@@ -121,7 +49,7 @@
           <h4>Tipo de Perfil</h4>
           <div class="user-type" style="margin-left: 23px;">
             <h5>
-              {{ userProfile.userType }}
+              {{ user.perfil }}
             </h5>
           </div>
         </div>
@@ -130,7 +58,7 @@
           <h4 class="mb-2">Nome</h4>
           <div class="user-fname">
             <h5>
-              {{ userProfile.firstName }}
+              {{ user.nome }}
             </h5>
           </div>
         </div>
@@ -139,7 +67,7 @@
           <h4 class="mb-2">Sobrenome</h4>
           <div class="user-lname">
             <h5>
-              {{ userProfile.lastName }}
+              {{ user.sobrenome }}
             </h5>
           </div>
         </div>
@@ -148,7 +76,7 @@
           <h4 class="mb-2">E-mail</h4>
           <div class="user-email">
             <h5>
-              {{ userProfile.email }}
+              {{ user.email }}
             </h5>
           </div>
         </div>
@@ -157,7 +85,7 @@
           <h4 class="mb-2">Telefone</h4>
           <div class="user-phone">
             <h5>
-              {{ userProfile.phone }}
+              {{ user.telefone }}
             </h5>
           </div>
         </div>
@@ -166,7 +94,7 @@
           <h4 class="mb-2">Cidade</h4>
           <div class="user-city">
             <h5>
-              {{ userProfile.city }}
+              {{ user.cidade }}
             </h5>
           </div>
         </div>
@@ -175,23 +103,28 @@
           <h4 class="mb-2">Estado</h4>
           <div class="user-state">
             <h5>
-              {{ userProfile.state }}
+              {{ user.uf }}
             </h5>
           </div>
         </div>
 
         <div class="user-info mt-3">
           <h3>Redes Sociais</h3>
-          <div *ngFor="let link of userProfile.socialLinks">
+          <!-- <div *ngFor="let link of userProfile.socialLinks">
             <a [href]="link.url" target="_blank">{{ link.platform }}</a>
-          </div>
+          </div> -->
         </div>
 
         <div class="details mt-3">
           <h3>Descrição do perfil</h3>
-          <div class="user-datils-div">{{ userProfile.details }}</div>
+          <!-- <div class="user-datils-div">{{ userProfile.details }}</div> -->
         </div>
 
       </div>
+
+      <!--Modal edit profile-->
+      <!-- Modal Data -->
+
     </div>
   </div>
+</div>

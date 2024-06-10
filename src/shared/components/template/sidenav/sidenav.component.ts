@@ -14,7 +14,7 @@ export class SidenavComponent implements OnInit{
 
   ngOnInit(): void {
   }
-
+  
   nav_items = [
     {icon: 'home-icon.svg',label:'Página Inicial', page:'home'},
     {icon: 'perfil-icon.svg',label:'Perfil', page:'profile'},

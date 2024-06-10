@@ -1,10 +1,11 @@
 export interface IProject{
-    id?:number;
+    id:number;
     nomeProjeto:string;
     subtitulo:string;
     descricaoProjeto:string;
 //     CustoProjeto: number;
-//     Investido: boolean; 
+    investido: boolean; 
     dataPublicacao:Date;
     fotoProjeto:string;
+    usuarioId:number;
 }

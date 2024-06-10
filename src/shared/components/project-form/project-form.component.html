@@ -13,9 +13,10 @@
                     <div class="col-6 p-0 photo"  style="height: 160px;">
                       <div>
                         <div class="AddFile">
-                          <label for="fotoProjeto"><img src="../../../assets/img/icon/photo-icon.svg"></label>
-                          <!-- <input formControlName="fotoProjeto" type="file" name="formFile" id="fotoProjeto" (change)="onFileSelected($event)"> -->
-                          <input formControlName="fotoProjeto" type="file" name="formFile" id="fotoProjeto">
+                          <label for="fotoProjeto">
+                            <img [src]="photoPreviewUrl" alt="Adicione um foto ao projeto">
+                          </label>
+                          <input formControlName="fotoProjeto" type="file" name="formFile" id="fotoProjeto" (change)="onFileSelected($event)">
                         </div>
                       </div>
                     </div>
@@ -70,7 +71,7 @@
                 <div class="modal-footer" style="border: none;">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                   <button (click)="postForm()" data-bs-dismiss="modal"
-                    type="submit" class="btn btn-primary">Postar</button>
+                    type="submit" class="btn btn-primary">Publicar</button>
                 </div>
                 <!-- [disabled]="this.postProjectForm.invalid"</div> -->
               </form>

@@ -9,12 +9,11 @@ import { UserProfileComponent } from "./pages/user-profile/user-profile.componen
 
 
 export const routes: Routes = [
-    {path: 'home', component: HomeComponent},
-    {path: 'profile', component: UserProfileComponent},
+    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
+    { path: 'profile', component: UserProfileComponent },
+    { path: 'modal', component: ProjectFormComponent },
+    { path: 'card', component: CardComponent },
+    { path: 'my-projects', component: MyProjectsSectionComponent },
 
-    {path: 'modal', component: ProjectFormComponent},
-
-    {path: 'card', component: CardComponent},
-    {path: 'my-projects', component: MyProjectsSectionComponent},
-    
 ];

@@ -13,7 +13,7 @@
   padding: 20px;
   //border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: $color_fundodark;
+  background-color: $color_dark2;
 }
 
 .user-info {
@@ -37,6 +37,11 @@
 
 #user-name {
   font-size: 25px;
+}
+
+form input {
+  color: $color_textos;
+  font-weight: 300;
 }
 
 .border-table {
@@ -70,7 +75,7 @@ table td {
   padding: 0;
 }
 
-.modal{
+.modal {
   color: $color_textos;
 }
 
@@ -80,8 +85,9 @@ table td {
 }
 
 .user-datils-div {
+  font-weight: 300;
   padding: 10px;
-  border: solid 3px $color_fundodark2;
+  //border: solid 3px $color_fundodark2;
   border-radius: 7px;
   height: 120px; //verificar tamanho modal
 }
@@ -127,14 +133,22 @@ table td {
   }
 }
 
+.modal-dialog {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
 .modal-content {
   background-color: $color_fundodark;
   color: $color_textos;
+  border: solid 1px blue;
+  width: 550px;
 }
 
 .modal-body {
   border: solid 1px red;
-  width: 100%;
 }
 
 .modal-header,
@@ -142,6 +156,24 @@ table td {
   border: none;
 }
 
-#staticEmail{
+.modal-header {
+  height: 200px;
+  width: 100%;
+  gap: 25px;
+  //border: solid 1px blue;
+
+  .user-photo {
+    width: 175px;
+    height: 100%;
+    border-radius: 7px;
+    background-color: $color_compfundo2;
+  }
+}
+
+#staticEmail {
   color: $color_textos;
+}
+
+.cprincipal {
+  width: 100%;
 }
