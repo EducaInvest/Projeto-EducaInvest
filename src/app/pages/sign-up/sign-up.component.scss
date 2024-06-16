@@ -1,0 +1,52 @@
+.navbar {
+    background-color: #F0A519;
+}
+
+.button-login {
+    background: #D8910D;
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #BB7E0B
+}
+
+.login-background {
+    background-image: url(../../../assets/img/Mask\ group.png);
+    background-size: cover;
+    width: 100vw;
+    height: 42em;
+}
+
+.form {
+    position: absolute;
+    width: 340px;
+    height: 470px;
+    left: 1030px;
+    top: 133px;
+    border-radius: 15px;
+    background-color: #22272E;
+    color: white;
+}
+
+.texts {
+    position: absolute;
+    width: 531px;
+    height: 93.76px;
+    left: 185px;
+    top: 372px;
+
+   .title{
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 33px;
+        line-height: 50px;
+    }
+
+.sub-title{
+    font-size: 12px;
+}
+    color: #F6F6F6;
+
+
+}

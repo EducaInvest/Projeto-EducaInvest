@@ -6,28 +6,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import { HomeComponent } from './pages/home/home.component';
-import { UserProfileComponent } from './pages/user-profile/user-profile.component';
-
-import { SidenavComponent } from '../shared/components/template/sidenav/sidenav.component';
-import { MenuHorizontalComponent } from '../shared/components/template/menu-horizontal/menu-horizontal.component';
-import { CardComponent } from '../shared/components/card/card.component';
-import { ProjectFormComponent } from '../shared/components/project-form/project-form.component';
-import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 // import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
 //import { FormService } from '../shared/services/form/form.service';
 
 
 const components = [
-  HomeComponent,
-  UserProfileComponent,
-  SidenavComponent,
-  CardComponent,
-  ButtomAddProjectComponent,
-  MenuHorizontalComponent,
-  // MyProjectsSectionComponent,
-  ProjectFormComponent,
-  UserProfileComponent
+  LoginComponent,
+  SignUpComponent
 ];
 
 
@@ -47,6 +34,7 @@ const components = [
     styleUrl: './app.component.scss',
     imports: [
         ...components,
+        SignUpComponent,
         RouterOutlet,
     ]
 })
