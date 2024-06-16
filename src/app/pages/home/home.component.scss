@@ -1,114 +1,134 @@
 @import "../../../styles.scss";
 
-.body{
+* {
+    color: $color_textos;
+}
+
+.body {
     padding: 15px;
+    border: solid 1px white;
+    height: 100%;
+
+    // div{
+    //     gap: 15px;
+    // }
+}
+
+// app-project-group-section{
+// width: 70%;
+// }
+
+// app-schedule-section {
+//     width: 30%;
+// }
+
+
+.my-projects {
+    width: 73%;
+    height: calc(100% - 50px);
+    padding: 25px 25px 0px 25px;
     display: flex;
     flex-direction: column;
-    row-gap: 13px;
+    color: white;
+    background-color: $color_dark2;
+    border-radius: 10px;
 
-    div{
-        gap: 15px;
+    h1 {
+        font-size: 25px;
     }
 }
 
-app-project-group-section{
-width: 70%;
+.first-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-app-schedule-section {
-    width: 30%;
+.title {
+    display: flex;
+    gap: 15px;
+
+    img {
+        height: 49px;
+    }
 }
 
-// // .container{
-// //     width: 85.50vw;
-// //     display: flex;
-// //     flex-direction: row;
-// //     // border: solid 1px rgb(255, 0, 0);
-// //     align-items: center;
-// // }
+.title,
+.btn_sm.a {
+    height: 49px;
+    align-items: center;
+}
 
-// .container {
-//     margin: 0;
-//     padding: 0;
-// }
+.btn_sm:hover {
+    color: $color_amarelosecundario;
+    cursor: pointer;
+}
 
-// .title-section {
-//     display: flex;
-//     margin-bottom: 23px;
-//     // border: solid 1px red;
+.s-cards {
+    height: min-content;
+    margin-top: 20px;
+    gap: 15px;
 
-//     .mp-icon {
-//         margin-right: 14px;
-//         width: 15px;
-//         height: 40px;
-//         // border: solid 2px green;
-//     }
+}
 
-//     .mg-icon {
-//         margin-right: 14px;
-//         height: 40px;
-//         // border: solid 2px green;
-//     }
-// }
+.cronograma {
+    width: 25%;
+    height: calc(100% - 50px);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: $color_dark2;
+    border-radius: 10px;
+    padding: 25px;
+    // border: solid 1px white;
 
-// .text {
-//     width: 100%;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     // border: solid 1px blue;
+    h1 {
+        font-size: 25px;
+    }
+}
 
-//     h1 {
-//         font-size: 25px;
-//         color: $color_textos;
-//         // border: solid 1px green;
-//         padding: 0;
-//         margin: 0;
-//     }
+.first-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-//     h5 {
-//         font-size: 18px;
-//         font-weight: 400;
-//         color: $color_desabilitado;
-//         // border: solid 1px green;
-//         margin: 0;
-//     }
+.title {
+    display: flex;
+    gap: 15px;
 
-//     a {
-//         cursor: pointer;
-//     }
-// }
+    img {
+        height: 49px;
+    }
+}
 
-// .my-projects {
-//     // width: 1198px;
-//     height: 312px;
-//     margin: 0;
-//     // margin: 28px 28px 0 28px;
-//     padding: 22px;
-//     border-radius: 10px;
-//     background-color: $color_dark2;
-//     color: white;
-// }
+.title,
+.btn_sm.a {
+    height: 49px;
+    align-items: center;
+}
 
-// .my-projects-itens {
-//     display: flex;
-//     // margin-top: 24px;
-//     gap: 25px;
-// }
+.btn_sm:hover {
+    color: $color_amarelosecundario;
+    cursor: pointer;
+}
 
-// .my-teams {
-//     width: 818px;
-//     height: 312px;
-//     margin-top: 10px;
-//     // margin: 28px 28px 0 28px;
-//     padding: 22px;
-//     border-radius: 10px;
-//     background-color: $color_dark2;
-//     color: white;
-// }
+.cards {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
 
-// .my-teams-itens {
-//     display: flex;
-//     // margin-top: 24px;
-//     gap: 25px;
-// }
+.section-content div {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-content img {
+    width: 90px;
+    height: 90px;
+}
+

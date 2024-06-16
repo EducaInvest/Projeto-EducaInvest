@@ -76,6 +76,7 @@ table td {
 }
 
 .modal {
+  margin-top: 20px;
   color: $color_textos;
 }
 
@@ -93,9 +94,9 @@ table td {
 }
 
 .modal .modal-content {
-  margin-top: 20px;
   height: 675px;
   overflow: hidden;
+  border: solid 1px #007bff;
 
   -webkit-animation-name: modal-animation;
   -webkit-animation-duration: 0.4s;
@@ -107,6 +108,50 @@ table td {
     flex-direction: row;
     gap: 23px;
   }
+}
+
+.modal-dialog {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+.modal-content {
+  background-color: $color_fundodark;
+  color: $color_textos;
+  border: solid 1px blue;
+  width: 550px;
+}
+
+// .modal-body {
+//   border: solid 1px red;
+// }
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+// .modal-header {
+//   height: 200px;
+//   width: 100%;
+//   gap: 25px;
+//   //border: solid 1px blue;
+
+//   .user-photo {
+//     width: 175px;
+//     height: 100%;
+//     border-radius: 7px;
+//     background-color: $color_compfundo2;
+//   }
+// }
+
+.modal .user-photo {
+      width: 175px;
+      height: 175px;
+      border-radius: 100px;
+      background-color: $color_compfundo2;
 }
 
 @-webkit-keyframes modal-animation {
@@ -130,43 +175,6 @@ table td {
   to {
     top: 0px;
     opacity: 1;
-  }
-}
-
-.modal-dialog {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  overflow-y: hidden;
-}
-
-.modal-content {
-  background-color: $color_fundodark;
-  color: $color_textos;
-  border: solid 1px blue;
-  width: 550px;
-}
-
-.modal-body {
-  border: solid 1px red;
-}
-
-.modal-header,
-.modal-footer {
-  border: none;
-}
-
-.modal-header {
-  height: 200px;
-  width: 100%;
-  gap: 25px;
-  //border: solid 1px blue;
-
-  .user-photo {
-    width: 175px;
-    height: 100%;
-    border-radius: 7px;
-    background-color: $color_compfundo2;
   }
 }
 

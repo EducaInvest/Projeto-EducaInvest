@@ -1,8 +1,7 @@
 <div class="content-page">
   <div class="user-profile row-12">
     <div class="col-4" style="border-right: solid 1px gray; padding-right: 20px;">
-      <div class="user-info mb-4 mt-3" id="user-name"
-        style="display: flex; justify-content: center;">
+      <div class="user-info mb-4 mt-3" id="user-name" style="display: flex; justify-content: center;">
         <span>{{ user.nome }}</span>
 
         <!-- colocar aqui tipo e Perfil -->
@@ -123,6 +122,50 @@
       </div>
 
       <!--Modal edit profile-->
+      <div class="modal modal-lg fade" id="UserProfileFormModal" tabindex="-1" aria-labelledby="UserProfileFormModal"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="modal-header">
+                <h1 class="modal-title">Editar Perfil</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="user-photo">
+                <!-- style="border: solid 1px green;" -->
+                foto usuário
+              </div>
+
+              <div class="account-details" style="border: solid 1px green;">
+                <!-- style="border: solid 1px green;" -->
+                <div class="header">
+                  <h1 class="modal-title" id="UserProfileFormModal">Dados da Conta</h1>
+                </div>
+
+                <form>
+                  <div class="col-7">
+                    <!-- style="border: solid 1px tomato;" -->
+
+                    <div class="row">
+                      <div class="mb-3">
+                        <label for="userFName" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="userFName" placeholder="{{ user.nome }}">
+                      </div>
+  
+                      <div class="mb-3">
+                        <label for="userLName" class="form-label">Sobrenome</label>
+                        <input type="text" class="form-control" id="userLName" placeholder="{{ user.sobrenome }}">
+                      </div>
+                    </div>
+                    </div>
+                    
+                
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Modal Data -->
 
     </div>

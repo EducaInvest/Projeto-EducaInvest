@@ -10,7 +10,7 @@ export class FormService {
 
   constructor(private http: HttpClient) { }
 
-  apiUrl = 'http://localhost:5115/Projeto';
+  apiUrl = 'http://localhost:5115/api/Projeto';
   // apiUrlUser = 'http://localhost:5115/Usuarios/4';
 
   httpOptions = {
@@ -35,16 +35,25 @@ export class FormService {
   postForm(project: IProject): Observable<IProject> {
     const { id, ...projectWithoutId } = project; // Remove `id` se existir
   
-    // Converte dataPublicacao para um objeto Date, se ainda não for
+    let dataPublicacao;
+    try {
+      dataPublicacao = new Date(projectWithoutId.dataPublicacao).toISOString();
+    } catch (error) {
+      console.error('Data de publicação inválida:', projectWithoutId.dataPublicacao);
+      // Aqui, você pode definir uma data padrão ou lidar com o erro de outra forma
+      dataPublicacao = new Date().toISOString(); // Define a data atual como padrão
+    }
+  
     const projectToSend = {
       ...projectWithoutId,
-      dataPublicacao: new Date(projectWithoutId.dataPublicacao).toISOString() // Converte Date para string no formato ISO 8601
+      dataPublicacao // Converte Date para string no formato ISO 8601
     };
-    
+  
     console.log("Enviando projeto:", projectToSend);
     return this.http.post<IProject>(this.apiUrl, projectToSend, this.httpOptions)
       .pipe(tap(console.log));
   }
+  
 
   postPhoto(project: IProject): Observable<IProject> {
     return this.http.post<IProject["fotoProjeto"]>(this.apiUrl, project, this.httpOptions)
@@ -52,11 +61,17 @@ export class FormService {
   }
 
   getProjectByUser(usuarioId:number): Observable<IProject[]> {
-    return this.http.get<IProject[]>(`http://localhost:5115/Projeto/usuario/${usuarioId}`)
+    return this.http.get<IProject[]>(`http://localhost:5115/api/Projeto/GetByPerfil/${usuarioId}`)
       .pipe(
         map(projects => projects.map(this.convertToDate)),
         tap(console.log)
       );
   }
+
+  deleteProject(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, this.httpOptions)
+      .pipe(tap(() => console.log(`Projeto com ID=${id} deletado`)));
+  }
 }
+  
 

@@ -1,61 +1,36 @@
-<div class="body">
-    <app-my-projects-section></app-my-projects-section>
-    <div style="display: flex;">
-        <app-project-group-section></app-project-group-section>
-        <app-schedule-section></app-schedule-section>
+<div class="body row">
+    <div class="my-projects col col-10 me-4 d-flex flex-wrap">
+        <div class="first-content">
+            <div class="title">
+                <img src="../../assets/img/icon/rectangle-icon.svg" alt="icon" style="width: 15px; height: 40px;">
+                <h1>Meus Projetos</h1>
+            </div>
+            <div class="btn_sm">
+                <a>Ver Todos</a>
+            </div>
+        </div>
+        <div class="s-cards">
+            <app-card-project></app-card-project>
+            <!-- <app-card-project></app-card-project> -->
+        </div>
     </div>
+    <div class="cronograma col col-2">
+        <div class="first-content">
+            <div class="title">
+                <img src="../../assets/img/icon/schedule-section-icon.svg" alt="icon"
+                    style="width: 15px; height: 40px;">
+                <h1>Cronograma</h1>
+            </div>
+            <div class="btn_sm">
+                <a>Ver Todos</a>
+            </div>
+        </div>
+        <div class="section-content">
+            <div>
+                <img src="../../assets/img/icon/schedule-icon.svg" alt="...">
+            </div>
+        </div>
+    </div>
+
 </div>
 
-
-
-
-
-
-
-<!-- <main>
-    <section class="meus-projetos">
-        <div class="container">
-            <div class="my-projects">
-                <div class="title-section">
-                    <img class="mp-icon" src="../../../assets/img/icon/myprojects-icon.svg">
-                    <div class="text">
-                        <h1>Meus Projetos</h1>
-                        <a>
-                            <h5>Ver Todos</h5>
-                        </a>
-                    </div>
-
-                </div>
-                <div class="my-projects-itens">
-                    <app-card-project></app-card-project>
-                    <div><app-card-project></app-card-project></div>
-                    <div><app-card-project></app-card-project></div>
-                    <div><app-card-project></app-card-project></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="meus-grupos">
-        <div class="container">
-            <div class="my-teams">
-                <div class="title-section">
-                    <img class="mg-icon" src="../../../assets/img/icon/myprojects-icon.svg">
-                    <div class="text">
-                        <h1>Meus Grupos</h1>
-                        <a>
-                            <h5>Ver Todos</h5>
-                        </a>
-                    </div>
-
-                </div>
-                <div class="my-teams-itens">
-                    <div><app-card-project></app-card-project></div>
-                    <div><app-card-project></app-card-project></div>
-                    <div><app-card-project></app-card-project></div>
-                    <div><app-card-project></app-card-project></div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main> -->

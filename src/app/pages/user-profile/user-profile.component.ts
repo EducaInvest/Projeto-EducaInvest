@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IUser } from '../../../shared/model/IUser.models';
 import { FormBuilder } from '@angular/forms';
 import { UserService } from '../../../shared/services/user/user.service';
+import { IProject } from '../../../shared/model/IProject.models';
 
 // interface SocialLink {
 //   platform: string;
@@ -36,39 +37,41 @@ import { UserService } from '../../../shared/services/user/user.service';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  // userProfile: UserProfile;
+  // userProfile: IUser;
   // isEditing: boolean = false;
 
-  // @Input() userData: any;
+  @Input() userData: any;
 
   user!: IUser;
+
+
 
 
   constructor(private formbuilder: FormBuilder, private serviceUser: UserService) {
 
 
-    // this.userProfile = {
-    //   firstName: 'Nathalli',
-    //   lastName: 'Ribeiro',
-    //   // userType: 'Estudante',
-    //   email: 'nathalli.ribeiro@gmail.com',
-    //   cpf: '123456789101',
-    //   socialLinks: [
-    //     { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/nathalli99' },
-    //     { platform: 'GitHub', url: 'https://github.com/nathalli99' }
-    //   ],
-    //   phone: '(11) 99999-9999',
-    //   city: 'São Paulo',
-    //   state: '',
-    //   details: 'breve texto',
+  //   this.userProfile = {
+  //     // firstName: 'Nathalli',
+  //     // lastName: 'Ribeiro',
+  //     // // userType: 'Estudante',
+  //     // email: 'nathalli.ribeiro@gmail.com',
+  //     // cpf: '123456789101',
+  //     // socialLinks: [
+  //     //   { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/nathalli99' },
+  //     //   { platform: 'GitHub', url: 'https://github.com/nathalli99' }
+  //     // ],
+  //     // phone: '(11) 99999-9999',
+  //     // city: 'São Paulo',
+  //     // state: '',
+  //     // details: 'breve texto',
 
-    //   creationDate: new Date('2022-01-01'),
-    //   lastUpdateDate: new Date(),
-    //   pPublicados: '5',
-    //   pInvestidos: '1',
-    //   pFinalizados: '2'
-    // };
-  }
+  //     // creationDate: new Date('2022-01-01'),
+  //     // lastUpdateDate: new Date(),
+  //     // pPublicados: '5',
+  //     // pInvestidos: '1',
+  //     // pFinalizados: '2'
+  //   };
+}
 
   ngOnInit(): void {
     this.getUser();

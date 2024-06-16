@@ -14,7 +14,7 @@ import { MenuHorizontalComponent } from '../shared/components/template/menu-hori
 import { CardComponent } from '../shared/components/card/card.component';
 import { ProjectFormComponent } from '../shared/components/project-form/project-form.component';
 import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
-import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
+// import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
 //import { FormService } from '../shared/services/form/form.service';
 
 
@@ -25,7 +25,7 @@ const components = [
   CardComponent,
   ButtomAddProjectComponent,
   MenuHorizontalComponent,
-  MyProjectsSectionComponent,
+  // MyProjectsSectionComponent,
   ProjectFormComponent,
   UserProfileComponent
 ];

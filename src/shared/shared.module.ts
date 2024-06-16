@@ -4,35 +4,35 @@ import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
-import { HttpService } from './services/http/http.service';
 import { FormService } from './services/form/form.service';
 
 import { ProjectFormComponent } from './components/project-form/project-form.component';
 import { CardComponent } from './components/card/card.component';
 import { ButtomAddProjectComponent } from './components/buttom-add-project/buttom-add-project.component';
-import { MyProjectsSectionComponent } from './components/my-projects-section/my-projects.component';
-import { ProjectGroupSectionComponent } from './components/project-group-section/project-group.component';
 import { ScheduleSectionComponent } from './components/schedule-section/schedule-section.component';
 
 import { MenuHorizontalComponent } from './components/template/menu-horizontal/menu-horizontal.component';
 import { SidenavComponent } from './components/template/sidenav/sidenav.component';
 
 import { TResource } from './components/t-resource/t-resource.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+
+// import { ButtonDotsComponent } from './components/butoon-icon-dots/button-icon-dots.component';
 
 const components =  [   
     CardComponent,
     ButtomAddProjectComponent,
     ProjectFormComponent,
-    MyProjectsSectionComponent,
-    ProjectGroupSectionComponent,
     ScheduleSectionComponent,
     MenuHorizontalComponent,
     SidenavComponent, 
+    // ButtonDotsComponent
 ]
 
 const services = [
     FormService,
-    HttpService
 ]
 
 @NgModule({
@@ -44,7 +44,7 @@ const services = [
         Validators,
         RouterModule,
         HttpClientModule,
-
+        MatButtonModule, MatMenuModule, MatIconModule
 
     ], //modulos
     exports: [...components],

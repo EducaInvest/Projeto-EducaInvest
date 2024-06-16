@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b782c935-e26e-4377-ba72-433907c041e1/resourceGroups/TCC/providers/Microsoft.Web/sites/educainvest",
+    "appService.deploySubpath": "dist\\projeto-educainvest"
+}
