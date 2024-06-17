@@ -1,0 +1,94 @@
+@import "../../../styles.scss";
+
+.navbar {
+    background-color: $color_amareloprincipal;
+}
+
+.button-login {
+    background: #D8910D;
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #BB7E0B
+}
+
+.login-background {
+    background-image: url(../../../assets/img/Mask\ group.png);
+    background-size: cover;
+    height: 42em;
+}
+
+.form {
+    position: absolute;
+    width: 340px;
+    height: 470px;
+    left: 1030px;
+    top: 133px;
+    border-radius: 15px;
+    background-color: $color_fundodark;
+    color: $color_textos;
+}
+
+.texts {
+    position: absolute;
+    width: 531px;
+    height: 93.76px;
+    left: 185px;
+    top: 372px;
+
+    .title {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 33px;
+        line-height: 50px;
+    }
+
+    .sub-title {}
+
+    color: $color_textos;
+
+
+}
+
+.middle-content {
+    background-color: $color_amareloprincipal;
+}
+
+.form{
+    
+}
+
+form {
+    input {
+        background-color: $color_fundodark;
+        color: $color_textos;
+        border-radius: 2px;
+        border: none;
+        border-bottom: 1px solid $color_fundodark2;
+        width: 280px;
+    }
+
+    input::placeholder {
+        color: #ffffff5a;
+        font-size: 12px;
+    }
+
+    ;
+
+    input::label {
+        font-size: 15px;
+    }
+
+    button {
+        height: 45px;
+        width: 145px;
+        font-size: 12px;
+        background: $color_amareloprincipal;
+        border-radius: 30px;
+
+        svg{
+            margin-left: 10px;
+        }
+    }
+}
