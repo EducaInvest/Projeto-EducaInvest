@@ -20,4 +20,10 @@ export class UserService {
     return this.http.get<IUser>(this.apiUrl)
   }
 
+  postUser(user: IUser): Observable<IUser> {
+    const  usuario  = user;
+    return this.http.post<IUser>('http://localhost:5115/Usuarios/Registrar', usuario, this.httpOptions)
+    .pipe(tap(console.log));
+  }
+
 }

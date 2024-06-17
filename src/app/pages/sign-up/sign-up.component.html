@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg">
-    <div class="container">
+    <div class="container ">
         <img class="me-5" src="../../../assets/img/Group 224.png" alt="logo EducaInvest">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -24,22 +24,47 @@
     </div>
 </nav>
 <section>
-    <div class="login-background row">
+    <div class="login-background">
         <div class="col col-6 texts">
             <p class="title">Investimento inteligente, impacto duradouro.</p>
             <p class="sub-title">Escolha investir no futuro!</p>
         </div>
         <div class="form col col-6">
-            <h2>Faça seu cadastro</h2>
-            <form class="example-form">
-                <mat-form-field class="example-full-width">
-                    <mat-label>Email</mat-label>
-                    <input type="email" matInput [formControl]="signUpForm" placeholder="Ex. pat@example.com">
-                    <mat-hint>Errors appear instantly!</mat-hint>
-                </mat-form-field>
+            <h2 class="text-center">Faça seu cadastro</h2>
+            <form #form="ngForm" class="container">
+                <div class="mb-3">
+                    <label for="nameIput" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nameIput" placeholder="Nome">
+                </div>
+                <div class="mb-3">
+                    <label for="lastNameIput" class="form-label">Sobrenome</label>
+                    <input type="text" class="form-control" id="lastNameIput" placeholder="Sobrenome">
+                </div>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="phoneInput" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" id="phoneInput" placeholder="Telefone">
+                </div>
+                <div class="mb-3">
+                    <label for="passwordIpunt" class="form-label">Senha</label>
+                    <input type="email" class="form-control" id="passwordIpunt" placeholder="Senha">
+                </div>
+                <button type="submit" onclick="postUser()" class="float-sm-end button-continue me-4">Continuar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                    </svg>
+                </button>
             </form>
         </div>
 
     </div>
-
+    <div class="d-flex justify-content-center middle-content">
+        <img class="m-3" src="../../../assets/img/logo3.png" style="width: 80px; height: 85px;">
+    </div>
+    <app-footer></app-footer>
 </section>

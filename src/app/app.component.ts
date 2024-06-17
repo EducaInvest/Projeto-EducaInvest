@@ -8,6 +8,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { FooterComponent } from '../shared/components/footer/footer.component';
 // import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
 //import { FormService } from '../shared/services/form/form.service';
 
@@ -36,6 +37,7 @@ const components = [
         ...components,
         SignUpComponent,
         RouterOutlet,
+        FooterComponent
     ]
 })
 

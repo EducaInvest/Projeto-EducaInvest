@@ -25,7 +25,8 @@ const components = [
 
 @Component({
     selector: 'app-index',
-    templateUrl: 'index.component.html'
+    templateUrl: 'index.component.html',
+    imports:[...components]
 })
 
 export class IndexComponent implements OnInit {
