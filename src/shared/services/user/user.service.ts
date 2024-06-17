@@ -16,7 +16,8 @@ export class UserService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: 'my-auth-token'
     })
   };
 
@@ -43,13 +44,16 @@ export class UserService {
     );
   }
 
-
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.error('Ocorreu um erro:', error);
     return throwError(error.message || 'Erro no servidor. Tente novamente mais tarde.');
   }
 
-
+  postUser(user: IUser): Observable<IUser> {
+    const  usuario  = user;
+    return this.http.post<IUser>('http://educainvest.somee.com/Usuarios/Registrar', usuario, this.httpOptions)
+    .pipe(tap(console.log));
+  }
 
 
 
