@@ -5,15 +5,13 @@
 
         <div class="card-body">
             <h1 class="card-title">{{ cards.nomeProjeto }}</h1>
-            <p class="card-text">{{ cards.descricaoProjeto }}</p>
-            <!-- <a href="#">Mais detalhes</a> -->
-            
+            <p class="card-text m-0">{{ cards.descricaoProjeto }}</p>           
         </div>
 
         <div class="button-dot" style="display: flex; justify-content: flex-end">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                    <path fill="white" d="M10.001 7.8a2.2 2.2 0 1 0 0 4.402A2.2 2.2 0 0 0 10 7.8zm-7 0a2.2 2.2 0 1 0 0 4.402A2.2 2.2 0 0 0 3 7.8zm14 0a2.2 2.2 0 1 0 0 4.402A2.2 2.2 0 0 0 17 7.8z" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256">
+                    <path fill="white" d="M144 128a16 16 0 1 1-16-16a16 16 0 0 1 16 16m-84-16a16 16 0 1 0 16 16a16 16 0 0 0-16-16m136 0a16 16 0 1 0 16 16a16 16 0 0 0-16-16" />
                 </svg>
             </button>
             <mat-menu #menu="matMenu" class="btn-menu">

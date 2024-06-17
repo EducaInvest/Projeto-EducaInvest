@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IUser } from '../../../model/IUser.models';
+import { FormBuilder } from '@angular/forms';
+import { UserService } from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,11 +13,26 @@ import { RouterModule, Routes } from '@angular/router';
 })
 export class SidenavComponent implements OnInit{
 
-  constructor(){}
+  user!: IUser;
+
+  constructor(private formbuilder: FormBuilder, private serviceUser: UserService){}
 
   ngOnInit(): void {
+    this.getUser();
   }
   
+  getUser(): void {
+    const id = 2;
+    this.serviceUser.getUser(id).subscribe(
+      data => {
+        this.user = data;
+      },
+      error => {
+        console.error('Erro ao obter usuário:', error);
+      }
+    );
+  }
+
   nav_items = [
     {icon: 'home-icon.svg',label:'Página Inicial', page:'home'},
     {icon: 'perfil-icon.svg',label:'Perfil', page:'profile'},

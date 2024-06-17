@@ -1,173 +1,201 @@
+
 <div class="content-page">
-  <div class="user-profile row-12">
-    <div class="col-4" style="border-right: solid 1px gray; padding-right: 20px;">
-      <div class="user-info mb-4 mt-3" id="user-name" style="display: flex; justify-content: center;">
-        <span>{{ user.nome }}</span>
+  <div class="user-profile row">
+    <div class="col">
+      <div class="row d-header">
+        <div class="btn-edit col">
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#UserProfileFormModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="white" d="M16.698 21.996h-11.6a3.06 3.06 0 0 1-2.2-.92a3.09 3.09 0 0 1-.9-2.21V7.276a3 3 0 0 1 .91-2.19a3 3 0 0 1 1-.67a3.06 3.06 0 0 1 1.2-.24h4.44a.75.75 0 0 1 0 1.5h-4.44a2 2 0 0 0-.63.12a1.62 1.62 0 0 0-.99 1.5v11.59a1.62 1.62 0 0 0 .47 1.16a1.62 1.62 0 0 0 1.15.47h11.6c.213 0 .423-.04.62-.12a1.54 1.54 0 0 0 .52-.35a1.49 1.49 0 0 0 .35-.52a1.51 1.51 0 0 0 .13-.63v-4.44a.75.75 0 1 1 1.5 0v4.47a3.06 3.06 0 0 1-.92 2.2a3.16 3.16 0 0 1-1 .68c-.387.14-.798.205-1.21.19" />
+              <path fill="white" d="M21.808 5.456a1.86 1.86 0 0 0-.46-.68l-2.15-2.15a1.86 1.86 0 0 0-.68-.46a2.1 2.1 0 0 0-2.31.46l-1.71 1.71v.05l-7.74 7.73a2.11 2.11 0 0 0-.61 1.48v2.17a2.12 2.12 0 0 0 2.11 2.11h2.17a2.07 2.07 0 0 0 1.48-.62l7.74-7.74l1.72-1.72c.202-.19.36-.422.46-.68a2 2 0 0 0 0-1.63zm-1.38 1.05a.56.56 0 0 1-.14.2l-1.22 1.22l-3-3l1.23-1.23a.64.64 0 0 1 .44-.18a.59.59 0 0 1 .23.05c.076.032.145.08.2.14l2.16 2.15a.69.69 0 0 1 .13.2a.59.59 0 0 1 0 .23a.6.6 0 0 1-.03.22" />
+            </svg>
+          </button>
+        </div>
+        <h1>{{ user.nome + ' ' + user.sobrenome }}</h1>
+        <h2 class="mb-0">17/06/2024</h2>
 
-        <!-- colocar aqui tipo e Perfil -->
       </div>
 
-      <div class="border-table">
-        <table class="table table-borderless">
-          <thead>
-            <tr style="text-align: center;">
-              <th colspan="3">Meus Projetos</th>
-            </tr>
-            <tr style="text-align: center;">
-              <th scope="col">Publicados</th>
-              <th scope="col">Investidos</th>
-              <th scope="col">Finalizados</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="text-align: center;">
-              <!-- <td>{{ userProfile.pPublicados }}</td>
-              <td>{{ userProfile.pInvestidos }}</td>
-              <td>{{ userProfile.pFinalizados }}</td> -->
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-
-    <div class="col-8 details-profile">
-      <h1>Dados do Perfil</h1>
-
-      <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
+      <div class="row mt-3 information">
         <h2>Informações Pessoais</h2>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#UserProfileFormModal">
-          Editar perfil
-        </button>
+        <div class="col">
+          <div class="row">
+            <div class="col-6">
+              <h2>Nome</h2>
+              <h3>{{user.nome}}</h3>
+            </div>
+            <div class="col-4">
+              <h2>Sobrenome</h2>
+              <h3>{{user.sobrenome}}</h3>
+            </div>
+            <div class="col-2">
+              <h2>CPF</h2>
+              <h3>{{user.cpf}}</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <h2>E-mail</h2>
+              <h3>{{user.email}}</h3>
+            </div>
+            <div class="col">
+              <h2>Telefone</h2>
+              <h3>{{user.telefone}}</h3>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="row g-3">
-        <div style="display: flex; align-items: center;">
-          <h4>Tipo de Perfil</h4>
-          <div class="user-type" style="margin-left: 23px;">
-            <h5>
-              {{ user.perfil }}
-            </h5>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <h4 class="mb-2">Nome</h4>
-          <div class="user-fname">
-            <h5>
-              {{ user.nome }}
-            </h5>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <h4 class="mb-2">Sobrenome</h4>
-          <div class="user-lname">
-            <h5>
-              {{ user.sobrenome }}
-            </h5>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <h4 class="mb-2">E-mail</h4>
-          <div class="user-email">
-            <h5>
-              {{ user.email }}
-            </h5>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <h4 class="mb-2">Telefone</h4>
-          <div class="user-phone">
-            <h5>
-              {{ user.telefone }}
-            </h5>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <h4 class="mb-2">Cidade</h4>
-          <div class="user-city">
-            <h5>
-              {{ user.cidade }}
-            </h5>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <h4 class="mb-2">Estado</h4>
-          <div class="user-state">
-            <h5>
-              {{ user.uf }}
-            </h5>
-          </div>
-        </div>
-
-        <div class="user-info mt-3">
-          <h3>Redes Sociais</h3>
-          <!-- <div *ngFor="let link of userProfile.socialLinks">
-            <a [href]="link.url" target="_blank">{{ link.platform }}</a>
-          </div> -->
-        </div>
-
-        <div class="details mt-3">
-          <h3>Descrição do perfil</h3>
-          <!-- <div class="user-datils-div">{{ userProfile.details }}</div> -->
-        </div>
-
-      </div>
-
-      <!--Modal edit profile-->
-      <div class="modal modal-lg fade" id="UserProfileFormModal" tabindex="-1" aria-labelledby="UserProfileFormModal"
-        aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="modal-header">
-                <h1 class="modal-title">Editar Perfil</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="user-photo">
-                <!-- style="border: solid 1px green;" -->
-                foto usuário
-              </div>
-
-              <div class="account-details" style="border: solid 1px green;">
-                <!-- style="border: solid 1px green;" -->
-                <div class="header">
-                  <h1 class="modal-title" id="UserProfileFormModal">Dados da Conta</h1>
+      <div class="row">
+        <div class="col-6 p-0">
+          <div class="row mt-3 address">
+            <h2>Endereço</h2>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <h2>Cidade</h2>
+                  <h3>{{user.cidade}}</h3>
                 </div>
 
-                <form>
-                  <div class="col-7">
-                    <!-- style="border: solid 1px tomato;" -->
+                <div class="col">
+                  <h2>Estado</h2>
+                  <h3>{{user.uf}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                    <div class="row">
-                      <div class="mb-3">
-                        <label for="userFName" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="userFName" placeholder="{{ user.nome }}">
-                      </div>
-  
-                      <div class="mb-3">
-                        <label for="userLName" class="form-label">Sobrenome</label>
-                        <input type="text" class="form-control" id="userLName" placeholder="{{ user.sobrenome }}">
-                      </div>
-                    </div>
-                    </div>
-                    
-                
-                </form>
+        <div class="col-6 p-0">
+          <div class="row mt-3 address">
+            <h2>Demais Informações</h2>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <h2>Tipo de Perfil</h2>
+                  <h3>{{user.perfil}}</h3>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Modal Data -->
 
     </div>
+
+    <!--Modal edit profile-->
+    <div class="modal modal-lg fade" id="UserProfileFormModal" tabindex="-1" aria-labelledby="UserProfileFormModal"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-header">
+              <h1 class="modal-title">Editar Perfil</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
+              <div>
+                <div class="user-photo">
+                  <img src="assets/img/avatar_n.png">
+                  <!-- (click)="deleteProject(user.id)" -->
+                  <button class="btn-edit-photo" mat-icon-button aria-label="Example icon-button with a menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                      <path fill="white"
+                        d="M22 12.698c-.002 1.47-.013 2.718-.096 3.743c-.097 1.19-.296 2.184-.74 3.009a4.18 4.18 0 0 1-.73.983c-.833.833-1.893 1.21-3.237 1.39C15.884 22 14.2 22 12.053 22h-.106c-2.148 0-3.83 0-5.144-.177c-1.343-.18-2.404-.557-3.236-1.39c-.738-.738-1.12-1.656-1.322-2.795c-.2-1.12-.236-2.512-.243-4.241C2 12.957 2 12.492 2 12v-.054c0-2.148 0-3.83.177-5.144c.18-1.343.557-2.404 1.39-3.236c.832-.833 1.893-1.21 3.236-1.39c1.168-.157 2.67-.175 4.499-.177a.697.697 0 1 1 0 1.396c-1.855.002-3.234.018-4.313.163c-1.189.16-1.906.464-2.436.994S3.72 5.8 3.56 6.99C3.397 8.2 3.395 9.788 3.395 12v.784l.932-.814a2.14 2.14 0 0 1 2.922.097l3.99 3.99a1.86 1.86 0 0 0 2.385.207l.278-.195a2.79 2.79 0 0 1 3.471.209l2.633 2.37c.265-.557.423-1.288.507-2.32c.079-.972.09-2.152.091-3.63a.698.698 0 0 1 1.396 0" />
+                      <path fill="white" fill-rule="evenodd"
+                        d="M17.5 11c-2.121 0-3.182 0-3.841-.659C13 9.682 13 8.621 13 6.5c0-2.121 0-3.182.659-3.841C14.318 2 15.379 2 17.5 2c2.121 0 3.182 0 3.841.659C22 3.318 22 4.379 22 6.5c0 2.121 0 3.182-.659 3.841c-.659.659-1.72.659-3.841.659m2.212-6.712a.983.983 0 0 1 0 1.39l-.058.058a.238.238 0 0 1-.211.067a1.595 1.595 0 0 1-.81-.436a1.594 1.594 0 0 1-.436-.81a.238.238 0 0 1 .067-.211l.058-.058a.983.983 0 0 1 1.39 0M17.35 8.04a3.224 3.224 0 0 1-.296.279a1.635 1.635 0 0 1-.303.187c-.09.043-.188.076-.381.14l-1.021.34a.265.265 0 0 1-.335-.335l.34-1.02c.064-.194.097-.291.14-.382c.051-.108.114-.21.187-.303c.062-.08.134-.152.279-.296l1.799-1.799c.043-.043.118-.023.138.035a1.984 1.984 0 0 0 1.217 1.217c.058.02.078.095.035.138z"
+                        clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="row" >
+                <div class="mb-3 col-6">
+                  <label for="nome" class="form-label">Nome</label>
+                  <input type="text" id="nome" class="form-control" formControlName="nome" value="{{ user.nome }}">
+                </div>
+
+                <div class="mb-3 col-6">
+                  <label for="cpf" class="form-label">CPF</label>
+                  <input type="text" id="cpf" class="form-control" formControlName="cpf" value="{{ user.cpf }}">
+                </div>
+
+                <div class="mb-3 col-6">
+                  <label for="sobrenome" class="form-label">Sobrenome</label>
+                  <input type="text" class="form-control" id="sobrenome" formControlName="sobrenome"
+                    value="{{ user.sobrenome }}">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 col-8">
+                  <label for="email" class="form-label">E-mail</label>
+                  <input type="text" class="form-control" id="email" formControlName="email" value="{{user.email}}"
+                    maxlength="11">
+                </div>
+                <div class="mb-3 col-4">
+                  <label for="telefone" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" id="telefone" formControlName="telefone"
+                    value="{{user.telefone}}">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-6 col-6">
+                  <label for="cidade" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="cidade" formControlName="cidade" value="{{user.cidade}}">
+                </div>
+
+                <div class="mb-3 col-6">
+                  <label for="uf" class="form-label">Estado</label>
+                  <input type="text" class="form-control" id="uf" formControlName="uf" value="{{user.uf}}">
+                  <!-- <select id="userState" class="form-select">
+                        <option selected>Esacolher estado</option>
+                        <option>Estado 1</option>
+                        <option>Estado 2</option>
+                        <option>Estado 3</option>
+                        <option>Estado 4</option>
+                      </select> -->
+                </div>
+
+                <button type="button" mat-button (click)="toggleChangePasswordForm()">Alterar Senha</button>
+                <div class="mb-3 mt-2 col" *ngIf="showChangePasswordForm">
+                  <div class="mb-3 mt-2 col position-relative">
+                    <h2 style="font-size: 17px;">Alterar Senha</h2>
+
+                   
+
+                    <div>
+                      <label for="passwordString">Nova Senha:</label>
+                      <input id="passwordString" formControlName="passwordString" type="password">
+                    </div>
+                    <button type="button" mat-button (click)="toggleChangePasswordForm()">Cancelar</button> 
+                    
+                    <!-- <label for="inputPassword4" class="form-label">Password</label> -->
+                    <!-- <input type="password" class="form-control" formControlName="passwordString" id="inputPassword4"> -->
+                    <!-- <i class="bi bi-eye-slash position-absolute top-50 end-0 translate-middle-y me-3"
+                      id="togglePassword" style="cursor: pointer;" (click)="togglePasswordVisibility()"></i> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Salvar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Data -->
+
   </div>
+
+
 </div>

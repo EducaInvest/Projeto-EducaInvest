@@ -7,7 +7,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 
 
-
 @Component({
   selector: 'app-card-project',
   standalone: true,
@@ -15,16 +14,19 @@ import {MatButtonModule} from '@angular/material/button';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
+
 export class CardComponent implements OnInit {
 
   card!: IProject[];
 
-  userId = 4
-  constructor(private formbuilder: FormBuilder,
-    private serviceForm: FormService) { }
+  userId = 2
+
+  constructor(
+    private formbuilder: FormBuilder,
+    private serviceForm: FormService
+  ){ }
 
   ngOnInit(): void {
-
     this.getProjectByUser();
 
   }

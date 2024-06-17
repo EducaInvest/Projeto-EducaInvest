@@ -2,7 +2,7 @@ import { EProfile } from "./Enums/EProfile.enum";
 import { EState } from "./Enums/EState.enum";
 
 export interface IUser{
-    id?:number;
+    id:number;
     perfil:EProfile;
     email:string;
     nome:string;
@@ -13,7 +13,7 @@ export interface IUser{
     cidade:string;
     uf:EState;
     // dataAcesso:Date;
-    passwordString:string;
+    passwordString?:string;
     linkSocial: string;
     
     // details: string;

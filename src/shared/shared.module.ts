@@ -48,7 +48,7 @@ const services = [
 
     ], //modulos
     exports: [...components],
-    declarations: [ ...components], //componentes
+    declarations: [ ...components, NgModule], //componentes
     providers: [
         ...services,
         provideHttpClient(withFetch())

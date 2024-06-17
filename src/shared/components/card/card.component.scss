@@ -8,22 +8,22 @@
     margin-bottom: 35px;
 
     h1 {
-        padding-top: 5px;
         font-size: 18px;
         font-weight: 500;
-        margin-bottom: 3px;
+        margin-bottom: 0px;
     }
 
     p.card-text {
-        width: 200px;
+        height: 80px;
+        width: 211px;
         font-size: 14px;
         margin: 0;
         font-weight: 300;
-  
+
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         overflow: hidden;
     }
 }
@@ -38,4 +38,13 @@
     border: none;
     padding: 0;
     margin: 0;
+}
+
+.button-dot button {
+    margin: 0;
+    position: relative;
+    bottom: 8px;
+    padding: 0;
+    height: 45px;
+    width: 45px;
 }

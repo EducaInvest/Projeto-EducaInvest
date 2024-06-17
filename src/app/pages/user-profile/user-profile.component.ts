@@ -1,41 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, NgModule, OnInit } from '@angular/core';
+
 import { IUser } from '../../../shared/model/IUser.models';
-import { FormBuilder } from '@angular/forms';
+
+import { FormBuilder, FormGroup, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { UserService } from '../../../shared/services/user/user.service';
-import { IProject } from '../../../shared/model/IProject.models';
 
-// interface SocialLink {
-//   platform: string;
-//   url: string;
-// }
-
-// interface UserProfile {
-//   firstName: string;
-//   lastName: string;
-//   email: string;
-//   cpf: string
-//   socialLinks: SocialLink[];
-//   phone: string;
-//   city: string;
-//   state: string;
-//   details: string;
-//   creationDate: Date;
-//   lastUpdateDate: Date;
-//   pPublicados: string;
-//   pInvestidos: string;
-//   pFinalizados: string;
-// }
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-user-profile',
   standalone: true,
   imports: [
     CommonModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    ReactiveFormsModule
   ],
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
+
 export class UserProfileComponent implements OnInit {
   // userProfile: IUser;
   // isEditing: boolean = false;
@@ -44,55 +33,110 @@ export class UserProfileComponent implements OnInit {
 
   user!: IUser;
 
+  updateUserForm!: FormGroup;
 
+  changePasswordForm!: FormGroup;
 
+  isPasswordVisible: boolean = false;
 
-  constructor(private formbuilder: FormBuilder, private serviceUser: UserService) {
-
-
-  //   this.userProfile = {
-  //     // firstName: 'Nathalli',
-  //     // lastName: 'Ribeiro',
-  //     // // userType: 'Estudante',
-  //     // email: 'nathalli.ribeiro@gmail.com',
-  //     // cpf: '123456789101',
-  //     // socialLinks: [
-  //     //   { platform: 'LinkedIn', url: 'https://www.linkedin.com/in/nathalli99' },
-  //     //   { platform: 'GitHub', url: 'https://github.com/nathalli99' }
-  //     // ],
-  //     // phone: '(11) 99999-9999',
-  //     // city: 'São Paulo',
-  //     // state: '',
-  //     // details: 'breve texto',
-
-  //     // creationDate: new Date('2022-01-01'),
-  //     // lastUpdateDate: new Date(),
-  //     // pPublicados: '5',
-  //     // pInvestidos: '1',
-  //     // pFinalizados: '2'
-  //   };
-}
+  constructor(
+    private formbuilder: FormBuilder,
+    private serviceUser: UserService) {
+  }
 
   ngOnInit(): void {
-    this.getUser();
+    this.getUser(2);
+    this.initForm();
+    this.updateUser();
   }
 
-  getUser() {
-    this.serviceUser.getUser().subscribe(
+  initForm(): void {
+    this.updateUserForm = this.formbuilder.group({
+      id: [],
+      nome: [],
+      sobrenome: [],
+      email: [],
+      cpf: [],
+      telefone: [],
+      cidade: [],
+      uf: [],
+      passwordString: [],
+    });
+
+    this.changePasswordForm = this.formbuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      passwordString: ['', [Validators.required, Validators.minLength(6)]]
+    });
+
+    if (this.user) {
+      this.updateUserForm.patchValue(this.user);
+    }
+  }
+
+
+  getUser(userId: number): void {
+    this.serviceUser.getUser(userId).subscribe(
       data => {
-        this.user = data, 
-        console.log(this.user)
+        this.user = data;
+        this.updateUserForm.patchValue(this.user); // Preecher o formulário com os dados do usuário
+      },
+      error => {
+        console.error('Erro ao obter usuário:', error);
       }
-    )
+    );
   }
 
-  // editProfile(): void {
-  //   this.isEditing = true;
+  updateUser(): void {
+    try {
+      const updatedUser = this.updateUserForm.value as IUser;
+      this.serviceUser.updateUser(updatedUser).subscribe(
+        (data: IUser) => {
+          console.log('Usuário atualizado com sucesso:', data);
+          (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
+            location.reload();
+        },
+        error => {
+          console.error('Erro ao atualizar usuário:', error);
+        }
+      );
+    }
+    catch {
+      alert("Formulario Invalido");
+      console.log(JSON.stringify(this.updateUserForm))
+    }
+  }
+
+  changePassword(): void {
+    const { email, passwordString } = this.changePasswordForm.value;
+    this.serviceUser.changePassWord(email, passwordString).subscribe(
+      data => {
+        console.log('Senha alterada com sucesso:', data);
+      },
+      error => {
+        console.error('Erro ao alterar a senha:', error);
+      }
+    );
+  }
+
+
+  showChangePasswordForm: boolean = false;
+
+  toggleChangePasswordForm(): void {
+    this.showChangePasswordForm = !this.showChangePasswordForm;
+  }
+  // togglePasswordVisibility(): void {
+  //   const passwordInput = document.getElementById('inputPassword4') as HTMLInputElement; //verificar este campo
+  //   const toggleIcon = document.getElementById('togglePassword') as HTMLElement;
+
+  //   if (passwordInput.type === 'password') {
+  //     passwordInput.type = 'text';
+  //     toggleIcon.classList.remove('bi-eye-slash');
+  //     toggleIcon.classList.add('bi-eye');
+  //   } else {
+  //     passwordInput.type = 'password';
+  //     toggleIcon.classList.remove('bi-eye');
+  //     toggleIcon.classList.add('bi-eye-slash');
+  //   }
   // }
 
-  // // Método para salvar as alterações no perfil
-  // saveProfile(): void {
-  //   // Adicione aqui a lógica para salvar as alterações
-  //   this.isEditing = false;
-  // }
 }
