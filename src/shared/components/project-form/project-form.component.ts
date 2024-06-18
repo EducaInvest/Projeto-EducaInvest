@@ -4,6 +4,8 @@ import { FormBuilder, FormsModule, FormGroup, Validators, ReactiveFormsModule } 
 import { IProject } from '../../model/IProject.models';
 import { FormService } from '../../services/form/form.service';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user/user.service';
+import { IUser } from '../../model/IUser.models';
 
 
 
@@ -20,20 +22,36 @@ export class ProjectFormComponent implements OnInit {
   @ViewChild('ProjectFormModal') ProjectFormModal: any;
 
   form!: IProject;
-  
+
+  user!: IUser;
+
   postProjectForm!: FormGroup;
 
   selectedFile: File | null = null;
 
   photoPreviewUrl: string = '../../assets/img/photo_default_form.svg'; // URL da foto padrão
 
-  constructor(private formbuilder: FormBuilder,
-    private serviceForm: FormService,
+  constructor(
+    private formbuilder: FormBuilder, 
+    private serviceForm: FormService, 
+    private serviceUser: UserService
   ) { }
 
   ngOnInit(): void {
-   this.initForm()
-   this.setDataPublicacao();
+    this.getUser();
+    this.setDataPublicacao();
+  }
+
+  public initForm(usuarioId: number = this.user.id!): void {
+    this.postProjectForm = this.formbuilder.group({
+      id: [null, [Validators.required]],
+      nomeProjeto: [null, [Validators.required]],
+      subtitulo: [null],
+      descricaoProjeto: [null, [Validators.required]],
+      dataPublicacao: [null, [Validators.required]],
+      fotoProjeto: [null],
+      usuarioId: [usuarioId, [Validators.required]], // Inicializa o ID do usuário
+    });
   }
 
   postForm() {
@@ -47,19 +65,21 @@ export class ProjectFormComponent implements OnInit {
     }
   }
 
-  public initForm(): void{
-    this.postProjectForm = this.formbuilder.group({
-      id:[null, [Validators.required]],
-      nomeProjeto:[null, [Validators.required]],
-      subtitulo:[null],
-      descricaoProjeto:[null, [Validators.required]],
-      //custoProjeto: [null],
-      //investido: [null, [Validators.required]], 
-      dataPublicacao:[null, [Validators.required]],
-      fotoProjeto:[null],
-      usuarioId:4,
-      
-    })
+  getUser(): void {
+    const id = 2;
+    this.serviceUser.getUser(id).subscribe(
+      data => {
+        if (data.id !== undefined) {
+          this.user = data;
+          this.initForm(data.id); // Inicializa o formulário com o ID do usuário
+        } else {
+          console.error('ID do usuário é undefined');
+        }
+      },
+      error => {
+        console.error('Erro ao obter usuário:', error);
+      }
+    );
   }
 
   private setDataPublicacao(): void {
@@ -86,18 +106,18 @@ export class ProjectFormComponent implements OnInit {
 
       console.log("imagem selecionada!")
     }
-    
+
   }
-  
+
   equipeProjeto = [
-    {nome: 'Beatriz', titulo: 'Lider', funcao: 'Front-end'},
-    {nome: 'Nathalli', titulo: 'Vice-Lider', funcao: 'Back-end'}
+    { nome: 'Beatriz', titulo: 'Lider', funcao: 'Front-end' },
+    { nome: 'Nathalli', titulo: 'Vice-Lider', funcao: 'Back-end' }
   ]
 
   // onFileSelected(event: any){
   //   if (event.target.files && event.target.files[0]){
   //     const fotoProjeto = event.target.files[0];
-      
+
   //     //const formData = new FormData();
   //     //formData.append('fotoProjeto', fotoProjeto);
 
@@ -105,8 +125,8 @@ export class ProjectFormComponent implements OnInit {
   //   }
   // }
 
-  
-    //evento para criar uma nova linha da tabela ao clicar na tecla ENTER
+
+  //evento para criar uma nova linha da tabela ao clicar na tecla ENTER
 
   // $scope.addline = function ($event) {
   //   debugger
