@@ -1,19 +1,32 @@
 import { Injectable } from '@angular/core';
-// import { HttpService } from '../http/http.service';
 import { Observable, map, tap } from 'rxjs';
-import { IProject } from '../../../shared/model/IProject.models';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+export interface IProject {
+  id:number;
+  nomeProjeto:string;
+  subtitulo:string;
+  descricaoProjeto:string;
+  custoProjeto: number;
+  investido: boolean; 
+  dataPublicacao:Date;
+  fileBytes:number[][];
+  usuarioId:number;
+}
+
 @Injectable({ providedIn: 'root' })
+
 export class FormService {
 
-  private apiUrl = 'http://educainvest.somee.com/api/Projeto';
-  // private apiUrl = 'https://educainvestapi.azurewebsites.net/api/Projeto';
-  // private apiUrl = 'http://localhost:5115/api/Projeto';
+
+    apiUrl = 'http://educainvest.somee.com/api/Projeto';
+  // apiUrl = 'https://educainvestapi.azurewebsites.net/api/Projeto';
+  // apiUrl = 'http://localhost:5115/api/Projeto';
 
     httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
+
   constructor(private http: HttpClient) { }
 
   // Função para converter a string de data recebida da API para um objeto Date
@@ -29,26 +42,33 @@ export class FormService {
 
     let dataPublicacao;
     try {
-      dataPublicacao = new Date(projectWithoutId.dataPublicacao).toISOString();
+        dataPublicacao = new Date(projectWithoutId.dataPublicacao).toISOString();
     } catch (error) {
-      console.error('Data de publicação inválida:', projectWithoutId.dataPublicacao);
-      dataPublicacao = new Date().toISOString(); // Define a data atual como padrão
+        console.error('Data de publicação inválida:', projectWithoutId.dataPublicacao);
+        dataPublicacao = new Date().toISOString(); // Define a data atual como padrão
+    }
+
+    // Verifica se custoProjeto é um número válido e o converte para string
+    let custoProjetoAsString = '0.00'; // Valor padrão
+    if (typeof projectWithoutId.custoProjeto === 'number' && !isNaN(projectWithoutId.custoProjeto)) {
+        custoProjetoAsString = projectWithoutId.custoProjeto.toFixed(2);
+    } else {
+        console.error('CustoProjeto não é um número válido:', projectWithoutId.custoProjeto);
     }
 
     const projectToSend = {
-      ...projectWithoutId,
-      dataPublicacao // Converte Date para string no formato ISO 8601
+        ...projectWithoutId,
+        dataPublicacao, // Converte Date para string no formato ISO 8601
+        custoProjeto: custoProjetoAsString
     };
 
     console.log("Enviando projeto:", projectToSend);
-    return this.http.post<IProject>(this.apiUrl, projectToSend, this.httpOptions)
-      .pipe(tap(console.log));
-  }
+    return this.http.post<IProject>(`${this.apiUrl}/addProjeto`, projectToSend, this.httpOptions)
+        .pipe(tap(console.log));
+}
 
-
-  postPhoto(project: IProject): Observable<IProject> {
-    return this.http.post<IProject["fotoProjeto"]>(this.apiUrl, project, this.httpOptions)
-      .pipe(tap(console.log));
+  getProject(id: number): Observable<IProject> {
+    return this.http.get<IProject>(`${this.apiUrl}/${id}`);
   }
 
   getProjectByUser(usuarioId: number): Observable<IProject[]> {
@@ -64,6 +84,9 @@ export class FormService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`, this.httpOptions)
       .pipe(tap(() => console.log(`Projeto com ID=${id} deletado`)));
   }
+  
+  updateProject(project: IProject): Observable<IProject> {
+    return this.http.put<IProject>(this.apiUrl, project, this.httpOptions)
+      .pipe(tap(() => console.log('Dados do projeto atualizados com sucesso!')));
+  }
 }
-
-

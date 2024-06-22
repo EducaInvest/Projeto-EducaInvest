@@ -14,9 +14,8 @@ import { MenuHorizontalComponent } from '../shared/components/template/menu-hori
 import { CardComponent } from '../shared/components/card/card.component';
 import { ProjectFormComponent } from '../shared/components/project-form/project-form.component';
 import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
-// import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
-//import { FormService } from '../shared/services/form/form.service';
-
+import { MatTableDataSource } from '@angular/material/table';
+import { ScheduleComponent } from '../shared/components/schedule/schedule.component';
 
 const components = [
   HomeComponent,
@@ -25,11 +24,11 @@ const components = [
   CardComponent,
   ButtomAddProjectComponent,
   MenuHorizontalComponent,
-  // MyProjectsSectionComponent,
   ProjectFormComponent,
-  UserProfileComponent
+  UserProfileComponent, 
+  ScheduleComponent
+  
 ];
-
 
 @Component({
     selector: 'app-root',
@@ -41,7 +40,7 @@ const components = [
         FormsModule,
         CommonModule,
         MatSlideToggleModule,
-
+        MatTableDataSource
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',

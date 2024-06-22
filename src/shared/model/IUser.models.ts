@@ -12,13 +12,7 @@ export interface IUser{
     // link:string;
     cidade:string;
     uf:EState;
-    // dataAcesso:Date;
+    dataAcesso:Date;
     passwordString:string;
     linkSocial: string;
-    
-    // details: string;
-    // lastUpdateDate: Date;
-    // pPublicados: string;
-    // pInvestidos: string;
-    // pFinalizados: string;
 }

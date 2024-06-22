@@ -45,7 +45,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUser(2);
+    this.getUser(4);
     this.initForm();
     this.updateUser();
   }
@@ -72,7 +72,6 @@ export class UserProfileComponent implements OnInit {
       this.updateUserForm.patchValue(this.user);
     }
   }
-
 
   getUser(userId: number): void {
     this.serviceUser.getUser(userId).subscribe(
@@ -117,7 +116,6 @@ export class UserProfileComponent implements OnInit {
       }
     );
   }
-
 
   showChangePasswordForm: boolean = false;
 

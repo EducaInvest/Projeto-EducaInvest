@@ -1,0 +1,18 @@
+<div class="schedules">
+    <h2>Adicionar Cronograma</h2>
+    <form [formGroup]="scheduleForm" (ngSubmit)="postSchedule()">
+      <label for="projetoId">Projeto ID:</label>
+      <input type="number" formControlName="projetoId" required>
+      <button type="submit">Adicionar</button>
+    </form>
+    
+    <h2>Lista de Cronogramas</h2>
+    <ul>
+      <li *ngFor="let schedule of schedules">
+        {{ schedule.id }} - {{ schedule.projetoId }}
+      </li>
+    </ul>
+    
+
+
+</div>

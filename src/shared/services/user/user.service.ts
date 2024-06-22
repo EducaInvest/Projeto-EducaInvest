@@ -21,6 +21,11 @@ export class UserService {
     })
   };
 
+  postUser(user: IUser): Observable<IUser> {
+    return this.http.post<IUser>(`${this.apiUrl}/Registrar`, user, this.httpOptions)
+    .pipe(tap(console.log));
+  }
+
   getUser(id: number): Observable<IUser> {
     return this.http.get<IUser>(`${this.apiUrl}/${id}`).pipe(
       catchError(this.handleError)
@@ -49,11 +54,6 @@ export class UserService {
     return throwError(error.message || 'Erro no servidor. Tente novamente mais tarde.');
   }
 
-  postUser(user: IUser): Observable<IUser> {
-    const  usuario  = user;
-    return this.http.post<IUser>('http://educainvest.somee.com/Usuarios/Registrar', usuario, this.httpOptions)
-    .pipe(tap(console.log));
-  }
 
 
 

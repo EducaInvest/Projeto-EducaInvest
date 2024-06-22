@@ -22,7 +22,7 @@ export class SidenavComponent implements OnInit{
   }
   
   getUser(): void {
-    const id = 2;
+    const id = 4;
     this.serviceUser.getUser(id).subscribe(
       data => {
         this.user = data;
@@ -37,7 +37,7 @@ export class SidenavComponent implements OnInit{
     {icon: 'home-icon.svg',label:'Página Inicial', page:'home'},
     {icon: 'perfil-icon.svg',label:'Perfil', page:'profile'},
     {icon: 'projetos-icon.svg',label:'Projetos', page:'project'},
-    {icon: 'negocios-icon.svg',label:'Meus Negócios'},
+    {icon: 'negocios-icon.svg',label:'Meus Negócios', page:'editmodal'},
     {icon: 'config-icon.svg',label:'Configurações'},
   ];
 

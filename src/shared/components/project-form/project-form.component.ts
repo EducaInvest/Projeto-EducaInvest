@@ -1,40 +1,53 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormsModule, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-//import { ApiService } from '../../../app/pages/api/api.service';
 import { IProject } from '../../model/IProject.models';
 import { FormService } from '../../services/form/form.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user/user.service';
 import { IUser } from '../../model/IUser.models';
+import { HttpClient } from '@angular/common/http';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { scheduled } from 'rxjs';
+import { ScheduleComponent } from '../schedule/schedule.component';
 
-
+export interface Element {
+  position: number;
+  name: string;
+  weight: number;
+  symbol: string;
+}
 
 @Component({
   selector: 'app-project-form',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    MatPaginatorModule,
+    ScheduleComponent
+  ],
   providers: [],
   templateUrl: './project-form.component.html',
   styleUrl: './project-form.component.scss'
 })
+
 export class ProjectFormComponent implements OnInit {
 
-  @ViewChild('ProjectFormModal') ProjectFormModal: any;
+  @ViewChild('ProjectFormModal') ProjectFormModal: ElementRef | undefined;
 
-  form!: IProject;
+  project!: IProject;
 
   user!: IUser;
 
   postProjectForm!: FormGroup;
 
-  selectedFile: File | null = null;
-
   photoPreviewUrl: string = '../../assets/img/photo_default_form.svg'; // URL da foto padrão
 
   constructor(
-    private formbuilder: FormBuilder, 
-    private serviceForm: FormService, 
-    private serviceUser: UserService
+    private formbuilder: FormBuilder,
+    private serviceForm: FormService,
+    private serviceUser: UserService,
   ) { }
 
   ngOnInit(): void {
@@ -48,25 +61,38 @@ export class ProjectFormComponent implements OnInit {
       nomeProjeto: [null, [Validators.required]],
       subtitulo: [null],
       descricaoProjeto: [null, [Validators.required]],
+      custoProjeto: [ Validators.required],
       dataPublicacao: [null, [Validators.required]],
-      fotoProjeto: [null],
+      fileBytes: [null],
       usuarioId: [usuarioId, [Validators.required]], // Inicializa o ID do usuário
     });
   }
 
   postForm() {
-    const formData: FormData = new FormData();
-    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { }),
-      (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
-      location.reload();      //console.log(this.form)
+    const project = this.postProjectForm.value;
+    console.log("CustoProjeto antes da conversão:", project.custoProjeto);
 
-    if (this.selectedFile) {
-      formData.append('fotoProjeto', this.selectedFile, this.selectedFile.name);
+    // Verifica se custoProjeto é um número válido antes de converter
+    if (typeof project.custoProjeto === 'number' && !isNaN(project.custoProjeto)) {
+        project.custoProjeto = parseFloat(project.custoProjeto.toFixed(2));
+    } else {
+        console.error("CustoProjeto não é um número válido:", project.custoProjeto);
+        project.custoProjeto = 0.00; // Valor padrão caso inválido
     }
-  }
+
+    console.log("CustoProjeto após a conversão:", project.custoProjeto);
+
+    this.serviceForm.postForm(project).subscribe(res => {
+        console.log(JSON.stringify(res));
+    });
+}
+
+
+  // (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
+  // location.reload();      //console.log(this.form)
 
   getUser(): void {
-    const id = 2;
+    const id = 4;
     this.serviceUser.getUser(id).subscribe(
       data => {
         if (data.id !== undefined) {
@@ -92,39 +118,55 @@ export class ProjectFormComponent implements OnInit {
     this.postProjectForm.patchValue({ dataPublicacao: dataFormatada });
   }
 
-  onFileSelected(event: any): void {
-    const file: File = event.target.files[0];
-    if (file) {
-      this.selectedFile = file;
-
-      // Atualizar a pré-visualização da foto
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.photoPreviewUrl = e.target.result;
-      };
-      reader.readAsDataURL(file);
-
-      console.log("imagem selecionada!")
-    }
-
+  async submitProject() {
+    const project: IProject = {
+      id: this.postProjectForm.get('')?.value || '',
+      nomeProjeto: this.postProjectForm.get('nomeProjeto')?.value || '',
+      subtitulo: this.postProjectForm.get('subtitulo')?.value || '',
+      descricaoProjeto: this.postProjectForm.get('descricaoProjeto')?.value || '',
+      dataPublicacao: this.postProjectForm.get('dataPublicacao')?.value || '',
+      custoProjeto: this.postProjectForm.get('custoProjeto')?.value || '',
+      usuarioId: this.user.id!,
+      investido: this.postProjectForm.get('investido')?.value || 0,
+      fileBytes: this.postProjectForm.get('fileBytes')?.value || '',
+    };
   }
 
-  equipeProjeto = [
-    { nome: 'Beatriz', titulo: 'Lider', funcao: 'Front-end' },
-    { nome: 'Nathalli', titulo: 'Vice-Lider', funcao: 'Back-end' }
-  ]
+  loadProject(id: number): void {
+    this.serviceForm.getProject(id).subscribe(
+      data => {
+        this.project = data;
+        this.initForm(this.project.usuarioId);
+      },
+      error => {
+        console.error('Erro ao obter projeto:', error);
+      }
+    );
+  }
 
-  // onFileSelected(event: any){
-  //   if (event.target.files && event.target.files[0]){
-  //     const fotoProjeto = event.target.files[0];
+  updateProject(): void {
+    const project: IProject = {
+      id: this.project.id,
+      nomeProjeto: this.postProjectForm.get('nomeProjeto')?.value || '',
+      subtitulo: this.postProjectForm.get('subtitulo')?.value || '',
+      descricaoProjeto: this.postProjectForm.get('descricaoProjeto')?.value || '',
+      dataPublicacao: this.postProjectForm.get('dataPublicacao')?.value || '',
+      custoProjeto: this.postProjectForm.get('custoProjeto')?.value || '',
+      usuarioId: this.project.usuarioId,
+      investido: this.postProjectForm.get('investido')?.value || 0,
+      fileBytes: this.postProjectForm.get('fileBytes')?.value || ''
+    };
 
-  //     //const formData = new FormData();
-  //     //formData.append('fotoProjeto', fotoProjeto);
+    this.serviceForm.updateProject(project).subscribe(
+      () => {
+        console.log('Projeto atualizado com sucesso!');
+        location.reload();
+      },
+      error => console.error('Erro ao atualizar projeto:', error)
+    );
+  }
 
-  //     this.serviceForm.postPhoto(this.postProjectForm.value).subscribe(res => console.log('Upload ok.'))
-  //   }
-  // }
-
+}
 
   //evento para criar uma nova linha da tabela ao clicar na tecla ENTER
 
@@ -143,4 +185,4 @@ export class ProjectFormComponent implements OnInit {
 
   //     }
 
-}
+

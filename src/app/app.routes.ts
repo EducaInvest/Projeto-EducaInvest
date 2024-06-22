@@ -6,12 +6,11 @@ import { CardComponent } from "../shared/components/card/card.component";
 import { ProjectFormComponent } from "../shared/components/project-form/project-form.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
 
-
-
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
     { path: 'profile', component: UserProfileComponent },
     { path: 'modal', component: ProjectFormComponent },
     { path: 'card', component: CardComponent },
+    
 ];
