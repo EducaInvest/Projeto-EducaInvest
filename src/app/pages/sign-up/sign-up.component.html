@@ -1,12 +1,70 @@
-<nav class="navbar">
-    <div class="container-fluid">
-        <form class="d-flex" role="search">
-            <div class="container">
-                <input class="form-control me-2" type="search" placeholder="Search here..." aria-label="Search">
-                <button class="btn-search" type="submit"><img src="../../../assets/img/icon/search-icon.svg"></button>
-            </div>
-            <img class="notification-icon" src="../../../assets/img/icon/notification-icon.svg" alt="notification icon">
-        </form>
-        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#ProjectFormModal">Adicionar Projeto</button>
+<nav class="navbar navbar-expand-lg">
+    <div class="container ">
+        <img class="me-5" src="../../../assets/img/Group 224.png" alt="logo EducaInvest">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Como funciona</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="btn btn-outline button-login me-5">Login <svg xmlns="http://www.w3.org/2000/svg"
+                width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                <path fill-rule="evenodd"
+                    d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+            </svg></button>
     </div>
 </nav>
+<section>
+    <div class="login-background">
+        <div class="col col-6 texts">
+            <p class="title">Investimento inteligente, impacto duradouro.</p>
+            <p class="sub-title">Escolha investir no futuro!</p>
+        </div>
+        <div class="form col col-6">
+            <h2 class="text-center">Faça seu cadastro</h2>
+            <form class="container" [formGroup]="signUpForm">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Nome">
+                </div>
+                <div class="mb-3">
+                    <label for="sobrenome" class="form-label">Sobrenome</label>
+                    <input type="text" class="form-control" id="sobrenome" formControlName="sobrenome" placeholder="Sobrenome">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" id="telefone" formControlName="telefone" placeholder="Telefone">
+                </div>
+                <div class="mb-3">
+                    <label for="passwordString" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="passwordString" formControlName="passwordString" placeholder="Senha">
+                </div>
+                <button (click)="postUser()" type="submit" class="float-sm-end button-continue me-4">Continuar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center middle-content">
+        <img class="m-3" src="../../../assets/img/logo3.png" style="width: 80px; height: 85px;">
+    </div>
+    <app-footer></app-footer>
+</section>
