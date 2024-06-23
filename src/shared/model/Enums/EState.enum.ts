@@ -29,7 +29,7 @@ export enum EstadoEnum {
 }
 
 
-export const EstadoEnumLabelMapping: Record<EstadoEnum, string> = {
+export const EstadoEnumLabelMapping: Record<EstadoEnum, any> = {
     [EstadoEnum.AC]: "AC",
     [EstadoEnum.AL]: "AL",
     [EstadoEnum.AP]: "AP",

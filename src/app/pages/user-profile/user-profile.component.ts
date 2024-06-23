@@ -103,6 +103,7 @@ export class UserProfileComponent implements OnInit {
       const updatedUser = this.updateUserForm.value as IUser;
       this.serviceUser.updateUser(updatedUser).subscribe(
         (data: IUser) => {
+          updatedUser.uf = data.uf
           console.log('Usuário atualizado com sucesso:', data);
           (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
             location.reload();

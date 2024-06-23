@@ -49,7 +49,6 @@
             <option value="2">Em andamento</option>
             <option value="3">Concluída</option>
           </select>
-
         </th>
         <td class="col-3">Descrição da Atividade</td>
         <td class="col-2">00/00/0000</td>
@@ -60,7 +59,7 @@
 </div> -->
 
 <div class="schedule-tasks" style="width: 554px;">
-  <form [formGroup]="postScheduleForm" style="width: 554px;">
+  <div [formGroup]="postScheduleForm" style="width: 554px;">
     <div class="row">
       <div class="col">
         <label>Status</label>
@@ -98,4 +97,5 @@
       </div>
 
     </div>
-  </form>
+  </div>
+</div>
