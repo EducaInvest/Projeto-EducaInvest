@@ -1,0 +1,145 @@
+@import "../../../styles.scss";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    overflow-x: hidden;
+}
+.navbar {
+    background-color: $color_fundodark;
+}
+li a{
+    color: $color_textos;
+}
+li a:hover{
+    color: $color_amareloprincipal;
+}
+
+.button-register {
+    background: #D8910D;
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #BB7E0B
+}
+
+.login-background {
+    background-image: url(../../../assets/img/Mask\ group\ \(1\).png);
+    background-size: cover;
+    height: 42em;
+}
+
+.form {
+    position: absolute;
+    width: 340px;
+    height: 268px;
+    left: 1030px;
+    top: 133px;
+    border-radius: 15px;
+    background-color: $color_fundodark;
+    color: $color_textos;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.texts {
+    position: absolute;
+    width: 500px;
+    height: 100px;
+    left: 120px;
+    top: 372px;
+    overflow: hidden;
+
+    .title {
+        font-family: "Nunito Sans", sans-serif;
+        font-weight: 600;
+        font-size: 33px;
+        line-height: 35px;
+        overflow: hidden;
+    }
+
+    .sub-title {}
+
+    color: $color_fundodark;
+
+
+}
+
+.middle-content-one{
+    background-color: $color_fundodark;
+
+    .card-content{
+        padding: 0;
+        width: 374px;
+        height: 283px;
+        margin: 93px;
+        border-radius: 17px;
+        background-color: $color_variacaoamarelo;
+
+        .title-card{
+            border-radius: 17px;
+            height: 90px;
+            background-color: $color_amareloprincipal;
+            
+        }
+    }   
+}
+
+.middle-content-two{
+    .content-two-texts{
+        background-color: $color_azulprincipal;
+        width: 715px;
+        color: $color_textos;
+        h1{
+            font-weight: 500;
+            width: 260px;
+            float: right;
+        }
+    }
+
+}
+.middle-content-three{
+    .content-three-texts{
+        background-color: $color_amareloprincipal;
+        width: 715px;
+        color: $color_fundodark2;
+        h1{
+            font-weight: 500;
+            width: 260px;
+            float: left;
+        }
+    }
+}
+
+form {
+    input {
+        background-color: $color_fundodark;
+        color: $color_textos;
+        border-radius: 2px;
+        border: none;
+        border-bottom: 1px solid $color_fundodark2;
+        width: 280px;
+    }
+
+    input::placeholder {
+        color: #ffffff5a;
+        font-size: 12px;
+    }
+
+    ;
+
+    input::label {
+        font-size: 15px;
+    }
+
+    button {
+        height: 45px;
+        width: 225px;
+        font-size: 12px;
+        background: $color_amareloprincipal;
+        border-radius: 30px;
+
+        svg{
+            margin-left: 10px;
+        }
+    }
+}

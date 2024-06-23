@@ -13,10 +13,12 @@ import { FooterComponent } from '../shared/components/footer/footer.component';
 //import { FormService } from '../shared/services/form/form.service';
 
 
-const components = [
-  LoginComponent,
-  SignUpComponent
-];
+// const components = [
+//   LoginComponent,
+//   SignUpComponent,
+// ];
+
+
 
 
 @Component({
@@ -34,10 +36,10 @@ const components = [
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     imports: [
-        ...components,
-        SignUpComponent,
+        // ...components,
+        // SignUpComponent,
         RouterOutlet,
-        FooterComponent
+        // FooterComponent,
     ]
 })
 

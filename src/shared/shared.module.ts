@@ -47,7 +47,7 @@ const services = [
         MatButtonModule, MatMenuModule, MatIconModule
 
     ], //modulos
-    exports: [...components],
+    exports: [...components, SharedModule],
     declarations: [ ...components, NgModule], //componentes
     providers: [
         ...services,

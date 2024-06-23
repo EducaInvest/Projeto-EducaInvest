@@ -21,27 +21,29 @@
 .form {
     position: absolute;
     width: 340px;
-    height: 470px;
+    height: 480px;
     left: 1030px;
     top: 133px;
     border-radius: 15px;
     background-color: $color_fundodark;
     color: $color_textos;
+    padding: 15px
 }
 
 .texts {
     position: absolute;
-    width: 531px;
-    height: 93.76px;
-    left: 185px;
+    width: 500px;
+    height: 100px;
+    left: 120px;
     top: 372px;
+    overflow: hidden;
 
     .title {
-        font-family: 'Nunito Sans';
+        font-family: "Nunito Sans", sans-serif;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 33px;
-        line-height: 50px;
+        line-height: 35px;
     }
 
     .sub-title {}
@@ -53,10 +55,6 @@
 
 .middle-content {
     background-color: $color_amareloprincipal;
-}
-
-.form{
-    
 }
 
 form {

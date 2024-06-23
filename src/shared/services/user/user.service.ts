@@ -1,12 +1,17 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, pipe, tap, throwError } from 'rxjs';
+import { Observable, ReplaySubject, catchError, map, pipe, take, tap, throwError } from 'rxjs';
 import { IUser } from '../../model/IUser.models';
+import { Router } from '@angular/router';
+import { ILoginUser } from '../../model/IUserLogin.models';
+
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
+  private currentUserSource = new ReplaySubject<IUser>(1);
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient, private route:Router) { }
 
     apiUrl = 'http://educainvest.somee.com/Usuarios';
     userUrl = 'http://educainvest.somee.com/Usuarios/AlterarCredenciais';
@@ -20,6 +25,7 @@ export class UserService {
       Authorization: 'my-auth-token'
     })
   };
+
 
   getUser(id: number): Observable<IUser> {
     return this.http.get<IUser>(`${this.apiUrl}/${id}`).pipe(
@@ -53,6 +59,29 @@ export class UserService {
     const  usuario  = user;
     return this.http.post<IUser>('http://educainvest.somee.com/Usuarios/Registrar', usuario, this.httpOptions)
     .pipe(tap(console.log));
+    
+  }
+
+  veriferUser(model: any): Observable<IUser>{
+    return this.http.post<IUser>(`${this.apiUrl}/Verificar`, model).pipe(
+      tap(console.log),
+      // take(1),
+      // map((response: IUser) => {
+      //   const user = response;
+      //   if (user) {
+      //     this.setCurrentUser(user)
+      //   }
+      // })
+    )
+  }
+
+  public setCurrentUser(user: IUser): any {
+    localStorage.setItem('user', JSON.stringify(user));
+    this.currentUserSource.next(user);
+  }
+
+  acessHome(){
+    this.route.navigateByUrl('index')
   }
 
 

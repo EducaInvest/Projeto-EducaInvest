@@ -6,27 +6,29 @@ import { MenuHorizontalComponent } from '../../shared/components/template/menu-h
 import { SidenavComponent } from '../../shared/components/template/sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { AppComponent } from '../app.component';
+import { RouterOutlet } from '@angular/router';
 
 
 
 const components = [
-    HomeComponent,
+    // HomeComponent,
     UserProfileComponent,
     SidenavComponent,
-    CardComponent,
+    // CardComponent,
     ButtomAddProjectComponent,
     MenuHorizontalComponent,
     // MyProjectsSectionComponent,
     ProjectFormComponent,
-    UserProfileComponent,
-    AppComponent
   ];
 
 @Component({
     selector: 'app-index',
     templateUrl: 'index.component.html',
-    imports:[...components]
+    imports: [
+        ...components,
+        RouterOutlet
+    ],
+    standalone: true
 })
 
 export class IndexComponent implements OnInit {
