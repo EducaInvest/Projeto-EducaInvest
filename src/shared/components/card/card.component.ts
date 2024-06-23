@@ -32,7 +32,7 @@ export class CardComponent implements OnInit {
 
   projectEdit!: IProject;
 
-  userId = 4;
+  userId = 28;
 
   user!: IUser;
 

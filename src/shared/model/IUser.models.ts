@@ -1,5 +1,7 @@
 import { EProfile } from "./Enums/EProfile.enum";
-import { EState } from "./Enums/EState.enum";
+import { EstadoEnum } from "./Enums/EState.enum";
+
+
 
 export interface IUser{
     id?:number;
@@ -11,7 +13,7 @@ export interface IUser{
     telefone:string;
     // link:string;
     cidade:string;
-    uf:EState;
+    uf:EstadoEnum;
     dataAcesso:Date;
     passwordString:string;
     linkSocial: string;

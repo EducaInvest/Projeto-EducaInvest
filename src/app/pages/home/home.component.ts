@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../../../shared/components/card/card.component';
 import { ButtomAddProjectComponent } from '../../../shared/components/buttom-add-project/buttom-add-project.component';
-import { ScheduleComponent } from '../../../shared/components/schedule/schedule.component';
+// import { ScheduleComponent } from '../../../shared/components/schedule/schedule.component';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { ScheduleComponent } from '../../../shared/components/schedule/schedule.
   imports: [
     CardComponent,
     ButtomAddProjectComponent,
-    ScheduleComponent
+    // ScheduleComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

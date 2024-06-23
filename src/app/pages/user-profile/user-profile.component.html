@@ -1,7 +1,7 @@
 <div class="content-page">
   <div class="user-profile row">
     <div class="col">
-      <div class="row d-header" >
+      <div class="row d-header">
         <!-- <div class="btn-edit col">
           <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#UserProfileFormModal">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -169,16 +169,15 @@
 
                 <div class="mb-3 col-6">
                   <label for="uf" class="form-label">Estado</label>
-                  <input type="text" class="form-control" id="uf" formControlName="uf" value="{{user.uf}}">
-                  <!-- <select id="userState" class="form-select">
-                        <option selected>Esacolher estado</option>
-                        <option>Estado 1</option>
-                        <option>Estado 2</option>
-                        <option>Estado 3</option>
-                        <option>Estado 4</option>
-                      </select> -->
+                  <select class="form-select" aria-label="Default select example" formControlName="uf">
+                    <option *ngFor="let estadoEnum of getEStates()" [value]="EstadoEnum">
+                      {{ EstadoEnumLabelMapping[estadoEnum] }}
+                    </option>
+                  </select>
+                  
+                  
                 </div>
-
+ 
                 <button type="button" mat-button (click)="toggleChangePasswordForm()">Alterar Senha</button>
                 <div class="mb-3 mt-2 col" *ngIf="showChangePasswordForm">
                   <div class="mb-3 mt-2 col position-relative">

@@ -37,51 +37,7 @@
                   <section class="project-group mb-3">
                     <h2>Cronograma de Atividades</h2>
 
-                    <div class="mat-elevation-z8">
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th scope="col">Status</th>
-                            <th scope="col">Descrição da Atividade</th>
-                            <th scope="col">Data de Inicio</th>
-                            <th scope="col">Data de Termino</th>
-                            <th scope="col">Evolução</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">
-                              <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected></option>
-                                <option value="1">Pendente</option>
-                                <option value="2">Em andamento</option>
-                                <option value="3">Concluída</option>
-                              </select>
-                            </th>
-                            <td><input type="text" id="dsAtividade"
-                                placeholder="Adicione uma descrição para sua atividade">
-                            </td>
-                            <td><input type="date" id="dtInicio"></td>
-                            <td><input type="date" id="dtTermino"></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">
-                              <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected></option>
-                                <option value="1">Pendente</option>
-                                <option value="2">Em andamento</option>
-                                <option value="3">Concluída</option>
-                              </select>
-                            </th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <app-schedule></app-schedule>
                   </section>
 
                   <div class="modal-footer" style="border: none;">
@@ -120,7 +76,7 @@
 
                   <section>
                     <h2>Atividade</h2>
-                    
+
                     <div class="card mb-2">
                       <div class="card-body m-0 p-0"
                         style="display: flex; height: 33px; border: none; background-color: #C4C3D0;">

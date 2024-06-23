@@ -8,20 +8,13 @@ import { IUser } from '../../model/IUser.models';
 import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { scheduled } from 'rxjs';
 import { ScheduleComponent } from '../schedule/schedule.component';
-
-export interface Element {
-  position: number;
-  name: string;
-  weight: number;
-  symbol: string;
-}
 
 @Component({
   selector: 'app-project-form',
   standalone: true,
-  imports: [ReactiveFormsModule,
+  imports: [
+    ReactiveFormsModule,
     FormsModule,
     CommonModule,
     MatPaginatorModule,
@@ -72,15 +65,11 @@ export class ProjectFormComponent implements OnInit {
     const project = this.postProjectForm.value;
     console.log("CustoProjeto antes da conversão:", project.custoProjeto);
 
-    // Verifica se custoProjeto é um número válido antes de converter
     if (typeof project.custoProjeto === 'number' && !isNaN(project.custoProjeto)) {
         project.custoProjeto = parseFloat(project.custoProjeto.toFixed(2));
     } else {
-        console.error("CustoProjeto não é um número válido:", project.custoProjeto);
-        project.custoProjeto = 0.00; // Valor padrão caso inválido
+        project.custoProjeto = 0.00;
     }
-
-    console.log("CustoProjeto após a conversão:", project.custoProjeto);
 
     this.serviceForm.postForm(project).subscribe(res => {
         console.log(JSON.stringify(res));
@@ -92,7 +81,7 @@ export class ProjectFormComponent implements OnInit {
   // location.reload();      //console.log(this.form)
 
   getUser(): void {
-    const id = 4;
+    const id = 28;
     this.serviceUser.getUser(id).subscribe(
       data => {
         if (data.id !== undefined) {

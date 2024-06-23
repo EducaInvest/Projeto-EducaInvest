@@ -1,65 +1,84 @@
 @import "../../../../../projeto-educainvest/src/styles.scss";
 
-*{
+* {
     color: $color_textos;
 }
 
-.cronograma{
-    width: 100%;
-    height: 40vh;
-    padding: 23px;
-    display: flex;
-    flex-direction: column;
-    color: white;
-    background-color: $color_dark2;
-    border-radius: 10px;
-    padding: 25px;
-    // border: solid 1px white;
 
-    h1{
-        font-size: 25px;
+
+.schedule-tasks {
+    background-color: $color_compfundo2;
+    border-radius: 7px;
+    padding: 10px;
+
+
+    button {
+        background-color: none;
+    }
+
+    table {
+
+        th {
+            border-radius: 7px 0 0 7px;
+            border-right: solid 1px $color_textos;
+            background-color: $color_compfundo;
+            height: 20px;
+        }
+
+        td{
+            border-left: solid 1px $color_textos;  
+            background-color: $color_compfundo;
+            height: 20px;
+        }
+
+        select{
+            height: 20px;
+        }
     }
 }
 
-.first-content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.btn-add {
+    // padding: 0;
+    // width: max-content;
 
-.title{
-    display: flex;
-    gap: 15px;
+    // .btn {
+    //     display: flex;
+    //     justify-content: center;
+    //     width: min-content;
+    //     padding: 5px;
+    // }
 
-    img{
-        height: 49px;
+    .btn:hover {
+        background-color: #aaaaaa10;
+        border-radius: 50%;
     }
 }
 
-.title, .btn_sm.a{
-    height: 49px;
-    align-items: center;
+.schedule-tasks input {
+    height: 25px;
+    width: 155px;
+    background-color: $color_fundodark2;
+    color: $color_textos;
+    border: none;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.233);
+    // border-radius: 3px;
+    // padding: 12px;
+    font-size: 14px;
 }
 
-.btn_sm:hover{
-    color: $color_amarelosecundario;
-    cursor: pointer;
+.schedule-tasks input:hover {
+    border-bottom: solid 1px $color_textos;
+    transition: 0.7s;
 }
 
-.cards{
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
-}
+.schedule-tasks {
+    ::-webkit-input-placeholder {
+        color: $color_textos;
+        font-size: 15px;
+        // font-weight: 300;
+        // text-align: justify;
+        // opacity: 55%;
+        // font-size: 14px;
+    }
 
-.section-content div{
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.section-content img{
-    width: 90px;
-    height: 90px;
 }

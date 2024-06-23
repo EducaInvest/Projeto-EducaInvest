@@ -15,7 +15,7 @@ import { CardComponent } from '../shared/components/card/card.component';
 import { ProjectFormComponent } from '../shared/components/project-form/project-form.component';
 import { ButtomAddProjectComponent } from '../shared/components/buttom-add-project/buttom-add-project.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { ScheduleComponent } from '../shared/components/schedule/schedule.component';
+// import { ScheduleComponent } from '../shared/components/schedule/schedule.component';
 
 const components = [
   HomeComponent,
@@ -26,7 +26,7 @@ const components = [
   MenuHorizontalComponent,
   ProjectFormComponent,
   UserProfileComponent, 
-  ScheduleComponent
+  // ScheduleComponent
   
 ];
 

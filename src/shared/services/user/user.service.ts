@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, pipe, tap, throwError } from 'rxjs';
 import { IUser } from '../../model/IUser.models';
+import { EstadoEnum } from '../../model/Enums/EState.enum';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -33,6 +34,7 @@ export class UserService {
   }
 
   updateUser(user: IUser): Observable<IUser> {
+
     return this.http.put<IUser>(`${this.userUrl}`, user, this.httpOptions).pipe(
       catchError(this.handleError),
       tap(console.log)
