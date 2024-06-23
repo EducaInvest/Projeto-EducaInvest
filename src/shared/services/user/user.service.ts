@@ -91,7 +91,7 @@ export class UserService {
   // }
 
   acessHome(){
-    this.route.navigateByUrl('index')
+    this.route.navigateByUrl('/index/index/home')
   }
 
 

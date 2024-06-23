@@ -33,9 +33,9 @@ export class SignUpComponent implements OnInit {
     }
 
     postUser() {    
-        this.userService.postUser(this.signUpForm.value).subscribe(data => {
-            console.log('dados', data);
-        })
+        // this.userService.postUser(this.signUpForm.value).subscribe(data => {
+        //     console.log('dados', data);
+        // })
         this.userService.acessHome();
     }
 

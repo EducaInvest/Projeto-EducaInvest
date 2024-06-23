@@ -9,7 +9,7 @@
 
         <ul class="nav-list"> 
             @for(item of nav_items ; track item){
-            <a [routerLink]="['/', item.page]">
+            <a [routerLink]="['index/', item.page]">
                 <li class="nav-list-item">
                     <img [src]="'../../assets/img/icon/' + item.icon">
                     <span>{{item.label}}</span>

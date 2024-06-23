@@ -15,16 +15,13 @@ export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: "full" },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignUpComponent },
-
+   
     {
-        path: 'index', component: IndexComponent,
-    },
-    {
-        path: 'home', component: HomeComponent, children: [
-           
+        path: 'index', component: IndexComponent, children:[
+            { path: 'index/home', component: HomeComponent},
+            { path: 'index/profile', component: UserProfileComponent},
         ]
     },
-    { path: 'profile', component: UserProfileComponent },
-    { path: 'modal', component: ProjectFormComponent },
-    { path: 'card', component: CardComponent },
+    // { path: 'modal', component: ProjectFormComponent },
+    // { path: 'card', component: CardComponent },
 ];

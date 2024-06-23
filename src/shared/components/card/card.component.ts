@@ -19,7 +19,7 @@ export class CardComponent implements OnInit {
 
   card!: IProject[];
 
-  userId = 2
+  userId = 28
 
   constructor(
     private formbuilder: FormBuilder,

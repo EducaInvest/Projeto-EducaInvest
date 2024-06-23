@@ -11,10 +11,10 @@ import { RouterOutlet } from '@angular/router';
 
 
 const components = [
-    // HomeComponent,
+    HomeComponent,
     UserProfileComponent,
     SidenavComponent,
-    // CardComponent,
+    CardComponent,
     ButtomAddProjectComponent,
     MenuHorizontalComponent,
     // MyProjectsSectionComponent,
@@ -24,6 +24,7 @@ const components = [
 @Component({
     selector: 'app-index',
     templateUrl: 'index.component.html',
+    styleUrl: './index.component.scss',
     imports: [
         ...components,
         RouterOutlet
