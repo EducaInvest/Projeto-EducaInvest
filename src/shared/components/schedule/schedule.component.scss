@@ -80,5 +80,10 @@
         // opacity: 55%;
         // font-size: 14px;
     }
+}
 
+select{
+    padding: 0;
+    background-color: $color_fundodark2;
+    color: $color_textos;
 }
