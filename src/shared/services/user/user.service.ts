@@ -8,8 +8,6 @@ import { ILoginUser } from '../../model/IUserLogin.models';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-  // private currentUserSource = new ReplaySubject<IUser>(1);
-
 
   constructor(private http: HttpClient, private route:Router) { }
 
@@ -63,38 +61,17 @@ export class UserService {
     
   }
 
-  // veriferUser(model: ILoginUser): Observable<ILoginUser>{
-  //   return this.http.post<ILoginUser>('/Usuarios/Verificar', model).pipe(
-  //     tap(console.log),
-  //     // take(1),
-  //     // map((response: IUser) => {
-  //     //   const user = response;
-  //     //   if (user) {
-  //     //     this.setCurrentUser(user)
-  //     //   }
-  //     // })
-  //   )
-  // }
-
   verificarUsuario(login: ILoginUser): Observable<ILoginUser> {
-    // const url = `${this.apiUrl}/Verificar`;
-    // const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    return this.http.post<ILoginUser>('/Usuarios/Verificar', login, this.httpOptions)
+    return this.http.post<ILoginUser>(`${this.apiUrl}/Verificar`, login, this.httpOptions)
       .pipe(
        tap(console.log)
       );
   }
 
-  // public setCurrentUser(user: IUser): any {
-  //   localStorage.setItem('user', JSON.stringify(user));
-  //   this.currentUserSource.next(user);
-  // }
-
   acessHome(){
     this.route.navigateByUrl('/index/index/home')
   }
-
 
 
   // updateUserPhoto(userId: number, photo: File): Observable<any> {

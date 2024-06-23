@@ -17,23 +17,21 @@ import { error } from 'console';
     styleUrl: './login.component.scss',
     imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, CommonModule, FooterComponent],
     standalone: true,
-
 })
 
 export class LoginComponent implements OnInit {
-    // model = {} as IUser;
     model = {} as ILoginUser;
 
     loginForm!: FormGroup;
 
-    
+
 
     constructor(
         private userService: UserService,
         private readonly fb: FormBuilder,
         private router: Router,
     ) { }
-    
+
     get email() {
         return this.loginForm.controls['email'];
     }
@@ -59,10 +57,10 @@ export class LoginComponent implements OnInit {
                 //   }
 
                 // sessionStorage.setItem('email', email as string);
-              
+
             },
             error => {
-                if (error.status !== 200){
+                if (error.status !== 200) {
                     console.log('usuário ou senha inválido');
                     console.error(error);
                 }
@@ -70,29 +68,8 @@ export class LoginComponent implements OnInit {
             }
 
         )
-        // console.log(`usuario com email ${this.model.email} possui cadastro`)
+        this.userService.acessHome()
     }
-
-    // veriferUser() {
-    //     this.userService.veriferUser(this.loginForm.value).subscribe(
-    //         res => {
-    //             console.log(`usuario com email ${this.model.email} possui cadastro`)
-    //             this.router.navigateByUrl('/index');
-    //         },
-    //         error => {
-    //             if (error.status == 401)
-    //                 console.log('usuário ou senha inválido');
-    //             else console.error(error);
-    //         }
-    //     )
-    // }
-
-    // initForm() {
-    //     this.loginForm = this.fb.group({
-    //         email: ['', Validators.required],
-    //         passwordString: ['', Validators.required],
-    //     })
-    // }
 
     goRegister() {
         this.router.navigateByUrl('/signup');
