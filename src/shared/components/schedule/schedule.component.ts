@@ -22,9 +22,7 @@ export class ScheduleComponent implements OnInit {
 
     schedule: ISchedule[] = [];
 
-    task!: ITask;
-
-    tasks: any[] = [];
+    tasks: ITask[] = [];
 
     // schedulep: ISchedule = { id: 0, projetoId: 0 };
 
@@ -52,9 +50,13 @@ export class ScheduleComponent implements OnInit {
     }
 
     addTask() {
-        console.log(this.postScheduleForm.value)
-        this.postScheduleForm.reset();
-        this.tasks.push(this.postScheduleForm.value);
+        if(!this.postScheduleForm.valid){
+            alert("Preencha os campos antes de adicionar uma nova task!");
+        }else{
+            this.tasks.push(this.postScheduleForm.value);
+            console.log(this.postScheduleForm.value)
+            this.postScheduleForm.reset();
+        }
     }
 
     // scheduleForm
