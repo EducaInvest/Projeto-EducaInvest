@@ -8,6 +8,6 @@ export interface ITask{
     dataInicioAtividade:Date;
     dataTerminoAtividade: Date;
     // percentual?: number;
-    // cronogramaId: number;
+    cronogramaId: number;
     // cronograma: ISchedule;
 }

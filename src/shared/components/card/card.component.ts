@@ -111,6 +111,9 @@ export class CardComponent implements OnInit {
   }
 
   deleteProject(id: number): void {
+        //abrir o modal
+    //if(se o valor do modal for true){
+    //  o método delete será acionado}
     this.serviceForm.deleteProject(id).subscribe(
       () => {
         console.log(`Projeto com ID=${id} foi deletado.`);

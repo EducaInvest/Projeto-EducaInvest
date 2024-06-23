@@ -21,12 +21,16 @@ export class ScheduleService {
         })
     };
 
+    postSchedule(schedule: ISchedule): Observable<ISchedule> {
+        return this.http.post<ISchedule>(this.apiUrl, schedule);
+    }
+
     getAllSchedule(): Observable<ISchedule[]> {
         return this.http.get<ISchedule[]>(this.apiUrl);
     }
 
-    postSchedule(schedule: ISchedule): Observable<ISchedule> {
-        return this.http.post<ISchedule>(this.apiUrl, schedule);
+    getScheduleById(id:number): Observable<ISchedule> {
+        return this.http.get<ISchedule>(`${this.apiUrl}/${id}`);
     }
 
     deleteSchedule(id: number): Observable<void> {
