@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
+import { ButtomAddProjectComponent } from '../../../shared/components/buttom-add-project/buttom-add-project.component';
+import { CardComponent } from '../../../shared/components/card/card.component';
+import { ScheduleSectionComponent } from '../../../shared/components/schedule-section/schedule-section.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [],
+  imports: [
+    CardComponent,
+    ButtomAddProjectComponent,
+    ScheduleSectionComponent,
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })

@@ -22,7 +22,8 @@ export class UserService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: 'my-auth-token'
+      Authorization: 'my-auth-token',
+      
     })
   };
 
@@ -62,26 +63,26 @@ export class UserService {
     
   }
 
-  veriferUser(model: ILoginUser): Observable<ILoginUser>{
-    return this.http.post<ILoginUser>(`${this.apiUrl}/Verificar`, model).pipe(
-      tap(console.log),
-      // take(1),
-      // map((response: IUser) => {
-      //   const user = response;
-      //   if (user) {
-      //     this.setCurrentUser(user)
-      //   }
-      // })
-    )
-  }
+  // veriferUser(model: ILoginUser): Observable<ILoginUser>{
+  //   return this.http.post<ILoginUser>('/Usuarios/Verificar', model).pipe(
+  //     tap(console.log),
+  //     // take(1),
+  //     // map((response: IUser) => {
+  //     //   const user = response;
+  //     //   if (user) {
+  //     //     this.setCurrentUser(user)
+  //     //   }
+  //     // })
+  //   )
+  // }
 
-  verificarUsuario(login: any): Observable<any> {
-    const url = `${this.apiUrl}/Verificar`;
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+  verificarUsuario(login: ILoginUser): Observable<ILoginUser> {
+    // const url = `${this.apiUrl}/Verificar`;
+    // const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    return this.http.post<any>(url, login, { headers })
+    return this.http.post<ILoginUser>('/Usuarios/Verificar', login, this.httpOptions)
       .pipe(
-        catchError(this.handleError)
+       tap(console.log)
       );
   }
 

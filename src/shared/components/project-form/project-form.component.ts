@@ -56,9 +56,9 @@ export class ProjectFormComponent implements OnInit {
 
   postForm() {
     const formData: FormData = new FormData();
-    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { }),
-      (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
-      location.reload(); 
+    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { })
+      // (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
+      // location.reload(); 
 
     if (this.selectedFile) {
       formData.append('fotoProjeto', this.selectedFile, this.selectedFile.name);

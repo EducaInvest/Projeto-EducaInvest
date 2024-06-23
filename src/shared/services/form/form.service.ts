@@ -12,7 +12,7 @@ export class FormService {
   // private apiUrl = 'http://localhost:5115/api/Projeto';
 
     httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({'Content-Type': 'application/json', })
     };
   constructor(private http: HttpClient) { }
 
@@ -41,7 +41,7 @@ export class FormService {
     };
 
     console.log("Enviando projeto:", projectToSend);
-    return this.http.post<IProject>(this.apiUrl, projectToSend, this.httpOptions)
+    return this.http.post<IProject>('/api/Projeto/addProjeto', projectToSend, this.httpOptions)
       .pipe(tap(console.log));
   }
 

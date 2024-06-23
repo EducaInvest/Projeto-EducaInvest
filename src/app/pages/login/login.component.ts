@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { IUser } from '../../../shared/model/IUser.models';
 import { HttpStatusCode } from '@angular/common/http';
+import { error } from 'console';
 @Component({
     selector: 'app-login',
     templateUrl: 'login.component.html',
@@ -49,20 +50,22 @@ export class LoginComponent implements OnInit {
         const { email, passwordString } = this.loginForm.value;
         this.userService.verificarUsuario(this.loginForm.value).subscribe(
             res => {
-                if (res) {
-                    console.log('Login bem-sucedido');
-                    this.router.navigateByUrl('/index');
-                  } else {
-                     console.log('Usuário ou senha incorretos');
-                  }
-                console.log(`usuario com email ${this.model.email} possui cadastro`)
+                // if (res) {
+                //     console.log('Login bem-sucedido');
+                //     this.router.navigateByUrl('/index');
+                //   } else {
+                //      console.log('Usuário ou senha incorretos');
+                //      console.log(JSON.stringify(this.model))
+                //   }
 
-                sessionStorage.setItem('email', email as string);
+                // sessionStorage.setItem('email', email as string);
               
             },
             error => {
-                if (error.status !== 200)
+                if (error.status !== 200){
                     console.log('usuário ou senha inválido');
+                    console.error(error);
+                }
                 else console.error(error);
             }
 
