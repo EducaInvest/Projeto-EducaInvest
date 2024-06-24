@@ -21,7 +21,6 @@ import { IndexComponent } from './pages/index.component';
 
 
 
-
 @Component({
     selector: 'app-root',
     standalone: true,

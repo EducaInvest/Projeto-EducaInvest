@@ -15,7 +15,6 @@
   height: 623px;
   margin: 0 auto;
   padding: 20px;
-  //border: 1px solid #ddd;
   border-radius: 8px;
   background-color: $color_dark2;
   overflow-y: scroll;
@@ -23,12 +22,24 @@
 
   //estilização scrollbar
   scrollbar-width: thin;
-  scrollbar-color:  $color_compfundo2 transparent;
+  scrollbar-color: $color_compfundo2 transparent;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.modal-dialog {
+  margin: auto;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .modal .modal-content {
-  height: 100%;
-  margin-bottom: 16px;
+  margin-top: 20px;
+  height: 675px;
+  overflow: hidden;
 
   -webkit-animation-name: modal-animation;
   -webkit-animation-duration: 0.4s;
@@ -42,12 +53,6 @@
   }
 }
 
-.modal-dialog {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-}
-
 .modal-content {
   background-color: $color_fundodark;
   color: $color_textos;
@@ -58,6 +63,11 @@
 
 .modal-body{
   height: 100%;
+}
+
+.modal-body {
+  height: 100%;
+  overflow-y: scroll;
 }
 
 
@@ -143,8 +153,6 @@ form input {
   color: $color_textos;
   background-color: $color_fundodark2;
   border: solid 1.5px $color_desabilitado;
-
-
 }
 
 input::placeholder {
@@ -176,36 +184,74 @@ input::placeholder {
 }
 
 .d-header {
-  border: solid 1px white;
+  border: solid 1px $color_desabilitado;
   border-radius: 5px;
   padding: 20px;
   position: relative;
 }
 
 .d-header h1 {
+  font-size: 30px;
   height: 35px;
 }
 
-.btn-edit {
-  position: absolute;
-  bottom: 55px;
-  right: 20px;
+.btn-edit{
   display: flex;
-  justify-content: flex-end;
+  justify-content: end;
+
+  .btn:hover{
+    background-color: #aaaaaa18;
+    border-radius: 50%;
+  }
+}
+
+.info {
+  display: flex;
+  gap: 12px;
+
+  h2 {
+    font-size: 17px;
+    font-weight: 300;
+  }
 }
 
 .information {
-  border: solid 1px white;
+  border: solid 1px $color_desabilitado;
   border-radius: 5px;
   padding: 20px;
-}
 
-.information h3 {
-  height: 26px;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-weight: 300;
+    height: 26px;
+    font-size: 19px;
+  }
 }
 
 .address {
-  border: solid 1px white;
+  border: solid 1px $color_desabilitado;
   border-radius: 5px;
   padding: 20px;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-weight: 300;
+    height: 26px;
+    font-size: 19px;
+  }
+}
+
+select{
+  background-color: $color_fundodark2;
+  color: $color_textos;
+  border: solid 1.5px $color_desabilitado
 }

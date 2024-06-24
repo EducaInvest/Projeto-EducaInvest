@@ -2,23 +2,28 @@
   <div class="user-profile row">
     <div class="col">
       <div class="row d-header">
-        <div class="btn-edit col">
-          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#UserProfileFormModal">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path fill="white"
-                d="M16.698 21.996h-11.6a3.06 3.06 0 0 1-2.2-.92a3.09 3.09 0 0 1-.9-2.21V7.276a3 3 0 0 1 .91-2.19a3 3 0 0 1 1-.67a3.06 3.06 0 0 1 1.2-.24h4.44a.75.75 0 0 1 0 1.5h-4.44a2 2 0 0 0-.63.12a1.62 1.62 0 0 0-.99 1.5v11.59a1.62 1.62 0 0 0 .47 1.16a1.62 1.62 0 0 0 1.15.47h11.6c.213 0 .423-.04.62-.12a1.54 1.54 0 0 0 .52-.35a1.49 1.49 0 0 0 .35-.52a1.51 1.51 0 0 0 .13-.63v-4.44a.75.75 0 1 1 1.5 0v4.47a3.06 3.06 0 0 1-.92 2.2a3.16 3.16 0 0 1-1 .68c-.387.14-.798.205-1.21.19" />
-              <path fill="white"
-                d="M21.808 5.456a1.86 1.86 0 0 0-.46-.68l-2.15-2.15a1.86 1.86 0 0 0-.68-.46a2.1 2.1 0 0 0-2.31.46l-1.71 1.71v.05l-7.74 7.73a2.11 2.11 0 0 0-.61 1.48v2.17a2.12 2.12 0 0 0 2.11 2.11h2.17a2.07 2.07 0 0 0 1.48-.62l7.74-7.74l1.72-1.72c.202-.19.36-.422.46-.68a2 2 0 0 0 0-1.63zm-1.38 1.05a.56.56 0 0 1-.14.2l-1.22 1.22l-3-3l1.23-1.23a.64.64 0 0 1 .44-.18a.59.59 0 0 1 .23.05c.076.032.145.08.2.14l2.16 2.15a.69.69 0 0 1 .13.2a.59.59 0 0 1 0 .23a.6.6 0 0 1-.03.22" />
-            </svg>
-          </button>
+        <h1 class="pt-3">{{ user.nome + ' ' + user.sobrenome }}</h1>
+        <div class="info pt-2">
+          <h2>Primeiro acesso em:</h2>
+          <h2>24/06/2024</h2>
         </div>
-        <h1>{{ user.nome + ' ' + user.sobrenome }}</h1>
-        <h2 class="mb-0">17/06/2024</h2>
-
       </div>
 
       <div class="row mt-3 information">
-        <h2>Informações Pessoais</h2>
+        <div class="row">
+          <h1 class="col">Informações Pessoais</h1>
+
+          <div class="btn-edit col">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#UserProfileFormModal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="white"
+                  d="M16.698 21.996h-11.6a3.06 3.06 0 0 1-2.2-.92a3.09 3.09 0 0 1-.9-2.21V7.276a3 3 0 0 1 .91-2.19a3 3 0 0 1 1-.67a3.06 3.06 0 0 1 1.2-.24h4.44a.75.75 0 0 1 0 1.5h-4.44a2 2 0 0 0-.63.12a1.62 1.62 0 0 0-.99 1.5v11.59a1.62 1.62 0 0 0 .47 1.16a1.62 1.62 0 0 0 1.15.47h11.6c.213 0 .423-.04.62-.12a1.54 1.54 0 0 0 .52-.35a1.49 1.49 0 0 0 .35-.52a1.51 1.51 0 0 0 .13-.63v-4.44a.75.75 0 1 1 1.5 0v4.47a3.06 3.06 0 0 1-.92 2.2a3.16 3.16 0 0 1-1 .68c-.387.14-.798.205-1.21.19" />
+                <path fill="white"
+                  d="M21.808 5.456a1.86 1.86 0 0 0-.46-.68l-2.15-2.15a1.86 1.86 0 0 0-.68-.46a2.1 2.1 0 0 0-2.31.46l-1.71 1.71v.05l-7.74 7.73a2.11 2.11 0 0 0-.61 1.48v2.17a2.12 2.12 0 0 0 2.11 2.11h2.17a2.07 2.07 0 0 0 1.48-.62l7.74-7.74l1.72-1.72c.202-.19.36-.422.46-.68a2 2 0 0 0 0-1.63zm-1.38 1.05a.56.56 0 0 1-.14.2l-1.22 1.22l-3-3l1.23-1.23a.64.64 0 0 1 .44-.18a.59.59 0 0 1 .23.05c.076.032.145.08.2.14l2.16 2.15a.69.69 0 0 1 .13.2a.59.59 0 0 1 0 .23a.6.6 0 0 1-.03.22" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
         <div class="col">
           <div class="row">
@@ -52,7 +57,8 @@
       <div class="row">
         <div class="col-6 p-0">
           <div class="row mt-3 address">
-            <h2>Endereço</h2>
+            <h1>Endereço</h1>
+
             <div class="col">
               <div class="row">
                 <div class="col">
@@ -71,12 +77,12 @@
 
         <div class="col-6 p-0">
           <div class="row mt-3 address">
-            <h2>Demais Informações</h2>
+            <h1>Demais Informações</h1>
             <div class="col">
               <div class="row">
                 <div class="col">
                   <h2>Tipo de Perfil</h2>
-                  <h3>{{user.perfil}}</h3>
+                  <h3>Estudante</h3>
                 </div>
               </div>
             </div>
@@ -100,7 +106,12 @@
             <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
               <div>
                 <div class="user-photo">
-                  <img src="assets/img/avatar_n.png">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 24 24">
+                    <g fill="none" fill-rule="evenodd">
+                        <path d="M24 0v24H0V0zM12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z" />
+                        <path fill="#d6d6d6" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2M8.5 9.5a3.5 3.5 0 1 1 7 0a3.5 3.5 0 0 1-7 0m9.758 7.484A7.99 7.99 0 0 1 12 20a7.99 7.99 0 0 1-6.258-3.016C7.363 15.821 9.575 15 12 15s4.637.821 6.258 1.984" />
+                    </g>
+                </svg>
                   <!-- (click)="deleteProject(user.id)" -->
                   <button class="btn-edit-photo" mat-icon-button aria-label="Example icon-button with a menu">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
@@ -135,7 +146,8 @@
               <div class="row">
                 <div class="mb-3 col-8">
                   <label for="email" class="form-label">E-mail</label>
-                  <input type="text" class="form-control" id="email" formControlName="email" value="{{user.email}}">
+                  <input type="text" class="form-control" id="email" formControlName="email" value="{{user.email}}"
+                    >
                 </div>
                 <div class="mb-3 col-4">
                   <label for="telefone" class="form-label">Telefone</label>
@@ -152,23 +164,19 @@
 
                 <div class="mb-3 col-6">
                   <label for="uf" class="form-label">Estado</label>
-                  <input type="text" class="form-control" id="uf" formControlName="uf" value="{{user.uf}}">
-                  <!-- <select id="userState" class="form-select">
-                        <option selected>Esacolher estado</option>
-                        <option>Estado 1</option>
-                        <option>Estado 2</option>
-                        <option>Estado 3</option>
-                        <option>Estado 4</option>
-                      </select> -->
+                  <select class="form-select" aria-label="Default select example" formControlName="uf">
+                    <option *ngFor="let estadoEnum of getEStates()" [value]="EstadoEnum">
+                      {{ EstadoEnumLabelMapping[estadoEnum] }}
+                    </option>
+                  </select>
+                  
+                  
                 </div>
-
+ 
                 <button type="button" mat-button (click)="toggleChangePasswordForm()">Alterar Senha</button>
                 <div class="mb-3 mt-2 col" *ngIf="showChangePasswordForm">
                   <div class="mb-3 mt-2 col position-relative">
                     <h2 style="font-size: 17px;">Alterar Senha</h2>
-
-
-
                     <div>
                       <label for="passwordString">Nova Senha:</label>
                       <input id="passwordString" formControlName="passwordString" type="password">

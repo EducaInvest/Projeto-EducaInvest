@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormsModule, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+//import { ApiService } from '../../../app/pages/api/api.service';
 import { IProject } from '../../model/IProject.models';
 import { FormService } from '../../services/form/form.service';
 import { CommonModule } from '@angular/common';
@@ -55,9 +56,9 @@ export class ProjectFormComponent implements OnInit {
 
   postForm() {
     const formData: FormData = new FormData();
-    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { })
-      // (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
-      // location.reload(); 
+    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { }),
+      (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
+      location.reload(); 
 
     if (this.selectedFile) {
       formData.append('fotoProjeto', this.selectedFile, this.selectedFile.name);
