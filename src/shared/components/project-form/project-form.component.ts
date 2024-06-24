@@ -5,7 +5,6 @@ import { FormService } from '../../services/form/form.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user/user.service';
 import { IUser } from '../../model/IUser.models';
-import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ScheduleComponent } from '../schedule/schedule.component';
@@ -46,6 +45,7 @@ export class ProjectFormComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.setDataPublicacao();
+    this.initForm();
   }
 
   public initForm(usuarioId: number = this.user.id!): void {
@@ -54,7 +54,7 @@ export class ProjectFormComponent implements OnInit {
       nomeProjeto: [null, [Validators.required]],
       subtitulo: [null],
       descricaoProjeto: [null, [Validators.required]],
-      custoProjeto: [ Validators.required],
+      // custoProjeto: [ Validators.required],
       dataPublicacao: [null, [Validators.required]],
       fileBytes: [null],
       usuarioId: [usuarioId, [Validators.required]], // Inicializa o ID do usuário
@@ -63,15 +63,16 @@ export class ProjectFormComponent implements OnInit {
 
   postForm() {
     const project = this.postProjectForm.value;
-    console.log("CustoProjeto antes da conversão:", project.custoProjeto);
+    // console.log("CustoProjeto antes da conversão:", JSON.stringify(project.custoProjeto));
 
-    if (typeof project.custoProjeto === 'number' && !isNaN(project.custoProjeto)) {
-        project.custoProjeto = parseFloat(project.custoProjeto.toFixed(2));
-    } else {
-        project.custoProjeto = 0.00;
-    }
+    // if (typeof project.custoProjeto === 'number' && !isNaN(project.custoProjeto)) {
+    //     project.custoProjeto = parseFloat(project.custoProjeto.toFixed(2));
+    // } else {
+    //     project.custoProjeto = 0.00;
+    // }
 
-    this.serviceForm.postForm(project).subscribe(res => {
+    this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => {
+     
         console.log(JSON.stringify(res));
     });
 }
@@ -114,10 +115,9 @@ export class ProjectFormComponent implements OnInit {
       subtitulo: this.postProjectForm.get('subtitulo')?.value || '',
       descricaoProjeto: this.postProjectForm.get('descricaoProjeto')?.value || '',
       dataPublicacao: this.postProjectForm.get('dataPublicacao')?.value || '',
-      custoProjeto: this.postProjectForm.get('custoProjeto')?.value || '',
+      // custoProjeto: this.postProjectForm.get('custoProjeto')?.value || '',
       usuarioId: this.user.id!,
       investido: this.postProjectForm.get('investido')?.value || 0,
-      fileBytes: this.postProjectForm.get('fileBytes')?.value || '',
     };
   }
 
@@ -140,10 +140,9 @@ export class ProjectFormComponent implements OnInit {
       subtitulo: this.postProjectForm.get('subtitulo')?.value || '',
       descricaoProjeto: this.postProjectForm.get('descricaoProjeto')?.value || '',
       dataPublicacao: this.postProjectForm.get('dataPublicacao')?.value || '',
-      custoProjeto: this.postProjectForm.get('custoProjeto')?.value || '',
+      // custoProjeto: this.postProjectForm.get('custoProjeto')?.value || '',
       usuarioId: this.project.usuarioId,
       investido: this.postProjectForm.get('investido')?.value || 0,
-      fileBytes: this.postProjectForm.get('fileBytes')?.value || ''
     };
 
     this.serviceForm.updateProject(project).subscribe(
