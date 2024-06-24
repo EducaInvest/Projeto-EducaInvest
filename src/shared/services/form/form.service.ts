@@ -8,9 +8,9 @@ import { IProject } from '../../model/IProject.models';
 export class FormService {
 
 
-    apiUrl = 'http://educainvest.somee.com/api/Projeto';
+    // apiUrl = 'http://educainvest.somee.com/api/Projeto';
   // apiUrl = 'https://educainvestapi.azurewebsites.net/api/Projeto';
-  // apiUrl = 'http://localhost:5115/api/Projeto';
+  apiUrl = 'http://localhost:5251/api/Projeto';
 
     httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -83,8 +83,8 @@ postForm(project: IProject): Observable<IProject> {
   }
 
   getProjectByUser(usuarioId: number): Observable<IProject[]> {
-    // return this.http.get<IProject[]>(`http://localhost:5115/api/Projeto/GetByPerfil/${usuarioId}`)
-    return this.http.get<IProject[]>(`http://educainvest.somee.com/api/Projeto/GetByPerfil/${usuarioId}`)
+    return this.http.get<IProject[]>(`http://localhost:5251/api/Projeto/GetByPerfil/${usuarioId}`)
+    // return this.http.get<IProject[]>(`http://educainvest.somee.com/api/Projeto/GetByPerfil/${usuarioId}`)
       .pipe(
         map(projects => projects.map(this.convertToDate)),
         tap(console.log)

@@ -32,11 +32,13 @@ export class SignUpComponent implements OnInit {
         this.initForm();
     }
 
-    postUser() {    
-        // this.userService.postUser(this.signUpForm.value).subscribe(data => {
-        //     console.log('dados', data);
-        // })
-        this.userService.acessHome();
+    postUser() {
+        this.userService.postUser(this.signUpForm.value).subscribe(data => {
+            console.log('dados', data);
+        })
+        // this.userService.acessHome();
+
+
     }
 
     initForm() {
@@ -49,12 +51,12 @@ export class SignUpComponent implements OnInit {
             perfil: [2],
             cpf: ['46958745215'],
             cidade: ['Sao Paulo'],
-            uf: [8],
+            uf: ['SP'],
             linkSocial: ['a'],
         })
     }
 
-    goLogin(){
+    goLogin() {
         this.route.navigateByUrl('/login');
     }
 }

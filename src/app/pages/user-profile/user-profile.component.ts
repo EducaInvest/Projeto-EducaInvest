@@ -46,12 +46,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUser(28);
+    this.getUser(11);
     this.initForm();
     this.updateUser();
   }
-
-
 
   initForm(): void {
     this.updateUserForm = this.formbuilder.group({
@@ -69,6 +67,7 @@ export class UserProfileComponent implements OnInit {
     this.changePasswordForm = this.formbuilder.group({
       email: ['', [Validators.required, Validators.email]],
       passwordString: ['', [Validators.required, Validators.minLength(6)]]
+
     });
 
     if (this.user) {
@@ -84,8 +83,6 @@ export class UserProfileComponent implements OnInit {
     return Object.values(EstadoEnum).filter(value => typeof value === 'string') as EstadoEnum[];
   }
   
-  
-
   getUser(userId: number): void {
     this.serviceUser.getUser(userId).subscribe(
       data => {
@@ -123,6 +120,9 @@ export class UserProfileComponent implements OnInit {
     const { email, passwordString } = this.changePasswordForm.value;
     this.serviceUser.changePassWord(email, passwordString).subscribe(
       data => {
+        if(passwordString.length < 6){
+          alert("A senha deve conter no mínimo 6 caracteres")
+        }
         console.log('Senha alterada com sucesso:', data);
       },
       error => {

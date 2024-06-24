@@ -7,13 +7,17 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user/user.service';
 import { IUser } from '../../model/IUser.models';
 import { ScheduleComponent } from '../schedule/schedule.component';
+import { ScheduleService } from '../../services/schedule/schedule.service';
 
 
 
 @Component({
   selector: 'app-project-form',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, CommonModule, ScheduleComponent],
+  imports: [ReactiveFormsModule, 
+            FormsModule, 
+            CommonModule, 
+            ],
   providers: [],
   templateUrl: './project-form.component.html',
   styleUrl: './project-form.component.scss'
@@ -28,6 +32,8 @@ export class ProjectFormComponent implements OnInit {
 
   postProjectForm!: FormGroup;
 
+  postScheduleForm!: FormGroup;
+
   selectedFile: File | null = null;
 
   photoPreviewUrl: string = '../../assets/img/photo_default_form.svg'; // URL da foto padrão
@@ -35,7 +41,8 @@ export class ProjectFormComponent implements OnInit {
   constructor(
     private formbuilder: FormBuilder, 
     private serviceForm: FormService, 
-    private serviceUser: UserService
+    private serviceUser: UserService,
+    private serviceSchedule: ScheduleService
   ) { }
 
   ngOnInit(): void {
@@ -55,6 +62,12 @@ export class ProjectFormComponent implements OnInit {
     });
   }
 
+
+public scheduleForm(): void{
+  this.postScheduleForm = this.formbuilder.group({})
+
+}
+
   postForm() {
     const formData: FormData = new FormData();
     this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { }),
@@ -67,7 +80,7 @@ export class ProjectFormComponent implements OnInit {
   }
 
   getUser(): void {
-    const id = 28;
+    const id = 11;
     this.serviceUser.getUser(id).subscribe(
       data => {
         if (data.id !== undefined) {
@@ -115,16 +128,17 @@ export class ProjectFormComponent implements OnInit {
     { nome: 'Nathalli', titulo: 'Vice-Lider', funcao: 'Back-end' }
   ]
 
-  // onFileSelected(event: any){
-  //   if (event.target.files && event.target.files[0]){
-  //     const fotoProjeto = event.target.files[0];
+  showAddTaskForm: boolean = false;
 
-  //     //const formData = new FormData();
-  //     //formData.append('fotoProjeto', fotoProjeto);
+  toggleAddTaskForm(): void {
+    this.showAddTaskForm = !this.showAddTaskForm;
+  }
 
-  //     this.serviceForm.postPhoto(this.postProjectForm.value).subscribe(res => console.log('Upload ok.'))
-  //   }
-  // }
+  addSchedule(){
+    this.toggleAddTaskForm();
+
+    // this.serviceSchedule.postSchedule(this.scheduleForm.value)
+  }
 
 
   //evento para criar uma nova linha da tabela ao clicar na tecla ENTER

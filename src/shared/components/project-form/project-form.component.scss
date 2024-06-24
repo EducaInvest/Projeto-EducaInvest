@@ -216,23 +216,4 @@ section {
         }
     }
 
-    .btn-add-part {
-
-        display: flex;
-        flex-direction: row;
-        gap: 9px;
-
-        h4 {
-            font-size: 13px;
-            color: $color_desabilitado;
-            font-weight: 400;
-        }
-
-        .btn-add {
-            width: 43px;
-            height: 43px;
-            border-radius: 50px;
-            background-color: $color_desabilitado;
-        }
-    }
 }

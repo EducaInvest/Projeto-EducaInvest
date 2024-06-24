@@ -23,7 +23,7 @@ export class SidenavComponent implements OnInit{
   }
   
   getUser(): void {
-    const id = 28;
+    const id = 11;
     this.serviceUser.getUser(id).subscribe(
       data => {
         this.user = data;

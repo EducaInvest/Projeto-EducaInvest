@@ -44,108 +44,190 @@
 </div>
 
 <!-- Modal para editar informaçoes do projeto -->
+<!-- Modal -->
 <div class="a">
-    <div class="modal modal-lg fade" id="UploadProjectFormModal" tabindex="-1" aria-labelledby="ModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="container-fluid">
-                    <div class="row" style="height: fit-content;">
+  <div class="modal modal-lg fade" id="UploadProjectFormModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="container-fluid">
+          <div style="height: fit-content;">
+            <form [formGroup]="updateProjectForm">
+              <div class="row">
+                <div class="col-9 left-content">
+                  <div class="header">
+                    <div class="col" style="height: fit-content;">
+                      <div class="col p-0 inputs-header">
+                        <input type="text" class="form-control row" formControlName="nomeProjeto" style="width: 100%;"
+                          placeholder="Insira o Título" aria-label="Titulo Projeto">
 
-                        <div class="col-9 left-content">
-                            <form [formGroup]="updateProjectForm" >
-                                <div class="header">
-                                    <div class="row" style="height: fit-content;">
-                                        <div class="col-6 p-0 photo" style="height: 160px;">
-                                            <div>
-                                                <div class="AddFile">
-                                                    <label for="fileBytes">
-                                                        <img alt="Adicione um foto ao projeto">
-                                                    </label>
-                                                    <input formControlName="fileBytes" type="file" name="formFile"
-                                                        id="fileBytes">
-                                                </div>
-                                            </div>
-                                        </div>
+                        <input type="text" class="form-control row" formControlName="subtitulo" style="width: 100%;"
+                          placeholder="Insira o Subtítulo" aria-label="Subtitulo Projeto">
 
-                                        <div class="col-6 p-0 inputs-header">
-                                            <input type="text" class="form-control" formControlName="nomeProjeto"
-                                                placeholder="Insira o Título" aria-label="Titulo Projeto" >
-
-                                            <input type="text" class="form-control" formControlName="subtitulo"
-                                                placeholder="Insira o Subtítulo" aria-label="Subtitulo Projeto">
-
-                                            <div class="lb-date">
-                                                <label class="mb-2" for="dataPublicacao">Data de Publicação:</label>
-                                                <input type="text" id="dataPublicacao" formControlName="dataPublicacao"
-                                                    readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--Descrição do projeto-->
-                                <div class="form-group">
-                                    <div class="mb-3 details">
-                                        <label for="descricaoProjeto" class="form-label mb-3">Descrição</label>
-                                        <textarea class="form-control" formControlName="descricaoProjeto"
-                                            id="descricaoProjeto" rows="6"
-                                            placeholder="Este campo destina-se à inserção da descrição do projeto, fornecendo uma explicação concisa sobre objetivos e características essenciais. Uma descrição clara e informativa ajudará a comunicar de maneira eficaz os detalhes de seu projeto, facilitando sua compreensão. Seja detalhado, mas objetivo para garantir compreensão rápida e precisa."></textarea>
-                                    </div>
-                                </div>
-
-                                <section class="project-group mb-3">
-                                    <h2>Equipe de Projeto</h2>
-
-                                </section>
-
-                                <div class="modal-footer" style="border: none;">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Fechar</button>
-                                    <button data-bs-dismiss="modal" type="submit"
-                                        class="btn btn-primary" (click)="updateProject()">Editar</button>
-                                </div>
-                                <!-- [disabled]="this.postProjectForm.invalid"</div> -->
-                            </form>
+                        <div class="lb-date col">
+                          <div class="row row-12 p-0 m-0">
+                            <div class="col-6 p-0">
+                              <label class="mb-2 row" for="dataPublicacao">Data de Publicação:</label>
+                              <input class="row" type="text" id="dataPublicacao" formControlName="dataPublicacao"
+                                readonly>
+                            </div>
+                            <div class="col-6 p-0">
+                              <label class="mb-2">Status de andamento do Projeto</label>
+                              <div class="btn-group">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                  <option selected>Status Atual</option>
+                                  <option value="1">Pendente</option>
+                                  <option value="2">Em andamento</option>
+                                  <option value="3">Concluído</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-
-                        <!--Conteudo a direita-->
-                        <div class="col-3 right-content">
-                            <section class="project-progress" style="border-bottom: solid 1px white;">
-                                <h2>Andamento do Projeto</h2>
-
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="25"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-
-                                <h2>Média de duração do projeto</h2>
-
-                                <h4>-- meses</h4>
-                            </section>
-
-                            <section class="project-group">
-                                <h2>Equipe de Projeto</h2>
-
-                                <div class="participante">
-                                    <div class="photo"></div>
-                                    <h4>Nome Participante</h4>
-                                </div>
-
-                                <div class="btn-add-part">
-                                    <div class="btn-add"></div>
-                                    <h4>Adicionar Partici...</h4>
-                                </div>
-                            </section>
-
-                            <section>
-                                <h2>Atualizações</h2>
-                            </section>
-
-                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  <!--Descrição do projeto-->
+                  <div class="form-group">
+                    <div class="mb-3 details">
+                      <label for="descricaoProjeto" class="form-label mb-3">Descrição</label>
+                      <textarea class="form-control" formControlName="descricaoProjeto" id="descricaoProjeto" rows="6"
+                        placeholder="Este campo destina-se à inserção da descrição do projeto, fornecendo uma explicação concisa sobre objetivos e características essenciais. Uma descrição clara e informativa ajudará a comunicar de maneira eficaz os detalhes de seu projeto, facilitando sua compreensão. Seja detalhado, mas objetivo para garantir compreensão rápida e precisa."></textarea>
+                    </div>
+                  </div>
+
+                  <section class="project-group mb-3">
+                    <div class="row row-12">
+                      <h2 class="m-0 col-5 p-0">Cronograma de Atividades</h2>
+                      <button type="button" class="btn col-7 p-0 mt-1" mat-icon-button style="display: flex;justify-content: flex-start;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <path fill="white"
+                            d="M7.007 12a.75.75 0 0 1 .75-.75h3.493V7.757a.75.75 0 0 1 1.5 0v3.493h3.493a.75.75 0 1 1 0 1.5H12.75v3.493a.75.75 0 0 1-1.5 0V12.75H7.757a.75.75 0 0 1-.75-.75" />
+                          <path fill="white" fill-rule="evenodd"
+                            d="M7.317 3.769a42.502 42.502 0 0 1 9.366 0c1.827.204 3.302 1.643 3.516 3.48c.37 3.157.37 6.346 0 9.503c-.215 1.837-1.69 3.275-3.516 3.48a42.5 42.5 0 0 1-9.366 0c-1.827-.205-3.302-1.643-3.516-3.48a40.903 40.903 0 0 1 0-9.503c.214-1.837 1.69-3.276 3.516-3.48m9.2 1.49a41.001 41.001 0 0 0-9.034 0A2.486 2.486 0 0 0 5.29 7.424a39.402 39.402 0 0 0 0 9.154a2.486 2.486 0 0 0 2.193 2.164c2.977.332 6.057.332 9.034 0a2.486 2.486 0 0 0 2.192-2.164a39.401 39.401 0 0 0 0-9.154a2.486 2.486 0 0 0-2.192-2.163"
+                            clip-rule="evenodd" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div>
+                      <!-- <app-schedule></app-schedule> -->
+                    </div>
+                  </section>
+
+                  <div class="modal-footer" style="border: none;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button (click)="updateProject()" data-bs-dismiss="modal" type="submit"
+                      class="btn btn-primary">Editar</button>
+                  </div>
+                  <!-- [disabled]="this.postProjectForm.invalid"</div> -->
                 </div>
-            </div>
+                <!--Conteudo a direita-->
+                <div class="col-3 right-content">
+                  <section class="project-progress"
+                    style="border-bottom: solid 1px rgba(255, 255, 255, 0.374); padding-bottom: 15px;">
+                    <h2>Andamento do Projeto</h2>
+
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </section>
+                  <!-- 
+                  <section class="project-price">
+                    <h2>Status de andamento</h2>
+                    <input type="number" placeholder="R$ 0,00" formControlName="custoProjeto">
+                  </section> -->
+
+                  <section>
+                    <h2>Atividade</h2>
+                    <div class="card-task mb-2">
+                      <div class="card-body-task m-0 p-0"
+                        style="display: flex; height: 33px; border: none; background-color: #C4C3D0;  border-radius: 5px;">
+                        <div class="status-color" style="background-color: red;
+                                height: 100%;
+                                width: 20px;
+                                border-radius: 5px 0 0 5px;;"></div>
+
+                        <h1 style="color:#292929;
+                              font-size: 15px; 
+                              width: 100%; 
+                              height: max-content;
+                              padding: 0;
+                              margin: 0;
+                              margin-left:10px;">Pendente</h1>
+
+                        <h2 style="color: #292929;
+                              margin: 0;
+                              height: max-content; 
+                              width: 100%; 
+                              font-size: 15px; 
+                              padding: 0;
+                              text-align: end;
+                              margin-right: 15px;">--</h2>
+                      </div>
+                    </div>
+
+                    <div class="card-task mb-2">
+                      <div class="card-body-task m-0 p-0"
+                        style="display: flex; height: 33px; border: none; background-color: #C4C3D0;  border-radius: 5px;">
+                        <div class="status-color" style="background-color: orange;
+                                height: 100%;
+                                width: 20px;
+                                border-radius: 5px 0 0 5px;"></div>
+
+                        <h1 style="color:#292929;
+                              font-size: 15px; 
+                              width: 100%; 
+                              flex-wrap: nowrap;
+                              height: max-content;
+                              padding: 0;
+                              margin: 0;
+                              margin-left:10px;">Desenvolvendo</h1>
+
+                        <h2 style="color: #292929;
+                              margin: 0;
+                              height: max-content; 
+                              width: 100%; 
+                              font-size: 15px; 
+                              padding: 0;
+                              text-align: end;
+                              margin-right: 15px;">--</h2>
+                      </div>
+                    </div>
+
+                    <div class="card-task mb-2">
+                      <div class="card-body-task m-0 p-0"
+                        style="display: flex; height: 33px; border: none; background-color: #C4C3D0; border-radius: 5px;">
+                        <div class="status-color" style="background-color: #14C006;
+                                height: 100%;
+                                width: 20px;
+                                border-radius: 5px 0 0 5px;;"></div>
+
+                        <h1 style="color:#292929;
+                              font-size: 15px; 
+                              width: 100%; 
+                              height: max-content;
+                              padding: 0;
+                              margin: 0;
+                              margin-left:10px;">Concluída</h1>
+
+                        <h2 style="color: #292929;
+                              margin: 0;
+                              height: max-content; 
+                              width: 100%; 
+                              font-size: 15px; 
+                              padding: 0;
+                              text-align: end;
+                              margin-right: 15px;">--</h2>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

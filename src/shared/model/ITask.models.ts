@@ -2,12 +2,12 @@ import { ETask } from "./Enums/ETask.enum";
 import { ISchedule } from "./ISchedule.models";
 
 export interface ITask{
-    // id: number;
+    id: number;
     descricaoAtividade: string;
-    // statusAtividadeEnum: ETask[];
+    statusAtividadeEnum: number;
     dataInicioAtividade:Date;
     dataTerminoAtividade: Date;
-    // percentual?: number;
+    percentual?: number;
     cronogramaId: number;
-    // cronograma: ISchedule;
+    cronograma: ISchedule;
 }

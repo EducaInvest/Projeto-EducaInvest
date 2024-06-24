@@ -8,9 +8,9 @@ import { ISchedule } from '../../model/ISchedule.models';
 
 export class TaskService {
 
-    private apiUrl = 'http://educainvest.somee.com/api/Atividade';
-    // private apiUrl = 'https://educainvestapi.azurewebsites.net/api/Atividade';
-    // private apiUrl = 'http://localhost:5115/api/Atividade';
+    //  apiUrl = 'http://educainvest.somee.com/api/Atividade';
+    // apiUrl = 'https://educainvestapi.azurewebsites.net/api/Atividade';
+    apiUrl = 'http://localhost:5251/api/Atividade';
 
     constructor(private http: HttpClient) { }
 
@@ -18,35 +18,22 @@ export class TaskService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    postTask(task: ITask): Observable<ITask> {
-        return this.http.post<ITask>(this.apiUrl, task, this.httpOptions)
-            .pipe(tap(console.log));
-    }
 
     getUser(id: number): Observable<ITask> {
-        return this.http.get<ITask>(`${this.apiUrl}/${id}`).pipe(
-            catchError(this.handleError)
-        );
+        return this.http.get<ITask>(`${this.apiUrl}/${id}`);
     }
 
-    getTaskBySchedule(cronogramaId: number): Observable<ITask[]> {
-        // return this.http.get<IProject[]>(`http://localhost:5115/api/Projeto/GetByPerfil/${usuarioId}`)
-        return this.http.get<ITask[]>(`http://educainvest.somee.com/api/Atividade/GetAtividadeByCronograma/${cronogramaId}`)
-          .pipe(
-            tap(console.log)
-          );
-      }
-
-    private handleError(error: HttpErrorResponse): Observable<never> {
-        console.error('Ocorreu um erro:', error);
-        return throwError(error.message || 'Erro no servidor. Tente novamente mais tarde.');
+    getTasksBySchedule(cronogramaId: number): Observable<ITask[]> {
+      return this.http.get<ITask[]>(`${this.apiUrl}/GetAtividadeByCronograma/${cronogramaId}`);
     }
-
-    deleteProject(id: number): Observable<void> {
-        return this.http.delete<void>(`${this.apiUrl}/${id}`, this.httpOptions)
-            .pipe(tap(() => console.log(`Cronograma com ID=${id} deletado`)));
+  
+    postTask(task: ITask): Observable<ITask> {
+      return this.http.post<ITask>(this.apiUrl, task);
     }
-
+  
+    deleteTask(id: number): Observable<void> {
+      return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    }
 
 
 

@@ -8,6 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { IUser } from '../../model/IUser.models';
 import { CommonModule } from '@angular/common';
+import { ScheduleComponent } from '../schedule/schedule.component';
+
 
 @Component({
   selector: 'app-card-project',
@@ -17,7 +19,9 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     ReactiveFormsModule, 
     FormsModule, 
-    CommonModule],
+    CommonModule,
+    ScheduleComponent
+  ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
@@ -32,7 +36,7 @@ export class CardComponent implements OnInit {
 
   projectEdit!: IProject;
 
-  userId = 28;
+  userId = 11;
 
   user!: IUser;
 
@@ -55,8 +59,6 @@ export class CardComponent implements OnInit {
       nomeProjeto: ['', Validators.required],
       subtitulo: [''],
       descricaoProjeto: ['', Validators.required],
-      dataPublicacao: [''],
-      fileBytes: [null]
     });
 
     if (this.project) {
@@ -64,17 +66,17 @@ export class CardComponent implements OnInit {
     }
   }
 
-  // getProject(id: number): void {
-  //   this.serviceForm.getProject(id).subscribe(
-  //     (data: IProject) => {
-  //       this.projectEdit = data;
-  //       this.updateProjectForm.patchValue(this.project);
-  //     },
-  //     error => {
-  //       console.error('Erro ao obter projeto:', error);
-  //     }
-  //   );
-  // }
+  getProject(id: number): void {
+    this.serviceForm.getProject(id).subscribe(
+      (data: IProject) => {
+        this.projectEdit = data;
+        this.updateProjectForm.patchValue(this.project);
+      },
+      error => {
+        console.error('Erro ao obter projeto:', error);
+      }
+    );
+  }
 
   updateProject(): void {
     try {
@@ -129,5 +131,9 @@ export class CardComponent implements OnInit {
 
   trackByFn(index: number, item: IProject): number {
     return item.id;
+  }
+
+  editSchedule(id:number){
+ return id
   }
 }

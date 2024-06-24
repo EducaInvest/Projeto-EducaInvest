@@ -9,10 +9,9 @@ export class ScheduleService {
 
     constructor(private http: HttpClient) { }
 
-    apiUrl = 'http://educainvest.somee.com/api/Cronograma';
+    // apiUrl = 'http://educainvest.somee.com/api/Cronograma';
     // apiUrl = 'https://educainvestapi.azurewebsites.net/Usuarios';
-    // apiUrl = 'http://localhost:5115/Usuarios';
-    // userUrl = 'http://localhost:5115/Usuarios/AlterarCredenciais';
+    apiUrl = 'http://localhost:5251/Cronogrma';
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -21,25 +20,19 @@ export class ScheduleService {
         })
     };
 
-    postSchedule(schedule: ISchedule): Observable<ISchedule> {
-        return this.http.post<ISchedule>(this.apiUrl, schedule);
-    }
-
-    getAllSchedule(): Observable<ISchedule[]> {
+    getAllSchedules(): Observable<ISchedule[]> {
         return this.http.get<ISchedule[]>(this.apiUrl);
-    }
-
-    getScheduleById(id:number): Observable<ISchedule> {
+      }
+    
+      getScheduleById(id: number): Observable<ISchedule> {
         return this.http.get<ISchedule>(`${this.apiUrl}/${id}`);
-    }
-
-    deleteSchedule(id: number): Observable<void> {
+      }
+    
+      postSchedule(schedule: ISchedule): Observable<ISchedule> {
+        return this.http.post<ISchedule>(this.apiUrl, schedule);
+      }
+    
+      deleteSchedule(id: number): Observable<void> {
         return this.http.delete<void>(`${this.apiUrl}/${id}`);
-    }
-
-    // private handleError(error: any): Observable<never> {
-    //     console.error('Ocorreu um erro:', error);
-    //     throw new Error('Erro ao se comunicar com a API');
-    // }
-
+      }
 }
