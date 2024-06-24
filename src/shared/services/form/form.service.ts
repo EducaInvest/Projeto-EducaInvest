@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { HttpService } from '../http/http.service';
 import { Observable, map, tap } from 'rxjs';
 import { IProject } from '../../../shared/model/IProject.models';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

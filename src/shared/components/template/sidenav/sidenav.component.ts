@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../../model/IUser.models';
-import { FormBuilder } from '@angular/forms';
 import { UserService } from '../../../services/user/user.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -15,7 +14,7 @@ export class SidenavComponent implements OnInit{
 
   user!: IUser;
 
-  constructor(private formbuilder: FormBuilder, private serviceUser: UserService){}
+  constructor( private serviceUser: UserService){}
 
   ngOnInit(): void {
     this.getUser();
