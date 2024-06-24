@@ -4,10 +4,9 @@ export interface IProject{
     nomeProjeto:string;
     subtitulo:string;
     descricaoProjeto:string;
-    custoProjeto: number;
+    // custoProjeto: number;
     investido: boolean; 
     dataPublicacao:Date;
-    fileBytes:number[][];
     usuarioId:number;
     formattedDataPublicacao?: string;
 

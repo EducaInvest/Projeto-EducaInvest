@@ -2,8 +2,7 @@
     @for(project of project; track project){
     <div class="card me-4 p-0">
         <!-- Verifica se existe uma imagem do projeto, caso contrário, usa a imagem padrão -->
-        <img [src]="project.fileBytes ? project.fileBytes : '../../assets/img/plataform-photo.png'" class="card-img"
-            alt="Imagem do Projeto">
+        <div style="width: 100%; background-color: blue; height: 10px; border-radius: 5px 5px 0 0 ;"></div>
         <div class="card-body">
             <h1 class="card-title">{{ project.nomeProjeto }}</h1>
             <p class="card-text m-0">{{ project.descricaoProjeto }}</p>
@@ -23,7 +22,6 @@
                   subtitulo: project.subtitulo, 
                   descricaoProjeto: project.descricaoProjeto, 
                   dataPublicacao: project.dataPublicacao, 
-                  fileBytes: project.fileBytes
                 }); uploadProjectFormModal.open()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path fill="white" d="M3 17.25v3.25a.75.75 0 0 0 .75.75H7l11.43-11.43l-3.25-3.25L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.42l-1.83-1.83a1 1 0 0 0-1.42 0l-2.12 2.12l3.25 3.25l2.12-2.12z"/>
@@ -105,7 +103,7 @@
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Fechar</button>
                                     <button data-bs-dismiss="modal" type="submit"
-                                        class="btn btn-primary" (click)="updateProject()">Publicar</button>
+                                        class="btn btn-primary" (click)="updateProject()">Editar</button>
                                 </div>
                                 <!-- [disabled]="this.postProjectForm.invalid"</div> -->
                             </form>

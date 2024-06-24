@@ -1,18 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-export interface IProject {
-  id:number;
-  nomeProjeto:string;
-  subtitulo:string;
-  descricaoProjeto:string;
-  custoProjeto: number;
-  investido: boolean; 
-  dataPublicacao:Date;
-  fileBytes:number[][];
-  usuarioId:number;
-}
+import { IProject } from '../../model/IProject.models';
 
 @Injectable({ providedIn: 'root' })
 
@@ -37,34 +26,56 @@ export class FormService {
     };
   }
 
-  postForm(project: IProject): Observable<IProject> {
-    const { id, ...projectWithoutId } = project; // Remove `id` se existir
+//   postForm(project: IProject): Observable<IProject> {
+//     const { id, ...projectWithoutId } = project; // Remove `id` se existir
 
-    let dataPublicacao;
-    try {
-        dataPublicacao = new Date(projectWithoutId.dataPublicacao).toISOString();
-    } catch (error) {
-        console.error('Data de publicação inválida:', projectWithoutId.dataPublicacao);
-        dataPublicacao = new Date().toISOString(); // Define a data atual como padrão
-    }
+//     let dataPublicacao;
+//     try {
+//         dataPublicacao = new Date(projectWithoutId.dataPublicacao).toISOString();
+//     } catch (error) {
+//         console.error('Data de publicação inválida:', projectWithoutId.dataPublicacao);
+//         dataPublicacao = new Date().toISOString(); // Define a data atual como padrão
+//     }
 
-    // Verifica se custoProjeto é um número válido e o converte para string
-    let custoProjetoAsString = '0.00'; // Valor padrão
-    if (typeof projectWithoutId.custoProjeto === 'number' && !isNaN(projectWithoutId.custoProjeto)) {
-        custoProjetoAsString = projectWithoutId.custoProjeto.toFixed(2);
-    } else {
-        console.error('CustoProjeto não é um número válido:', projectWithoutId.custoProjeto);
-    }
+//     // Verifica se custoProjeto é um número válido e o converte para string
+//     let custoProjetoAsString = '0.00'; // Valor padrão
+//     if (typeof projectWithoutId.custoProjeto === 'number' && !isNaN(projectWithoutId.custoProjeto)) {
+//         custoProjetoAsString = projectWithoutId.custoProjeto.toFixed(2);
+//     } else {
+//         console.error('CustoProjeto não é um número válido:', projectWithoutId.custoProjeto);
+//     }
 
-    const projectToSend = {
-        ...projectWithoutId,
-        dataPublicacao, // Converte Date para string no formato ISO 8601
-        custoProjeto: custoProjetoAsString
-    };
+//     const projectToSend = {
+//         dataPublicacao, // Converte Date para string no formato ISO 8601
+//         custoProjeto: custoProjetoAsString
+//     };
 
-    console.log("Enviando projeto:", projectToSend);
-    return this.http.post<IProject>(`${this.apiUrl}/addProjeto`, projectToSend, this.httpOptions)
-        .pipe(tap(console.log));
+//     console.log("Enviando projeto:", projectToSend);
+//     return this.http.post<IProject>(`http://educainvest.somee.com/api/Projeto/addProjeto`, projectToSend, this.httpOptions)
+//         .pipe(tap(console.log));
+// }
+
+
+postForm(project: IProject): Observable<IProject> {
+  const { id, ...projectWithoutId } = project; // Remove `id` se existir
+
+  let dataPublicacao;
+  try {
+    dataPublicacao = new Date(projectWithoutId.dataPublicacao).toISOString();
+  } catch (error) {
+    console.error('Data de publicação inválida:', projectWithoutId.dataPublicacao);
+    // Aqui, você pode definir uma data padrão ou lidar com o erro de outra forma
+    dataPublicacao = new Date().toISOString(); // Define a data atual como padrão
+  }
+
+  const projectToSend = {
+    ...projectWithoutId,
+    dataPublicacao // Converte Date para string no formato ISO 8601
+  };
+
+  console.log("Enviando projeto:", projectToSend);
+  return this.http.post<IProject>(`${this.apiUrl}/addProjeto`, projectToSend, this.httpOptions)
+    .pipe(tap(console.log));
 }
 
   getProject(id: number): Observable<IProject> {
