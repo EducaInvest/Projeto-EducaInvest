@@ -6,11 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
 import { UserService } from '../../../shared/services/user/user.service';
 import { ILoginUser } from '../../../shared/model/IUserLogin.models';
-import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { IUser } from '../../../shared/model/IUser.models';
-import { HttpStatusCode } from '@angular/common/http';
-import { error } from 'console';
+
 @Component({
     selector: 'app-login',
     templateUrl: 'login.component.html',
@@ -20,11 +17,9 @@ import { error } from 'console';
 })
 
 export class LoginComponent implements OnInit {
-    model = {} as ILoginUser;
+    model!:ILoginUser;
 
     loginForm!: FormGroup;
-
-
 
     constructor(
         private userService: UserService,
@@ -48,7 +43,7 @@ export class LoginComponent implements OnInit {
         const { email, passwordString } = this.loginForm.value;
         this.userService.verificarUsuario(this.loginForm.value).subscribe(
             res => {
-                // if (res) {
+                // if (res.email) {
                 //     console.log('Login bem-sucedido');
                 //     this.router.navigateByUrl('/index');
                 //   } else {

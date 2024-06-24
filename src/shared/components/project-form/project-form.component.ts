@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormsModule, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-//import { ApiService } from '../../../app/pages/api/api.service';
 import { IProject } from '../../model/IProject.models';
 import { FormService } from '../../services/form/form.service';
 import { CommonModule } from '@angular/common';

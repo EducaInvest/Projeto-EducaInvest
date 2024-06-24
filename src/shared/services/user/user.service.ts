@@ -62,7 +62,6 @@ export class UserService {
   }
 
   verificarUsuario(login: ILoginUser): Observable<ILoginUser> {
-
     return this.http.post<ILoginUser>(`${this.apiUrl}/Verificar`, login, this.httpOptions)
       .pipe(
        tap(console.log)

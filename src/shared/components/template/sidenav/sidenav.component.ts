@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../../model/IUser.models';
 import { UserService } from '../../../services/user/user.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -14,7 +14,9 @@ export class SidenavComponent implements OnInit{
 
   user!: IUser;
 
-  constructor( private serviceUser: UserService){}
+  constructor( private serviceUser: UserService, 
+    private route: Router
+  ){}
 
   ngOnInit(): void {
     this.getUser();
@@ -39,5 +41,9 @@ export class SidenavComponent implements OnInit{
     {icon: 'negocios-icon.svg',label:'Meus Negócios'},
     {icon: 'config-icon.svg',label:'Configurações'},
   ];
+
+  goLogin(){
+    this.route.navigate(['login']);
+  }
 
 }
