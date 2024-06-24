@@ -7,6 +7,7 @@ import { SidenavComponent } from '../../shared/components/template/sidenav/siden
 import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RouterOutlet } from '@angular/router';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 
@@ -19,6 +20,7 @@ const components = [
     MenuHorizontalComponent,
     // MyProjectsSectionComponent,
     ProjectFormComponent,
+    ProjectsComponent
   ];
 
 @Component({

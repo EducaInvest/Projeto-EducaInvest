@@ -6,8 +6,8 @@
 //   let component: TResourceComponent;
 //   let fixture: ComponentFixture<TResourceComponent>;
 
-//   beforeEach( () => {
-//      TestBed.configureTestingModule({
+//   beforeEach(async () => {
+//     await TestBed.configureTestingModule({
 //       imports: [TResourceComponent]
 //     })
 //     .compileComponents();

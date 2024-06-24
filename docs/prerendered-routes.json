@@ -1,0 +1,10 @@
+{
+  "routes": [
+    "/",
+    "/card",
+    "/home",
+    "/modal",
+    "/profile",
+    "/schedule"
+  ]
+}

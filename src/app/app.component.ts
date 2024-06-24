@@ -21,7 +21,6 @@ import { IndexComponent } from './pages/index.component';
 
 
 
-
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -32,7 +31,6 @@ import { IndexComponent } from './pages/index.component';
         FormsModule,
         CommonModule,
         MatSlideToggleModule,
-
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',

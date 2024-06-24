@@ -6,13 +6,14 @@ import { FormService } from '../../services/form/form.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user/user.service';
 import { IUser } from '../../model/IUser.models';
+import { ScheduleComponent } from '../schedule/schedule.component';
 
 
 
 @Component({
   selector: 'app-project-form',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule, ScheduleComponent],
   providers: [],
   templateUrl: './project-form.component.html',
   styleUrl: './project-form.component.scss'

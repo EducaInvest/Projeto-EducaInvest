@@ -1,5 +1,10 @@
 @import "../../../../../projeto-educainvest/src/styles.scss";
 
+* {
+    color: $color_textos;
+    //     border: solid 1px red;
+}
+
 .card {
     width: 230px;
     height: 230px;
@@ -40,11 +45,234 @@
     margin: 0;
 }
 
-.button-dot button {
-    margin: 0;
-    position: relative;
-    bottom: 8px;
+.container-fluid {
     padding: 0;
-    height: 45px;
-    width: 45px;
+}
+
+.modal-dialog {
+    margin: auto;
+    overflow-y: hidden;
+}
+
+.modal .modal-content {
+    margin-top: 20px;
+    height: 675px;
+    overflow: hidden;
+
+    -webkit-animation-name: modal-animation;
+    -webkit-animation-duration: 0.4s;
+    animation-name: modal-animation;
+    animation-duration: 0.4s;
+
+    .modal-footer {
+        display: flex;
+        flex-direction: row;
+        gap: 23px;
+    }
+}
+
+@-webkit-keyframes modal-animation {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes modal-animation {
+    from {
+        top: -100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: $color_fundodark;
+    color: $color_textos;
+}
+
+.left-content {
+    padding: 17px;
+    height: 675px;
+    overflow-y: scroll;
+
+    //estilização scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: $color_fundodark $color_compfundo2;
+}
+
+.header {
+    height: fit-content;
+    //border: solid 1px blue;
+}
+
+.AddFile {
+    padding: 0;
+    //border: solid 1.5px red;
+    height: 160px;
+
+    input[type="file"] {
+        display: none;
+    }
+
+    label {
+        width: 270px;
+        height: 100%;
+        padding: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            border-radius: 10px;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.inputs-header {
+    height: fit-content;
+
+    input[type="text"] {
+        margin-bottom: 17px;
+        width: 260px;
+    }
+}
+
+.details,
+.inputs-header {
+    .form-control {
+        color: $color_textos;
+        background-color: $color_fundodark2;
+        border: solid 1.5px $color_desabilitado;
+    }
+
+    .form-label {
+        margin-top: 20px;
+    }
+
+    ::-webkit-input-placeholder {
+        color: $color_cinza;
+        font-size: 15px;
+        font-weight: 300;
+        text-align: justify;
+        opacity: 55%;
+    }
+
+    .form-select {
+        width: 260px;
+    }
+}
+
+#dataPublicacao {
+    padding: 5px;
+    color: $color_cinza;
+    background-color: $color_fundodark2;
+    border: solid 1.5px $color_desabilitado;
+    border-radius: 5px;
+}
+
+.lb-date {
+    padding: 0;
+    margin: 0;
+}
+
+//tag
+.form-select {
+    color: $color_textos;
+    background-color: $color_fundodark2;
+    border: solid 1.5px $color_desabilitado;
+
+    :hover {
+        background-color: $color_textos;
+        color: $color_fundodark2;
+    }
+}
+
+.right-content {
+    border-radius: 5px;
+    background-color: $color_fundodark2;
+    height: fit-content;
+    height: 675px;
+}
+
+section {
+
+    h2 {
+        font-size: 15px;
+        font-weight: 400;
+        margin-top: 17px;
+        margin-bottom: 17px;
+    }
+
+    h4 {
+        font-size: 13px;
+        color: $color_cinza;
+        font-weight: 300;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px;
+    background-color: $color_cinza;
+}
+
+.progress-bar {
+
+    border-radius: 10px;
+    background-color: $color_azulprincipal;
+}
+
+.project-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .participante {
+        display: flex;
+        flex-direction: row;
+        gap: 9px;
+
+        .photo {
+            width: 43px;
+            height: 43px;
+            border-radius: 50px;
+            background-color: white;
+        }
+    }
+
+    .btn-add-part {
+
+        display: flex;
+        flex-direction: row;
+        gap: 9px;
+
+        h4 {
+            font-size: 13px;
+            color: $color_desabilitado;
+            font-weight: 400;
+        }
+
+        .btn-add {
+            width: 43px;
+            height: 43px;
+            border-radius: 50px;
+            background-color: $color_desabilitado;
+        }
+    }
 }
