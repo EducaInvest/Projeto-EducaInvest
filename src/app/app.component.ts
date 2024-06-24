@@ -10,6 +10,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { IndexComponent } from './pages/index.component';
+import { InvestimentComponent } from './pages/investiment_pages/investiments.component';
+import { HomeInvesterComponent } from './pages/investiment_pages/home_invester/home.component';
 // import { MyProjectsSectionComponent } from '../shared/components/my-projects-section/my-projects.component';
 //import { FormService } from '../shared/services/form/form.service';
 
@@ -38,7 +40,9 @@ import { IndexComponent } from './pages/index.component';
         // ...components,
         // SignUpComponent,
         RouterOutlet,
-        IndexComponent
+        IndexComponent,
+        InvestimentComponent,
+        HomeInvesterComponent
         // FooterComponent,
     ]
 })

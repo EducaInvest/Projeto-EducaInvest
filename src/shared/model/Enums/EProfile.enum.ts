@@ -1,5 +1,5 @@
 export enum EProfile{
-    Admnisrtador = 'Admnisrtador',
+    Admnistrador = 'Admnistrador',
     Estudante = 'Estudante',
     Investidor = 'Investidor',
 }

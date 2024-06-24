@@ -46,7 +46,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUser(28);
+    this.getUser(11);
     this.initForm();
     this.updateUser();
   }

@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import "../../../../styles.scss";
 
 * {
     color: $color_textos;
@@ -13,7 +13,18 @@
     //     gap: 15px;
     // }
     overflow: hidden;
+
 }
+
+
+// app-project-group-section{
+// width: 70%;
+// }
+
+// app-schedule-section {
+//     width: 30%;
+// }
+
 
 .my-projects {
     width: 100%;
@@ -62,6 +73,24 @@
     gap: 15px;
 
 }
+
+.cronograma {
+    width: 25%;
+    height: calc(100% - 50px);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: $color_dark2;
+    border-radius: 10px;
+    padding: 25px;
+    // border: solid 1px white;
+
+    h1 {
+        font-size: 25px;
+    }
+}
+
 .first-content {
     display: flex;
     justify-content: space-between;

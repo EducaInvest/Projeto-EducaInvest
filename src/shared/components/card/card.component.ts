@@ -30,9 +30,11 @@ export class CardComponent implements OnInit {
 
   project!: IProject[];
 
+  // project!: IProject;
+
   projectEdit!: IProject;
 
-  userId = 28;
+  userId = 11;
 
   user!: IUser;
 
@@ -64,17 +66,6 @@ export class CardComponent implements OnInit {
     }
   }
 
-  // getProject(id: number): void {
-  //   this.serviceForm.getProject(id).subscribe(
-  //     (data: IProject) => {
-  //       this.projectEdit = data;
-  //       this.updateProjectForm.patchValue(this.project);
-  //     },
-  //     error => {
-  //       console.error('Erro ao obter projeto:', error);
-  //     }
-  //   );
-  // }
 
   updateProject(): void {
     try {
@@ -94,6 +85,15 @@ export class CardComponent implements OnInit {
     (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
     location.reload();
   }
+
+  // getAllProject(){
+  //   this.serviceForm.getAllProject().subscribe(
+  //     data => {
+  //       this.project = data
+
+  //     }
+  //   )
+  // }
   
   getProjectByUser() {
     this.serviceForm.getProjectByUser(this.userId).subscribe(
