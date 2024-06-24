@@ -99,5 +99,6 @@ postForm(project: IProject): Observable<IProject> {
   updateProject(project: IProject): Observable<IProject> {
     return this.http.put<IProject>(this.apiUrl, project, this.httpOptions)
       .pipe(tap(() => console.log('Dados do projeto atualizados com sucesso!')));
+
   }
 }

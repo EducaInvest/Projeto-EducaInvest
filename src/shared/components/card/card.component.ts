@@ -91,6 +91,8 @@ export class CardComponent implements OnInit {
       alert("Formulário inválido");
       console.log(JSON.stringify(this.updateProjectForm))
     }
+    (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
+    location.reload();
   }
   
   getProjectByUser() {
@@ -121,6 +123,8 @@ export class CardComponent implements OnInit {
       },
       error => console.error('Erro ao deletar o projeto:', error)
     );
+    (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
+    location.reload();
   }
 
   trackByFn(index: number, item: IProject): number {

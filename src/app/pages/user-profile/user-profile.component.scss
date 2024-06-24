@@ -241,3 +241,9 @@ input::placeholder {
     font-size: 19px;
   }
 }
+
+select{
+  background-color: $color_fundodark2;
+  color: $color_textos;
+  border: solid 1.5px $color_desabilitado
+}
