@@ -1,12 +1,15 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, pipe, tap, throwError } from 'rxjs';
+import { Observable, ReplaySubject, catchError, map, pipe, take, tap, throwError } from 'rxjs';
 import { IUser } from '../../model/IUser.models';
+import { Router } from '@angular/router';
+import { ILoginUser } from '../../model/IUserLogin.models';
+
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route:Router) { }
 
     apiUrl = 'http://educainvest.somee.com/Usuarios';
     userUrl = 'http://educainvest.somee.com/Usuarios/AlterarCredenciais';
@@ -17,9 +20,11 @@ export class UserService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: 'my-auth-token'
+      Authorization: 'my-auth-token',
+      
     })
   };
+
 
   getUser(id: number): Observable<IUser> {
     return this.http.get<IUser>(`${this.apiUrl}/${id}`).pipe(
@@ -53,8 +58,19 @@ export class UserService {
     const  usuario  = user;
     return this.http.post<IUser>('http://educainvest.somee.com/Usuarios/Registrar', usuario, this.httpOptions)
     .pipe(tap(console.log));
+    
   }
 
+  verificarUsuario(login: ILoginUser): Observable<ILoginUser> {
+    return this.http.post<ILoginUser>(`${this.apiUrl}/Verificar`, login, this.httpOptions)
+      .pipe(
+       tap(console.log)
+      );
+  }
+
+  acessHome(){
+    this.route.navigateByUrl('/index/index/home')
+  }
 
 
   // updateUserPhoto(userId: number, photo: File): Observable<any> {

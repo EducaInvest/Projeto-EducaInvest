@@ -25,16 +25,18 @@ export class SignUpComponent implements OnInit {
     constructor(
         private userService: UserService,
         private fb: FormBuilder,
+        private route: Router,
     ) { }
 
     ngOnInit() {
         this.initForm();
     }
 
-    postUser() {
-        this.userService.postUser(this.signUpForm.value).subscribe(data => {
-            console.log('dados', data)
-        })
+    postUser() {    
+        // this.userService.postUser(this.signUpForm.value).subscribe(data => {
+        //     console.log('dados', data);
+        // })
+        this.userService.acessHome();
     }
 
     initForm() {
@@ -50,5 +52,9 @@ export class SignUpComponent implements OnInit {
             uf: [8],
             linkSocial: ['a'],
         })
+    }
+
+    goLogin(){
+        this.route.navigateByUrl('/login');
     }
 }

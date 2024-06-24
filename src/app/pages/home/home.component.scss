@@ -2,16 +2,20 @@
 
 * {
     color: $color_textos;
+    overflow: hidden;
 }
 
 .body {
     padding: 15px;
     height: 100%;
-
+    background-color: $color_fundodark2;
     // div{
     //     gap: 15px;
     // }
+    overflow: hidden;
+
 }
+
 
 // app-project-group-section{
 // width: 70%;
@@ -130,4 +134,3 @@
     width: 90px;
     height: 90px;
 }
-

@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <img class="me-5" src="../../../assets/img/logo_nome_yellow.png" alt="logo EducaInvest" style="height: 51px; width: 184px;">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Como funciona</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="btn btn-outline button-register me-5" (click)="goRegister()">Cadastre-se <svg xmlns="http://www.w3.org/2000/svg"
+                width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                <path fill-rule="evenodd"
+                    d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+            </svg></button>
+    </div>
+</nav>
+<section>
+    <div class="login-background">
+        <div class="col col-6 texts">
+            <p class="title">Investimento inteligente, impacto duradouro.</p>
+            <p class="sub-title">Escolha investir no futuro!</p>
+        </div>
+        <div class="form col col-6">
+            <h2 class="text-center">Faça seu Login</h2>
+            <form class="container" [formGroup]="loginForm" (ngSubmit)="veriferUser()">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="passwordString" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="passwordString" formControlName="passwordString" placeholder="Senha">
+                </div>
+               <div class="buttons row row-12 ">
+                <button class="col col-2 me-4 mt-2" (click)="goRegister()" style="width: 30px; height: 30px; border-radius: 100px; margin: 0; padding: 0;"  ><img src="../../../assets/img/icon/fluent--ios-arrow-24-filled.svg"></button>
+                <button  type="submit" class="float-sm-end button-enter col col-10 ">Entrar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                    </svg>
+                </button>
+               </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center row row-12 middle-content-one">
+       <div class="col col-6 card-content">
+        <div class="row title-card">
+            <img src="../../../assets/img/icon/icons8--student.svg" class="col col-4 mt-3" alt="" width="70px" height="70px">
+            <p class="col col-8 mt-5"><b>Estudante</b></p>
+        </div>
+        <div class="row"><p class="text-center align-middle mt-4 text-box">Você tem a oportunidade de destacar e promover seu projeto, conectando-se a investidores interessados em colaborar e associar-se à sua visão inovadora.</p></div>
+       </div>
+       <div class="col col-6 card-content">
+        <div class="row title-card">
+            <img src="../../../assets/img/icon/emojione-monotone--handshake.svg" class="col col-4 mt-3" alt="" width="70px" height="70px">
+            <p class="col col-8 mt-5"><b>Investidor</b></p>
+        </div>
+        <div class="row"><p class="text-center align-middle mt-4 text-box">Seja um catalisador do desenvolvimento ao contribuir para o crescimento dos projetos dos estudantes, que não se limita apenas à alocação de recursos financeiros, podendo também facilitar o desenvolvimento por meio de networking estratégico.</p></div>
+       </div>
+    </div>
+    <div class="middle-content-two row">
+        <div class="col col-8">
+            <img src="../../../assets/img/college-studants-photo.png" alt="college-studants-photo" style="width: 1000px; margin-left: -12px;">
+        </div>
+        <div class="col content-two-texts align-middle">
+            <p class="text-end">Para Estudante</p>
+            <h1 class="text-end">Descubra como divulgar seu projeto</h1><br>
+            <!-- <p class="text-end" >Saiba mais</p> -->
+        </div>
+    </div>
+    <div class="middle-content-three row">
+        <div class="col content-three-texts align-middle">
+            <p class="text-start">Para Estudante</p>
+            <h1 class="text-start">Decida onde aplicar seu capital</h1><br>
+            <!-- <p class="text-start" >Saiba mais</p> -->
+        </div>
+        <div class="col col-8">
+            <img src="../../../assets/img/group_people_working.png" alt="college-studants-photo" style="width: 1000px; margin-left: -15px;">
+        </div>
+    </div>
+    <app-footer></app-footer>
+</section>

@@ -10,6 +10,7 @@ import { UserService } from '../../../shared/services/user/user.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { EstadoEnum, EstadoEnumLabelMapping } from '../../../shared/model/Enums/EState.enum';
 
 @Component({
   selector: 'app-user-profile',
@@ -45,10 +46,12 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUser(2);
+    this.getUser(28);
     this.initForm();
     this.updateUser();
   }
+
+
 
   initForm(): void {
     this.updateUserForm = this.formbuilder.group({
@@ -59,7 +62,7 @@ export class UserProfileComponent implements OnInit {
       cpf: [],
       telefone: [],
       cidade: [],
-      uf: [],
+      uf: [null, Validators.required],
       passwordString: [],
     });
 
@@ -73,6 +76,15 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  EstadoEnum = EstadoEnum;
+  EstadoEnumLabelMapping = EstadoEnumLabelMapping;
+  estadoEnum = Object.values(EstadoEnum).filter(value => typeof value === 'number') as EstadoEnum[];
+
+  getEStates(): EstadoEnum[] {
+    return Object.values(EstadoEnum).filter(value => typeof value === 'string') as EstadoEnum[];
+  }
+  
+  
 
   getUser(userId: number): void {
     this.serviceUser.getUser(userId).subscribe(
@@ -91,6 +103,7 @@ export class UserProfileComponent implements OnInit {
       const updatedUser = this.updateUserForm.value as IUser;
       this.serviceUser.updateUser(updatedUser).subscribe(
         (data: IUser) => {
+          updatedUser.uf = data.uf
           console.log('Usuário atualizado com sucesso:', data);
           (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
             location.reload();
@@ -117,7 +130,6 @@ export class UserProfileComponent implements OnInit {
       }
     );
   }
-
 
   showChangePasswordForm: boolean = false;
 

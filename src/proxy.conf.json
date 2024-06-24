@@ -4,5 +4,20 @@
         "secure": true,
         "changeOrigin": true,
         "logLevel": "debug"
+    },
+    "/api/Projeto/addProjeto": {
+        "target": "http://educainvest.somee.com/api/Projeto/addProjeto",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "/api/Projeto/addProjeto": ""
+        },
+        "logLevel": "debug"
+    },
+    "/Usuarios/Verificar": {
+        "target": "http://educainvest.somee.com/Usuarios/Verificar",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
     }
 }

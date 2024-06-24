@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../../model/IUser.models';
-import { FormBuilder } from '@angular/forms';
 import { UserService } from '../../../services/user/user.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -15,14 +14,16 @@ export class SidenavComponent implements OnInit{
 
   user!: IUser;
 
-  constructor(private formbuilder: FormBuilder, private serviceUser: UserService){}
+  constructor( private serviceUser: UserService, 
+    private route: Router
+  ){}
 
   ngOnInit(): void {
     this.getUser();
   }
   
   getUser(): void {
-    const id = 2;
+    const id = 28;
     this.serviceUser.getUser(id).subscribe(
       data => {
         this.user = data;
@@ -37,8 +38,12 @@ export class SidenavComponent implements OnInit{
     {icon: 'home-icon.svg',label:'Página Inicial', page:'home'},
     {icon: 'perfil-icon.svg',label:'Perfil', page:'profile'},
     {icon: 'projetos-icon.svg',label:'Projetos', page:'project'},
-    {icon: 'negocios-icon.svg',label:'Meus Negócios'},
-    {icon: 'config-icon.svg',label:'Configurações'},
+    {icon: 'negocios-icon.svg',label:'Meus Negócios', page:'editmodal'},
+    {icon: 'config-icon.svg',label:'Configurações', page:'schedule'},
   ];
+
+  goLogin(){
+    this.route.navigate(['login']);
+  }
 
 }

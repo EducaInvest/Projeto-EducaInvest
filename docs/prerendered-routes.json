@@ -4,6 +4,7 @@
     "/card",
     "/home",
     "/modal",
-    "/profile"
+    "/profile",
+    "/schedule"
   ]
 }

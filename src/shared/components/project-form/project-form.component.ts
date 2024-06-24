@@ -6,13 +6,14 @@ import { FormService } from '../../services/form/form.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user/user.service';
 import { IUser } from '../../model/IUser.models';
+import { ScheduleComponent } from '../schedule/schedule.component';
 
 
 
 @Component({
   selector: 'app-project-form',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule, ScheduleComponent],
   providers: [],
   templateUrl: './project-form.component.html',
   styleUrl: './project-form.component.scss'
@@ -58,7 +59,7 @@ export class ProjectFormComponent implements OnInit {
     const formData: FormData = new FormData();
     this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { }),
       (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
-      location.reload();      //console.log(this.form)
+      location.reload(); 
 
     if (this.selectedFile) {
       formData.append('fotoProjeto', this.selectedFile, this.selectedFile.name);
@@ -66,7 +67,7 @@ export class ProjectFormComponent implements OnInit {
   }
 
   getUser(): void {
-    const id = 2;
+    const id = 28;
     this.serviceUser.getUser(id).subscribe(
       data => {
         if (data.id !== undefined) {

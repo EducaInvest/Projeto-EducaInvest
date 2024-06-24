@@ -6,7 +6,8 @@ import { MenuHorizontalComponent } from '../../shared/components/template/menu-h
 import { SidenavComponent } from '../../shared/components/template/sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { AppComponent } from '../app.component';
+import { RouterOutlet } from '@angular/router';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 
@@ -19,14 +20,18 @@ const components = [
     MenuHorizontalComponent,
     // MyProjectsSectionComponent,
     ProjectFormComponent,
-    UserProfileComponent,
-    AppComponent
+    ProjectsComponent
   ];
 
 @Component({
     selector: 'app-index',
     templateUrl: 'index.component.html',
-    imports:[...components]
+    styleUrl: './index.component.scss',
+    imports: [
+        ...components,
+        RouterOutlet
+    ],
+    standalone: true
 })
 
 export class IndexComponent implements OnInit {
