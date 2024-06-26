@@ -14,10 +14,11 @@ import { ScheduleService } from '../../services/schedule/schedule.service';
 @Component({
   selector: 'app-project-form',
   standalone: true,
-  imports: [ReactiveFormsModule, 
-            FormsModule, 
-            CommonModule, 
-            ],
+  imports: [ReactiveFormsModule,
+    FormsModule,
+    CommonModule,
+    ScheduleComponent
+  ],
   providers: [],
   templateUrl: './project-form.component.html',
   styleUrl: './project-form.component.scss'
@@ -39,8 +40,8 @@ export class ProjectFormComponent implements OnInit {
   photoPreviewUrl: string = '../../assets/img/photo_default_form.svg'; // URL da foto padrão
 
   constructor(
-    private formbuilder: FormBuilder, 
-    private serviceForm: FormService, 
+    private formbuilder: FormBuilder,
+    private serviceForm: FormService,
     private serviceUser: UserService,
     private serviceSchedule: ScheduleService
   ) { }
@@ -63,20 +64,17 @@ export class ProjectFormComponent implements OnInit {
   }
 
 
-public scheduleForm(): void{
-  this.postScheduleForm = this.formbuilder.group({})
+  public scheduleForm(): void {
+    this.postScheduleForm = this.formbuilder.group({})
 
-}
+  }
 
   postForm() {
     const formData: FormData = new FormData();
     this.serviceForm.postForm(this.postProjectForm.value).subscribe(res => { }),
       (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
-      location.reload(); 
+      location.reload();
 
-    if (this.selectedFile) {
-      formData.append('fotoProjeto', this.selectedFile, this.selectedFile.name);
-    }
   }
 
   getUser(): void {
@@ -134,7 +132,7 @@ public scheduleForm(): void{
     this.showAddTaskForm = !this.showAddTaskForm;
   }
 
-  addSchedule(){
+  addSchedule() {
     this.toggleAddTaskForm();
 
     // this.serviceSchedule.postSchedule(this.scheduleForm.value)

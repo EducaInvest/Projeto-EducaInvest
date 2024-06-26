@@ -13,7 +13,7 @@ import { error } from 'console';
 })
 export class ProjetoService {
 
-  private URL: string = 'http://localhost:3000/posts'
+  private URL: string = 'http://educainvest.somee.com/api/Projeto/addProjeto'
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 

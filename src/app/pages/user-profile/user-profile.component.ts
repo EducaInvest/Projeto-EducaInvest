@@ -51,6 +51,8 @@ export class UserProfileComponent implements OnInit {
     this.updateUser();
   }
 
+
+
   initForm(): void {
     this.updateUserForm = this.formbuilder.group({
       id: [],
@@ -67,7 +69,6 @@ export class UserProfileComponent implements OnInit {
     this.changePasswordForm = this.formbuilder.group({
       email: ['', [Validators.required, Validators.email]],
       passwordString: ['', [Validators.required, Validators.minLength(6)]]
-
     });
 
     if (this.user) {
@@ -83,6 +84,8 @@ export class UserProfileComponent implements OnInit {
     return Object.values(EstadoEnum).filter(value => typeof value === 'string') as EstadoEnum[];
   }
   
+  
+
   getUser(userId: number): void {
     this.serviceUser.getUser(userId).subscribe(
       data => {
@@ -120,9 +123,6 @@ export class UserProfileComponent implements OnInit {
     const { email, passwordString } = this.changePasswordForm.value;
     this.serviceUser.changePassWord(email, passwordString).subscribe(
       data => {
-        if(passwordString.length < 6){
-          alert("A senha deve conter no mínimo 6 caracteres")
-        }
         console.log('Senha alterada com sucesso:', data);
       },
       error => {
@@ -136,19 +136,5 @@ export class UserProfileComponent implements OnInit {
   toggleChangePasswordForm(): void {
     this.showChangePasswordForm = !this.showChangePasswordForm;
   }
-  // togglePasswordVisibility(): void {
-  //   const passwordInput = document.getElementById('inputPassword4') as HTMLInputElement; //verificar este campo
-  //   const toggleIcon = document.getElementById('togglePassword') as HTMLElement;
-
-  //   if (passwordInput.type === 'password') {
-  //     passwordInput.type = 'text';
-  //     toggleIcon.classList.remove('bi-eye-slash');
-  //     toggleIcon.classList.add('bi-eye');
-  //   } else {
-  //     passwordInput.type = 'password';
-  //     toggleIcon.classList.remove('bi-eye');
-  //     toggleIcon.classList.add('bi-eye-slash');
-  //   }
-  // }
 
 }

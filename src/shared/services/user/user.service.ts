@@ -11,11 +11,11 @@ export class UserService {
 
   constructor(private http: HttpClient, private route:Router) { }
 
-    // apiUrl = 'http://educainvest.somee.com/Usuarios';
-    // userUrl = 'http://educainvest.somee.com/Usuarios/AlterarCredenciais';
+    apiUrl = 'http://educainvest.somee.com/Usuarios';
+    userUrl = 'http://educainvest.somee.com/Usuarios/AlterarCredenciais';
     // apiUrl = 'https://educainvestapi.azurewebsites.net/Usuarios';
-    apiUrl = 'http://localhost:5251/Usuarios';
-    userUrl = 'http://localhost:5215/Usuarios/AlterarCredenciais';
+    // apiUrl = 'http://localhost:5251/Usuarios';
+    // userUrl = 'http://localhost:5215/Usuarios/AlterarCredenciais';
 
   httpOptions = {
     headers: new HttpHeaders({

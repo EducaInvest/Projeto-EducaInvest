@@ -8,9 +8,9 @@ import { ISchedule } from '../../model/ISchedule.models';
 
 export class TaskService {
 
-    //  apiUrl = 'http://educainvest.somee.com/api/Atividade';
+     apiUrl = 'http://educainvest.somee.com/api/Atividade';
     // apiUrl = 'https://educainvestapi.azurewebsites.net/api/Atividade';
-    apiUrl = 'http://localhost:5251/api/Atividade';
+    // apiUrl = 'http://localhost:5251/api/Atividade';
 
     constructor(private http: HttpClient) { }
 

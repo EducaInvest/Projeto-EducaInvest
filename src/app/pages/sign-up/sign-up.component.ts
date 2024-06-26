@@ -7,13 +7,15 @@ import { CommonModule } from '@angular/common';
 import { UserService } from '../../../shared/services/user/user.service';
 import { IUser } from '../../../shared/model/IUser.models';
 import { Router } from '@angular/router';
+import {MatTabsModule} from '@angular/material/tabs';
+
 import { HomeComponent } from '../home/home.component';
 
 @Component({
     selector: 'app-sign-up',
     templateUrl: 'sign-up.component.html',
     styleUrl: './sign-up.component.scss',
-    imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, CommonModule, FooterComponent],
+    imports: [MatTabsModule, FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, CommonModule, FooterComponent],
     standalone: true,
 })
 

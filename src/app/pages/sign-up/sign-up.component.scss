@@ -15,13 +15,13 @@
 .login-background {
     background-image: url(../../../assets/img/Mask\ group.png);
     background-size: cover;
-    height: 42em;
+    height: 46em;
 }
 
 .form {
     position: absolute;
     width: 340px;
-    height: 480px;
+    height: 555px;
     left: 1030px;
     top: 133px;
     border-radius: 15px;
@@ -78,15 +78,15 @@ form {
         font-size: 15px;
     }
 
-    button {
-        height: 45px;
-        width: 145px;
-        font-size: 12px;
-        background: $color_amareloprincipal;
-        border-radius: 30px;
+}
+button {
+    height: 45px;
+    width: 145px;
+    font-size: 12px;
+    background: $color_amareloprincipal;
+    border-radius: 30px;
 
-        svg{
-            margin-left: 10px;
-        }
+    svg{
+        margin-left: 10px;
     }
 }

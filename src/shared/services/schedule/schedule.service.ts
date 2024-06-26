@@ -9,9 +9,9 @@ export class ScheduleService {
 
     constructor(private http: HttpClient) { }
 
-    // apiUrl = 'http://educainvest.somee.com/api/Cronograma';
+    apiUrl = 'http://educainvest.somee.com/api/Cronograma';
     // apiUrl = 'https://educainvestapi.azurewebsites.net/Usuarios';
-    apiUrl = 'http://localhost:5251/Cronogrma';
+    // apiUrl = 'http://localhost:5251/Cronogrma';
 
     httpOptions = {
         headers: new HttpHeaders({
